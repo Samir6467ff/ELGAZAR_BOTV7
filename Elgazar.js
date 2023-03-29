@@ -3,7 +3,7 @@
 
 process.on('uncaughtException', console.error)
 require("./config")
-const ytdl = require('ytdl-core')
+const ytdl = require('ytdlcore')
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType, WAFlag } = require('@adiwajshing/baileys')
 const zChiku = require("@adiwajshing/baileys")
 const fs = require('fs')
