@@ -3,6 +3,7 @@
 
 process.on('uncaughtException', console.error)
 require("./config")
+const ytdl = require('ytdl-core')
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType, WAFlag } = require('@adiwajshing/baileys')
 const zChiku = require("@adiwajshing/baileys")
 const fs = require('fs')
@@ -4379,20 +4380,19 @@ reply(mess.error)
 break
 		
 		
-case 'تشغيل': case 'شغل': case 'play': case 'song': case 'ytplay': {
+case 'تشغيل': case 'play': case 'شغل': case 'ytplay': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
- Chiku.sendMessage(from, { react: { text: "🍁" , key: m.key }}) 
  const YT=require('./lib/ytdlcore')
  const { isUrl, fetchBuffer } = require('./lib/Function')
 
- if(!text) return Chiku.sendMessage(from,{text:"اكتب عنوان للبحث!"},{quoted:m})
+ if(!text) return Chiku.sendMessage(from,{text:"ادخل اسم اغنيه للبحث!"},{quoted:m})
  let yts = require("yt-search")
  let search = await yts(text)
  let anu = search.videos[0]
  let buttons = [
- {buttonId: `${prefix}ytad ${text}`, buttonText: {displayText: '♫ صوتي'}, type: 1},
- {buttonId: `${prefix}ytvd ${text}`, buttonText: {displayText: '► فيديو'}, type: 1}
+ {buttonId: `${prefix}ytad ${anu.url}`, buttonText: {displayText: '♫ صوتي'}, type: 1},
+ {buttonId: `${prefix}ytvd ${anu.url}`, buttonText: {displayText: '► فيديو'}, type: 1}
 
  ]
  let buttonMessage = {
@@ -4418,7 +4418,6 @@ case 'تشغيل': case 'شغل': case 'play': case 'song': case 'ytplay': {
 ┃اسم البوت : 📶 𝗕𝗢𝗧 𝗘𝗟𝗚𝗔𝗭𝗔𝗥 📶 
 
 ┗━━━━━━━━━❊`,
-	 
  footer: `${global.BotName}`,
  buttons: buttons,
  headerType: 4,
