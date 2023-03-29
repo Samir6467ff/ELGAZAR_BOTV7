@@ -1,8 +1,8 @@
 {
-  "name": "chiku-MD",
+  "name": "ELGAZAR_BOTV7",
   "description": "A whatsApp bot based on Baileys linrary with Multi Device support",
   "repository": "https://github.com/Ayush-pandey-u/Chiku-MD",
-  "logo": "https://wallpapercave.com/wp/wp10524580.jpg",
+  "logo": "https://telegra.ph/file/86f4d8e6bfb7ba044994f.jpg",
   "keywords": ["nodejs", "bot", "whatsapp bot", "whatsapp automation", "multi device"],
   "buildpacks": [
     {
