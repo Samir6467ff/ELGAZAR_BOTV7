@@ -4387,7 +4387,7 @@ case 'تشغيل': case 'شغل': case 'play': case 'song': case 'ytplay': {
  const { isUrl, fetchBuffer } = require('./lib/Function')
 
  if(!text) return Chiku.sendMessage(from,{text:"اكتب عنوان للبحث!"},{quoted:m})
- let yts = require("@adiwajshing/keyed-db2")
+ let yts = require("yt-search")
  let search = await yts(text)
  let anu = search.videos[0]
  let buttons = [
