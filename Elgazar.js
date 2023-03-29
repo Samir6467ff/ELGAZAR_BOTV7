@@ -1744,9 +1744,9 @@ let buttonspro = [
 	const cara = "cara"
 	const daily  = await eco.daily(user, cara, 9999); //give 999 for daily, can be changed
 	
-	        if (daily.cd) return replay(`لقد حصلت علي مرتبك اليوم عد  ${daily.cdL}`); //cdL is already formatted cooldown Left
+	        if (daily.cd) return replay(`لقد حصلت علي راتبك اليوم💰 عد بعد  ${daily.cdL}`); //cdL is already formatted cooldown Left
 	
-            replay(`لقد اخذت مرتبك💰${daily.amount} اليوم`);        
+            replay(`لقد اخذت مرتب💰${daily.amount}دولار💸اليوم`);        
 }
 break
 		
@@ -1841,9 +1841,9 @@ break
 }
 break	
 		
-	case 'qt': {
+	case 'س': {
     if (!args[0] && !m.quoted) {
-      return m.reply(`Please provide a text (Type or mention a message) !`);
+      return m.reply(`اكتب شئ لتحويله ملصق !`);
     }
         
     let userPfp;
@@ -1918,7 +1918,7 @@ break
 		const query = text.trim();
         const cara = 'cara'
         const withdraw = await eco.withdraw(user, cara, query);
-        if(withdraw.noten) return replay('🏧 عدم كفاية الأموال في البنك'); //if user states more than whats in his wallet
+        if(withdraw.noten) return replay('🏧 لا يوجد اموال كافيه في البنك'); //if user states more than whats in his wallet
         const add = eco.give(user, cara, query);
           replay(`🏧 تنبيه  💰${withdraw.amount} تمت إضافته في محفظتك.`)
         
@@ -2293,7 +2293,7 @@ case 'بان': case 'bangroup':{
 if (isBan) return reply(mess.banned)	 			
 if (!isCreator) return replay(mess.botowner)
 if (args[0] === "فتح") {
-if (isBanChat) return replay('هذا الجررل محظور من استخدامي بالفعل!')
+if (isBanChat) return replay('هذا الجروب محظور من استخدامي بالفعل!')
 banchat.push(from)
 replay('تم حظر هذا الجروب من استخدامي!')
 var groupe = await Chiku.groupMetadata(from)
@@ -2373,10 +2373,10 @@ case 'limituser': case 'userlimit': case 'الحد':
 
 
 
-case 'ringtone': {
+case 'اغنيه': {
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
-            if (!args.join(" ")) return reply(`Example: ${prefix}ringtone black over`)
+            if (!args.join(" ")) return reply(`مثال: ${prefix}اغنيه black over`)
         let { ringtone } = require('./lib/scraper')
 		let anu = await ringtone(text)
 		let result = anu[Math.floor(Math.random() * anu.length)]
@@ -2401,10 +2401,10 @@ xfarrapi.Film(q)
 break
 
 
-case 'wallpaper': case 'animewallpaper': case 'animewall': {
+case 'wallpaper': case 'animewallpaper': case 'انمي': {
 if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
-if (!args.join(" ")) return reply("Please enter a term to search!")
+if (!args.join(" ")) return reply("اكتب اسم شخصيه انمي للبحث!")
 const { AnimeWallpaper } =require("anime-wallpaper")
 const wall = new AnimeWallpaper();
 const pages = [1,2,3,4];
@@ -2413,11 +2413,11 @@ const random=pages[Math.floor(Math.random() * pages.length)]
         const i = Math.floor(Math.random() * wallpaper.length);
 		
 let buttons = [
-            {buttonId: `${prefix}wallpaper ${args.join(" ")}`, buttonText: {displayText: '>>'}, type: 1}
+            {buttonId: `${prefix}wallpaper ${args.join(" ")}`, buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1}
         ]
         let buttonMessage = {
             image: {url:wallpaper[i].image},
-            caption: `*Search term:* ${q}`,
+            caption: `*عنوان البحث:* ${q}`,
             footer: `${BotName}`,
             buttons: buttons,
             headerType: 4
@@ -2427,19 +2427,19 @@ let buttons = [
     break
 
 
-case 'wikimedia': case 'wikiimage': {
+case 'ويكيديا': case 'wikiimage': {
 	if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
-                if (!args.join(" ")) return reply("What picture are you looking for??")
+                if (!args.join(" ")) return reply("اكتب عنوان للبحث بالانجليزي??")
 		let { wikimedia } = require('./lib/scraper')
         anu = await wikimedia(args)
         hasil = anu[Math.floor(Math.random() * anu.length)]
         let buttons = [
-            {buttonId: `${prefix}wikimedia ${args.join(" ")}`, buttonText: {displayText: 'Next Image'}, type: 1}
+            {buttonId: `${prefix}wikimedia ${args.join(" ")}`, buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1}
         ]
         let buttonMessage = {
             image: { url: hasil.image },
-            caption: `Title : ${hasil.title}\nSource : ${hasil.source}\nMedia Url : ${hasil.image}`,
+            caption: `العنوان : ${hasil.title}\nالمصدر : ${hasil.source}\nالرابط : ${hasil.image}`,
             footer: `${BotName}`,
             buttons: buttons,
             headerType: 4
@@ -2461,7 +2461,7 @@ case 'quotesanime': case 'quoteanime': case 'animequote': case 'animequotes':{
         let anu = await quotesAnime()
         hasil = anu[Math.floor(Math.random() * anu.length)]
         let buttons = [
-            {buttonId: `${prefix}quotesanime`, buttonText: {displayText: '>>'}, type: 1}
+            {buttonId: `${prefix}quotesanime`, buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1}
         ]
         let buttonMessage = {
             text: `_${hasil.quotes}_\n\nBy '${hasil.karakter}', ${hasil.anime}\n\n- ${hasil.up_at}`,
@@ -2510,15 +2510,15 @@ let sections = []
 
 
   case 'grupsetting':
-    case 'groupsetting':{
+    case 'اعدادات':{
         if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
             let sections = []
             let com = [`group open`,`leveling on`,`antilinkgc on`,`antilinktg on`,`antilinktt on`,`antilinkytch on`,`antilinkytvid on`,`antilinkig on`,`antilinkfb on`,`antilinktwit on`,`antilinkall on`,`antiwame on`]
             let comm = [`group close`,`leveling off`,`antilinkgc off`,`antilinktg off`,`antilinktt off`,`antilinkytch off`,`antilinkytvid off`,`antilinkig on`,`antilinkfb off`,`antilinktwit off`,`antilinkall off`,`antiwame off`]
-            let listnya = [`Group open/close`,`Leveling on/off`,`Antilink Group on/off`,`Antilink Telegram on/off`,`Antilink Tiktok on/off`,`Antilink Youtube Channel on/off`,`Antilink Youtube Video on/off`,`Antilink Instagram on/off`,`Antilink Facebook on/off`,`Antilink Twitter on/off`,`Antilink All on/off`,`Anti Wame on/off`]
-            let suruh = [`Enable`, `Disable`]
-            let fiturname = [`Group`,`Leveling`,`Auto Sticker`,`Antilink Group`,`Antilink Telegram`,`Antilink Tiktok`,`Antilink Youtube Channel`,`Antilink Youtube Video`,`Antilink Instagram`,`Antilink Facebook`,`Antilink Twitter`,`Antilink All`,`Anti Wame`,`Auto Revoke`]
+            let listnya = [`جروب فتح/قفل`,`منع روابط الجروب فتح/قفل`,`منع روابط تليجرام فتح/قفل`,`منع روابط تيكتوك فتح/قفل`,`منع روابط قنوات يوتيوب فتح/قفل`,`منع روابط فيديوهات يوتيوب فتح/قفل`,`منع روابط انستجرام فتح/قفل`,`منع روابط فيسبوك فتح/قفل`,`منع روابط تويتر فتح/قفل`,`منع كل الروابط فتح/قفل`,`منع لينك الشات فتح/قفل`]
+            let suruh = [`فتح`, `قفل`]
+            let fiturname = [`الجروب`,`روابط الجروب`,`روابط تلجرام`,`روابط تيكتوك`,`روابط قنوات يوتيوب`,`روابط فيديوهات يوتيوب`,`روابط انستجرام`,`روابط فيسبوك`,`روابط تويتر`,`كل الروابط`,`لينك الشات`]
             let startnum = 0; let startnu = 0; let startn = 0;let start = 0
             let startnumm = 1
             for (let x of com) {
@@ -2526,11 +2526,11 @@ if (isBanChat) return reply(mess.bangc)
             rows: [
                {
                 title: `${suruh[0]}`,
-                description: `Activate ${fiturname[startnu++]}`,
+                description: `فتح ${fiturname[startnu++]}`,
                 rowId: `${prefix}${x}`
               },{
                 title: `${suruh[1]}`,
-                description: `Deactivate ${fiturname[startn++]}`,
+                description: `قفل ${fiturname[startn++]}`,
                 rowId: `${prefix}${comm[start++]}`
               }
             ]
@@ -2540,10 +2540,10 @@ if (isBanChat) return reply(mess.bangc)
             const sendm =  Chiku.sendMessage(
 from, 
 {
-text: "Group Settings",
+text: "اعدادات الجروب",
 footer: BotName,
-title: "Set your group settings here...",
-buttonText: "Click Button",
+title: "اضبط إعدادات جروبك من هن...",
+buttonText: "اضغط علي الزر",
 sections
 }, { quoted : m }
 )  
@@ -2561,15 +2561,15 @@ case 'animesearchxxx': case 'anime':{
     break
 */
 
-case 'coffee': case 'kopi': {
+case 'coffee': case 'قهوه': {
         if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
                 let buttons = [
-                        {buttonId: `${prefix}coffee`, buttonText: {displayText: '>>'}, type: 1}
+                        {buttonId: `${prefix}coffee`, buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1}
                     ]
                     let buttonMessage = {
                         image: { url: 'https://coffee.alexflipnote.dev/random' },
-                        caption: `Here is your Coffee...`,
+                        caption: `ها هي قهوتك☕...`,
                         footer: `${BotName}`,
                         buttons: buttons,
                         headerType: 4
@@ -2580,10 +2580,10 @@ case 'coffee': case 'kopi': {
 
  
 
-case 'emojimix': {
+case 'دمج': case 'emojimix': {
 	   if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
-if (!q) reply(`*Example :* ${prefix + command} 😊+🌹`)
+if (!q) reply(`*مثال :* ${prefix + command} 😊+🌹`)
 let [emoji1, emoji2] = q.split`+`
 let kuntuh = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
 for (let res of kuntuh.results) {
@@ -2605,13 +2605,13 @@ replay(`${getCase(q)}`)
 break
 
 
- case 'emoji': {
+ case 'emoji': case 'ايموجي': {
     if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
-if (!args.join(" ")) return reply('Where is the emoji?')
+if (!args.join(" ")) return reply('اين هو الايموجي?')
 emoji.get(args.join(" ")).then(async(emoji) => {
-let mese = await Chiku.sendMessage(m.chat, {image:{url:emoji.images[4].url}, caption: `Here it is...`}, {quoted:m})
-await Chiku.sendMessage(from, {text:"reply -s to this image to make sticker"}, {quoted:mese})
+let mese = await Chiku.sendMessage(m.chat, {image:{url:emoji.images[4].url}, caption: `اي خدمه يروحي..🖤🙂`}, {quoted:m})
+await Chiku.sendMessage(from, {text:"لتحويل الصوره لملصق رد عليا واكتب .*ملصق*"}, {quoted:mese})
 })
 }
 break
@@ -2628,12 +2628,12 @@ case 'delete': case 'del': {
  break
 */
 
- case 'deleteall': case 'delall': case 'delete': case 'del': {
+ case 'حذف': case 'مسح': case 'delete': case 'del': case 'احذف': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (!m.quoted) return reply('Please mention a message baka!')
+ if (!m.quoted) return reply('رد علي رساله لحذفها!')
  let { chat, fromMe, id} = m.quoted
 
 const key = {
@@ -2649,23 +2649,23 @@ await Chiku.sendMessage(m.chat, { delete: key })
 
 
 
- case 'listpc': {
+ case 'listpc': case 'المستخدمين': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  let anu = await store.chats.all().filter(v => v.id.endsWith('.net')).map(v => v)
- let teks = ` 「  Chiku's pm user list  」\n\nTotal ${anu.length} users are using Chiku in personal chat.`
+ let teks = ` 𓆩   قائمه المستخدمين   𓆪\n\nالمجموع ${anu.length} يستخدم مستخدمين البوت في الخاص.`
  for (let i of anu) {
-  teks += `\n\nProfile : @${i.id.split('@')[0]}\nChat : ${i.unreadCount}\nLastchat : ${moment(i.conversationTimestamp * 1000).tz("Asia/Kolkata").format("DD/MM/YYYY HH:mm:ss")}`
+  teks += `\n\nالاسم : @${i.id.split('@')[0]}\nالشات : ${i.unreadCount}\nاخر محادث : ${moment(i.conversationTimestamp * 1000).tz("Asia/Kolkata").format("DD/MM/YYYY HH:mm:ss")}`
  }
  Chiku.sendTextWithMentions(m.chat, teks, m)
  }
  break
 
- case 'listgc': {
+ case 'listgc': case 'الجروبات': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
- let teks = ` 「  Chiku's group user list  」\n\nTotal ${anu.length} users are using bot in Groups.`
+ let teks = `  𓆩   قائمة مجموعات مستخدمي البوت   𓆪\n\nالمجموع ${anu.length} مستخدمين يستخدمون البوت في المجموعات.`
  for (let i of anu) {
   let metadata = await Chiku.groupMetadata(i)
   if (metadata.owner === "undefined") {
@@ -2673,7 +2673,7 @@ await Chiku.sendMessage(m.chat, { delete: key })
   } else {
   loldd = metadata.owner
   }
-  teks += `\n\nName : ${metadata.subject ? metadata.subject : "undefined"}\nOwner : ${loldd ? '@' + loldd.split("@")[0] : "undefined"}\nID : ${metadata.id ? metadata.id : "undefined"}\nMade : ${metadata.creation ? moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss') : "undefined"}\nMember : ${metadata.participants.length ? metadata.participants.length : "undefined"}`
+  teks += `\n\nالاسم : ${metadata.subject ? metadata.subject : "undefined"}\nالمالك : ${loldd ? '@' + loldd.split("@")[0] : "undefined"}\nايدي : ${metadata.id ? metadata.id : "undefined"}\nالحاله : ${metadata.creation ? moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss') : "undefined"}\nالرقم : ${metadata.participants.length ? metadata.participants.length : "undefined"}`
  }
  Chiku.sendTextWithMentions(m.chat, teks, m)
  }
@@ -2682,7 +2682,7 @@ await Chiku.sendMessage(m.chat, { delete: key })
 		
 		
 		
-case 'listonline': case 'here':{
+case 'listonline': case 'المتصلين': case 'الصاحيين': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
@@ -2691,7 +2691,7 @@ if (!isCreator) return replay(mess.botowner);
  let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
  let online = [...Object.keys(store.presences[id]), botNumber]
  let liston = 1
- Chiku.sendText(m.chat, '  「 *Now Online Members* 」\n\n' + online.map(v => `${liston++} . @` + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
+ Chiku.sendText(m.chat, '  𓆩  *قفشتكم👾*  𓆪\n\n' + online.map(v => `${liston++} 🔸 @` + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
  }
  break
 		
@@ -2699,21 +2699,21 @@ if (!isCreator) return replay(mess.botowner);
 			
 		
 		
-	case "pp": case "setdp":
+	case "pp": case "حطهاخلفيه":
       case "setbotpp":
         {
           if (!isCreator) return replay(mess.botowner);
           if (!quoted)
-            return replay(`Send/Reply Image With Caption ${prefix}setbotpp`);
+            return replay(`رد علي صوره واكتب الامر ${prefix}حطهاخلفيه`);
           if (!/image/.test(mime))
-          return replay(`Send/Reply Image With Caption ${prefix}setbotpp`);
+          return replay(`رد علي صوره واكتب الامر ${prefix}حطهاخلفيه`);
           if (/webp/.test(mime))
-          return replay(`Send/Reply Image With Caption ${prefix}setbotpp`);
+          return replay(`رد علي صوره واكتب الامر ${prefix}حطهاخلفيه`);
           let media = await Chiku.downloadAndSaveMediaMessage(quoted);
           await Chiku.updateProfilePicture(botNumber, {
             url: media,
           }).catch((err) => fs.unlinkSync(media));
-          replay(`*✨ ${pushname}...!! My Profile Pic Updated ✨*`);
+          replay(`*✨ ${pushname} تم تغير صوره بروفايلي يا مطوري العزيز ✨*`);
         }
          break;
 		
@@ -2781,13 +2781,13 @@ if (!isCreator) return replay(mess.botowner);
  break
 
 
- case 'fliptext': {
+ case 'fliptext': case 'عكس': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
- if (args.length < 1) return replay(`Example:\n${prefix}fliptext ${OwnerName}`)
+ if (args.length < 1) return replay(`مثال:\n${prefix}عكس ${OwnerName}`)
  quere = args.join(" ")
  flipe = quere.split('').reverse().join('')
- replay(`\`\`\`「  Text Flipper Tool  」\`\`\`\n*Input text :*\n${quere}\n*Fliped text :*\n${flipe}`)
+ replay(`\`\`\`𓆩   اداه عكس النص   𓆪\`\`\`\n*النص الاصلي :*\n${quere}\n*النص المقلوب :*\n${flipe}`)
  }
  break
 
@@ -2804,22 +2804,22 @@ if (!isCreator) return replay(mess.botowner);
  }
  }
 
-   case 'leveling':
+   case 'المستوي': case 'leveling':
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isAdmins && !isCreator) return reply(mess.useradmin)
- if (args.length < 1) return reply('Type on to *Enable*\nType off to *Disable*')
- if (args[0] === 'on'){
- if (isLeveling) return reply(`Already activated`)
+ if (args.length < 1) return reply('اكتب .المستوي فتح*\n*اكتب .المستوي قفل*')
+ if (args[0] === 'فتح'){
+ if (isLeveling) return reply(`نشط بالفعل`)
  _leveling.push(from)
  fs.writeFileSync('./database/leveling.json', JSON.stringify(_leveling))
- reply('Leveling activated')
- } else if (args[0] === 'off'){
+ reply('تفعيل المستوي')
+ } else if (args[0] === 'قفل'){
  let anu = _leveling.indexOf(from)
  _leveling.splice(anu, 1)
  fs.writeFileSync('./database/leveling.json', JSON.stringify(_leveling))
- reply('Leveling deactivated')
+ reply('تم القفل بالفعل')
  } 
  break
 
@@ -2830,27 +2830,27 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (AntiLink) return replay('Already activated')
+ if (AntiLink) return replay('نشط بالفعل')
  ntilink.push(from)
- replay('Activated _Antilink_ in this group.')
+ replay('تم تشغيل منع روابط الجروبات.')
  var groupe = await Chiku.groupMetadata(from)
  var members = groupe['participants']
  var mems = []
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Chiku.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!AntiLink) return replay('Already deactivated!')
+ if (!AntiLink) return replay('غير نشط بالفعل!')
  let off = ntilink.indexOf(from)
  ntilink.splice(off, 1)
- replay('Deactivated _Antilink_ in this group!')
+ replay('تم ايقاف تشغيل من روابط الجروبات!')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkgc on`, buttonText: { displayText: 'On' }, type: 1 },
-   { buttonId: `${prefix}antilinkgc off`, buttonText: { displayText: 'Off' }, type: 1 }
+   { buttonId: `${prefix}antilinkgc on`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkgc off`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
-   await Chiku.sendButtonText(m.chat, buttonsntilink, `Please click the button below On / Off`, `${global.BotName}`, m)
+   await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فنح / قفل`, `${global.BotName}`, m)
    }
    }
    break
@@ -2863,27 +2863,27 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (AntiLinkYoutubeVid) return replay('Already activated')
+ if (AntiLinkYoutubeVid) return replay('نشط بالفعل')
  ntilinkytvid.push(from)
- replay('Activated youtube video antilink !')
+ replay('تم تشغيل منع روابط فيديوهات يوتيوب !')
  var groupe = await Chiku.groupMetadata(from)
  var members = groupe['participants']
  var mems = []
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Chiku.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!AntiLinkYoutubeVid) return replay('Already deactivated')
+ if (!AntiLinkYoutubeVid) return replay('غير نشط بالفعل')
  let off = ntilinkytvid.indexOf(from)
  ntilinkytvid.splice(off, 1)
- replay('Deactivated youtube video antilink !')
+ replay('تم ايقاف تشغيل منع روابط فيديوهات يوتيوب !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkyoutubevideo on`, buttonText: { displayText: 'On' }, type: 1 },
-   { buttonId: `${prefix}antilinkyoutubevideo off`, buttonText: { displayText: 'Off' }, type: 1 }
+   { buttonId: `${prefix}antilinkyoutubevideo on`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkyoutubevideo off`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
-   await Chiku.sendButtonText(m.chat, buttonsntilink, `Please click the button below On / Off`, `${global.BotName}`, m)
+   await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فتح / قفل`, `${global.BotName}`, m)
    }
    }
    break
@@ -2897,27 +2897,27 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (AntiLinkYoutubeChannel) return replay('Already activated')
+ if (AntiLinkYoutubeChannel) return replay('نشط بالفعل')
  ntilinkytch.push(from)
- replay('Activated youtube channel antilink !')
+ replay('تم تشغيل منع روابط قنوات يوتيوب !')
  var groupe = await Chiku.groupMetadata(from)
  var members = groupe['participants']
  var mems = []
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Chiku.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!AntiLinkYoutubeChannel) return replay('Already deactivated')
+ if (!AntiLinkYoutubeChannel) return replay('غير نشط بالفعل')
  let off = ntilinkytch.indexOf(from)
  ntilinkytch.splice(off, 1)
- replay('Deactivated youtube channel antilink !')
+ replay('تم ايقاف تشغيل منع روابط قنوات يوتيوب !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkyoutubech on`, buttonText: { displayText: 'On' }, type: 1 },
-   { buttonId: `${prefix}antilinkyoutubech off`, buttonText: { displayText: 'Off' }, type: 1 }
+   { buttonId: `${prefix}antilinkyoutubech on`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkyoutubech off`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
-   await Chiku.sendButtonText(m.chat, buttonsntilink, `Please click the button below On / Off`, `${global.BotName}`, m)
+   await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فتح / قفل`, `${global.BotName}`, m)
    }
    }
    break
@@ -2930,27 +2930,27 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (AntiLinkInstagram) return replay('Already activated')
+ if (AntiLinkInstagram) return replay('نشط بالفعل')
  ntilinkig.push(from)
- replay('Activated instagram antilink !')
+ replay('تم تشغيل منع روابط انستجرام !')
  var groupe = await Chiku.groupMetadata(from)
  var members = groupe['participants']
  var mems = []
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Chiku.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!AntiLinkInstagram) return replay('Already deactivated')
+ if (!AntiLinkInstagram) return replay('غير نشط بالفعل')
  let off = ntilinkig.indexOf(from)
  ntilinkig.splice(off, 1)
- replay('Deactivated instagram antilink !')
+ replay('تم ايقاف تشغيل منع روابط انستجرام !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkinstagram on`, buttonText: { displayText: 'On' }, type: 1 },
-   { buttonId: `${prefix}antilinkinstagram off`, buttonText: { displayText: 'Off' }, type: 1 }
+   { buttonId: `${prefix}antilinkinstagram on`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkinstagram off`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
-   await Chiku.sendButtonText(m.chat, buttonsntilink, `Please click the button below On / Off`, `${global.BotName}`, m)
+   await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فتح / قفل`, `${global.BotName}`, m)
    }
    }
    break
@@ -2962,27 +2962,27 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (AntiLinkFacebook) return replay('Already activated')
+ if (AntiLinkFacebook) return replay('نشط بالفعل')
  ntilinkfb.push(from)
- replay('Activated facebook antilink !')
+ replay('تم تشغيل منع روابط فيسبوك !')
  var groupe = await Chiku.groupMetadata(from)
  var members = groupe['participants']
  var mems = []
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Chiku.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!AntiLinkFacebook) return replay('Already deactivated')
+ if (!AntiLinkFacebook) return replay('غير نشط بالفعل')
  let off = ntilinkfb.indexOf(from)
  ntilinkfb.splice(off, 1)
- replay('Deactivated facebook antilink !')
+ replay('تم ايقاف تشغيل منع روابط فيسبوك !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkfacebook on`, buttonText: { displayText: 'On' }, type: 1 },
-   { buttonId: `${prefix}antilinkfacebook off`, buttonText: { displayText: 'Off' }, type: 1 }
+   { buttonId: `${prefix}antilinkfacebook on`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkfacebook off`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
-   await Chiku.sendButtonText(m.chat, buttonsntilink, `Please click the button below On / Off `, `${global.BotName}`, m)
+   await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فتح / قفل `, `${global.BotName}`, m)
    }
    }
    break
@@ -2995,27 +2995,27 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (AntiLinkTelegram) return replay('Already activated')
+ if (AntiLinkTelegram) return replay('نشط بالفعل')
  ntilinktg.push(from)
- replay('Activated telegram antilink !')
+ replay('تم تشغيل منع روابط تليجرام !')
  var groupe = await Chiku.groupMetadata(from)
  var members = groupe['participants']
  var mems = []
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Chiku.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!AntiLinkTelegram) return replay('Already deactivated')
+ if (!AntiLinkTelegram) return replay('غير نشط بالفعل')
  let off = ntilinkig.indexOf(from)
  ntilinkig.splice(off, 1)
- replay('Deactivated telegram antilink in this group')
+ replay('تم ايقاف تشغيل منع روابط تليجرام')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinktelegram on`, buttonText: { displayText: 'On' }, type: 1 },
-   { buttonId: `${prefix}antilinktelegram off`, buttonText: { displayText: 'Off' }, type: 1 }
+   { buttonId: `${prefix}antilinktelegram on`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinktelegram off`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
-   await Chiku.sendButtonText(m.chat, buttonsntilink, `Please click the button below On / Off `, `${global.BotName}`, m)
+   await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فتح / قفل `, `${global.BotName}`, m)
    }
    }
    break
@@ -3028,27 +3028,27 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (AntiLinkTiktok) return replay('Already activated')
+ if (AntiLinkTiktok) return replay('نشط بالفعل')
  ntilinktt.push(from)
- replay('Activated tiktok antilink !')
+ replay('تم تشغيل منع روابط تيكتوك !')
  var groupe = await Chiku.groupMetadata(from)
  var members = groupe['participants']
  var mems = []
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Chiku.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!AntiLinkTiktok) return replay('Already deactivated')
+ if (!AntiLinkTiktok) return replay('غير نشط بالفعل')
  let off = ntilinktt.indexOf(from)
  ntilinktt.splice(off, 1)
- replay('Deactivated tiktok antilink !')
+ replay('تم ايقاف تشغيل منع روابط تيكتوك !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinktiktok on`, buttonText: { displayText: 'On' }, type: 1 },
-   { buttonId: `${prefix}antilinktiktok off`, buttonText: { displayText: 'Off' }, type: 1 }
+   { buttonId: `${prefix}antilinktiktok on`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinktiktok off`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
-   await Chiku.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.BotName}`, m)
+   await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر\n\nفتح او\nقفل`, `${global.BotName}`, m)
    }
    }
    break
@@ -3060,27 +3060,27 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (AntiLinkTwitter) return replay('Already activated')
+ if (AntiLinkTwitter) return replay('نشط بالفعل')
  ntilinktwt.push(from)
- replay('Activated twitter antilink in this group !')
+ replay('تم تشغيل منع روابط تويتر !')
  var groupe = await Chiku.groupMetadata(from)
  var members = groupe['participants']
  var mems = []
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Chiku.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!AntiLinkTwitter) return replay('Already deactivated')
+ if (!AntiLinkTwitter) return replay('غير نشط بالفعل')
  let off = ntilinktwt.indexOf(from)
  ntilinktwt.splice(off, 1)
- replay('Deactivated twitter antilink !')
+ replay('تم ايقاف تشغيل منع روابط تويتر !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinktwt on`, buttonText: { displayText: 'On' }, type: 1 },
-   { buttonId: `${prefix}antilinktwt off`, buttonText: { displayText: 'Off' }, type: 1 }
+   { buttonId: `${prefix}antilinktwt on`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinktwt off`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
-   await Chiku.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.BotName}`, m)
+   await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر\n\nفتح او\nقفل`, `${global.BotName}`, m)
    }
    }
    break
@@ -3093,27 +3093,27 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (AntiLinkTwitter) return replay('Already activated')
+ if (AntiLinkTwitter) return replay('نشط بالفعل')
  ntilinkall.push(from)
- replay('Enabled all antilink !')
+ replay('تم تشغيل منع جميع الروابط !')
  var groupe = await Chiku.groupMetadata(from)
  var members = groupe['participants']
  var mems = []
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Chiku.sendMessage(from, {text: `\`\`\`「 Warning 」\`\`\`\n\nAntilink System Activated!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!AntiLinkAll) return replay('Already deactivated')
+ if (!AntiLinkAll) return replay('غير نشط بالفعل')
  let off = ntilinkall.indexOf(from)
  ntilinkall.splice(off, 1)
- replay('Disabled all antilink !')
+ replay('تم ايقاف تشغيل منع جميع الروابط !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkall on`, buttonText: { displayText: 'On' }, type: 1 },
-   { buttonId: `${prefix}antilinkall off`, buttonText: { displayText: 'Off' }, type: 1 }
+   { buttonId: `${prefix}antilinkall on`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkall off`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
-   await Chiku.sendButtonText(m.chat, buttonsntilink, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.BotName}`, m)
+   await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر\n\nفتح او\nقفل`, `${global.BotName}`, m)
    }
    }
    break
@@ -3126,7 +3126,7 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (antiWame) return replay('Already activated')
+ if (antiWame) return replay('نشط بالفعل')
  ntwame.push(from)
  replay('Activated antiwame !')
  var groupe = await Chiku.groupMetadata(from)
@@ -3137,7 +3137,7 @@ if (!isCreator) return replay(mess.botowner);
  })
  Chiku.sendMessage(from, {text: `\`\`\`*「  Warning  」*\`\`\`\n\nAntilink is enabled!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!antiWame) return replay('Already deactivated')
+ if (!antiWame) return replay('غير نشط بالفعل')
  let off = nttoxic.indexOf(from)
  ntwame.splice(off, 1)
  replay('Deactivated antiwame !')
@@ -3159,7 +3159,7 @@ if (!isCreator) return replay(mess.botowner);
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
  if (args[0] === "on") {
- if (AntiNsfw) return replay('Already activated')
+ if (AntiNsfw) return replay('نشط بالفعل')
  ntnsfw.push(from)
  replay('Enabled NSFW Commands!')
  var groupe = await Chiku.groupMetadata(from)
@@ -3170,7 +3170,7 @@ if (!isCreator) return replay(mess.botowner);
  })
  Chiku.sendMessage(from, {text: `\`\`\`「 Notice 」\`\`\`\n\nNSFW(not safe for work) feature has been enabled in this group, which means anyone here can accesss Adult commands!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
  } else if (args[0] === "off") {
- if (!AntiNsfw) return replay('Already deactivated')
+ if (!AntiNsfw) return replay('غير نشط بالفعل')
  let off = ntnsfw.indexOf(from)
  ntnsfw.splice(off, 1)
  replay('Disabled NSFW Commands!')
@@ -3185,7 +3185,7 @@ if (!isCreator) return replay(mess.botowner);
    break
 
 
-   case 'ban': {
+  /* case 'ban': {
     if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
 if (!isCreator) return replay(mess.botowner)
@@ -3221,28 +3221,28 @@ case 'listonline': case 'listaktif': case 'here':{
  let liston = 1
  Chiku.sendText(m.chat, '  「 *Online Members* 」\n\n' + online.map(v => `${liston++} . @` + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
  }
- break
+ break*/
 
- case 'ban': {
+ case 'ban': case 'حظر': case 'تقييد': {
     if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
 if (!isCreator) return replay(mess.botowner)
-if (!args[0]) return replay(`Select add or del (add to ban, del to unban), For Example: Reply *${prefix}ban add* to the user you want to ban.`)
+if (!args[0]) return replay(`حدد إضافة أو حذف (إضافة إلى الحظر ، حذف إلى إلغاء الحظر) ، على سبيل المثال: رد *${prefix}تقييد * للمستخدم الذي تريد حظره.`)
 if (args[1]) {
 orgnye = args[1] + "@s.whatsapp.net"
 } else if (m.quoted) {
 orgnye = m.quoted.sender
 }
 const isBane = banUser.includes(orgnye)
-if (args[0] === "add") {
-if (isBane) return ads('User was already banned.')
+if (args[0] === "فتح") {
+if (isBane) return ads('تم حظر المستخدم بالفعل.')
 banUser.push(orgnye)
-replay(`Successfully banned the user`)
-} else if (args[0] === "del") {
-if (!isBane) return ads('User was already unbanned.')
+replay(`تم حظر المستخدم بنجاح`)
+} else if (args[0] === "قفل") {
+if (!isBane) return ads('تم بالفعل رفع الحظر عن المستخدم.')
 let delbans = banUser.indexOf(orgnye)
 banUser.splice(delbans, 1)
-replay(`Successfully unbanned the user.`)
+replay(`تم بالفعل رفع الحظر عن المستخدم.`)
 } else {
 replay("Error")
 }
@@ -3250,18 +3250,18 @@ replay("Error")
 break
 
 
-case 'happymod': {
+case 'happymod': case 'هابي': case 'هابي-مود': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
- if (!args.join(" ")) return replay(`Example : ${prefix + command} Kinemaster`)
+ if (!args.join(" ")) return replay(`مثال : ${prefix + command} Kinemaster`)
  yogipw.happymod(args.join(" ")).then(async(res) => {
- teks = '```「 HappyMod Search Engine 」```'
+ teks = '```𓆩   هابي مود   𓆪```'
  for (let i of res) {
  teks += `\n\n${i.name}\n`
  teks += `${i.link}`
  }
  let buttons = [
- {buttonId: `${prefix}menu`, buttonText: {displayText: '✨ Menu ✨'}, type: 1}
+ {buttonId: `${prefix}menu`, buttonText: {displayText: 'قائمه الاوامر✨'}, type: 1}
  ]
  let buttonMessage = {
  image: {url:res[0].icon},
@@ -3290,18 +3290,18 @@ case 'happymod': {
  }
  break 
 
- case 'setname': case 'setsubject': {
+ case 'setname': case 'تغيرالاسم': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (!text) return replay('Pls enter -setname <New Group Name>  to change this Group Name')
+ if (!text) return replay('اكتب اسم الجروب الجديد للتغير')
  await Chiku.groupUpdateSubject(m.chat, text).then((res) => replay(mess.jobdone)).catch((err) => replay(jsonformat(err)))
  }
  break
 
-case 'block': {
+case 'block': case 'بلوك': {
     if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
      if (!isCreator) return reply(mess.botowner)
@@ -3310,7 +3310,7 @@ if (isBanChat) return reply(mess.bangc)
  }
  break
 
-case 'unblock': {
+case 'unblock': case 'فك': case 'فك-البلوك': {
             if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
      if (!isCreator) return reply(mess.botowner)
@@ -3319,54 +3319,54 @@ if (isBanChat) return reply(mess.bangc)
  }
  break
 
- case 'setdesc': case 'setdesk': {
+ case 'setdesc': case 'تغيرالوصف': case 'تغيرالبايو': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (!text) return replay('Pls enter -setname <New Group Description>  to change this Group Description.')
+ if (!text) return replay('اكتب الوصف الجديد للتغير.')
  await Chiku.groupUpdateDescription(m.chat, text).then((res) => replay(mess.jobdone)).catch((err) => replay(jsonformat(err)))
  }
  break
 
- case 'setgrouppp': case 'setgruppp': case 'setgcpp': {
+ case 'setgrouppp': case 'تغيرالصورة': case 'تغيرالصوره': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (!quoted) return replay(`Send/Reply Image With Caption ${prefix + command}`)
- if (!/image/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command} to change the Profile Pic of this group.`)
- if (/webp/.test(mime)) return replay(`Send/Reply Image With Caption ${prefix + command} to change the Profile Pic of this group.`)
+ if (!quoted) return replay(`رد علي الصوره اللي هتحطها واكتب الامر ${prefix + command}`)
+ if (!/image/.test(mime)) return replay(`رد علي الصوره اللي هتحطها واكتب الامر ${prefix + command} لتغير صوره الجروب.`)
+ if (/webp/.test(mime)) return replay(`رد علي الصوره اللي هتحطها واكتب الامر ${prefix + command} لتغير صوره الجروب.`)
  let media = await Chiku.downloadAndSaveMediaMessage(quoted)
  await Chiku.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
  replay(mess.jobdone)
  }
  break
 
- case 'tag': case 'tagall': case 'all':{
+ case 'منشن': case 'tagall': case 'تاك':{
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isAdmins && !isCreator) return replay(mess.useradmin) 
- Chiku.sendMessage(from, { react: { text: "😳" , key: m.key }})
- let teks = `「 Attention 」
+ Chiku.sendMessage(from, { react: { text: "👾 " , key: m.key }})
+ let teks = `══✪〘 *منشن للكل👥* 〙✪══
   
- *Message : ${args.join(" ") ? args.join(" ") : 'no message'}*\n\n`
+ *الرساله : ${args.join(" ") ? args.join(" ") : 'مفيش رساله'}*\n\n`
  for (let mem of participants) {
- teks += `» @${mem.id.split('@')[0]}\n`
+ teks += `🔸 @${mem.id.split('@')[0]}\n`
  }
  Chiku.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
  }
  break
 
- case 'hidetag': case 'ping': {
+ case 'hidetag': case 'وهمي': case 'مخفي': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- Chiku.sendMessage(from, { react: { text: "✨" , key: m.key }})
+ Chiku.sendMessage(from, { react: { text: "😑" , key: m.key }})
  Chiku.sendMessage(m.chat, { text : args.join(" ") ? args.join(" ") : '' , mentions: participants.map(a => a.id)}, { quoted: m })
  }
  break
@@ -3377,15 +3377,15 @@ if (isBanChat) return reply(mess.bangc)
 		
 		
 		
-		case'tagadmins': case 'admins': case 'admin': {
+		case'الادمن': case 'admins': case 'المشرفين': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly) 
  Chiku.sendMessage(from, { react: { text: "🗿" , key: m.key }})
- if (!text) return replay(`*Please quote or write a meaningful message to tag admins to*`)
- let teks = `*「 Tag Admins 」*
+ if (!text) return replay(`*اكتب اي رساله لعمل منشن علي الادمن*`)
+ let teks = `*══✪〘 *منشن للمشرفين👥* 〙✪══*
   
- *Message : ${text}*\n\n`
+ *الرساله : ${text}*\n\n`
  for (let mem of groupAdmins) {
  teks += `🍁 @${mem.split('@')[0]}\n`
  }
@@ -3441,14 +3441,14 @@ let mentioned = participants.map(v => v.jid)
 
 
 
-    case 'nowa': case 'find': case 'stalk': case 'stalknumber':{
+    case 'nowa': case 'خمن': case 'stalk': case 'تخمين':{
         if (isBan) return reply(mess.banned)
-	  Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
-        if (!args[0]) return reply(`Use command like: ${prefix}stalk <number>xxx`)
+	  Chiku.sendMessage(from, { react: { text: "📠" , key: m.key }})
+        if (!args[0]) return reply(`اكتب الامر مثال: ${prefix}تخمين 201098906xxx`)
         var inputnumber = args[0]
-        if (!inputnumber.includes('x')) return reply('You didnot added x')
-        reply(`Searching for WhatsApp account in given range...`)
-        reply(`Please wait while i fetch details...`)
+        if (!inputnumber.includes('x')) return reply('يجب اضافه x')
+        reply(`البحث عن حساب واتساب في نطاق معين...`)
+        reply(`من فضلك انتظر بينما أحضر التفاصيل...`)
         function countInstances(string, word) {
         return string.split(word).length - 1;
         }
@@ -3463,9 +3463,9 @@ let mentioned = participants.map(v => v.jid)
         } else if (random_length == 3) {
             randomxx = 1000
         }
-        var nomerny = `*『 List of Whatsapp Numbers 』*\n\n`
-        var nobio = `\n*Bio:* || \nHey there! I am using WhatsApp.\n`
-        var nowhatsapp = `\n*Numbers with no WhatsApp account within the range you provided*\n`
+        var nomerny = `*『 قائمة أرقام واتساب 』*\n\n`
+        var nobio = `\n*البايو:* || \nHey there! I am using WhatsApp.\n`
+        var nowhatsapp = `\n*الارقام ليس لديها ارقام في نطاق معين*\n`
         for (let i = 0; i < randomxx; i++) {
         var nu = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
         var status1 = nu[Math.floor(Math.random() * nu.length)]
@@ -3493,7 +3493,7 @@ let mentioned = participants.map(v => v.jid)
         if (anu1 == '401' || anu1.status.length == 0) {
         nobio += `wa.me/${anu[0].jid.split("@")[0]}\n`
         } else {
-        nomerny += `🪄 *Number:* wa.me/${anu[0].jid.split("@")[0]}\n🔹 *Bio :* ${anu1.status}\n🔸 *Updated On :* ${moment(anu1.setAt).tz('Asia/Kolkata').format('HH:mm:ss DD/MM/YYYY')}\n\n`
+        nomerny += `🪄 *الرقم:* wa.me/${anu[0].jid.split("@")[0]}\n🔹 *البايو :* ${anu1.status}\n🔸 *في تحديث :* ${moment(anu1.setAt).tz('Asia/Kolkata').format('HH:mm:ss DD/MM/YYYY')}\n\n`
         }
         } catch {
         nowhatsapp += `${number0}${i}${number1}\n`
@@ -3509,14 +3509,14 @@ let mentioned = participants.map(v => v.jid)
 
 
 
- case 'grouplink': case 'gclink': {
+ case 'grouplink': case 'لينك': case 'الرابط': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  Chiku.sendMessage(from, { react: { text: "🪄" , key: m.key }})
  let response = await Chiku.groupInviteCode(m.chat)
- Chiku.sendMessage(m.chat, {text:`*Group Name:* *${groupMetadata.subject}* \n\n*Group Link :* \nhttps://chat.whatsapp.com/${response}l`, "contextInfo": {
+ Chiku.sendMessage(m.chat, {text:`*اسم الجروب:* *${groupMetadata.subject}* \n\n*لينك الجروب :* \nhttps://chat.whatsapp.com/${response}l`, "contextInfo": {
  mimetype: "image/jpeg",
  text: `${global.OwnerName}`,
  "forwardingScore": 1000000000,
@@ -3539,7 +3539,7 @@ let mentioned = participants.map(v => v.jid)
     case 'resetlinkgrup':
     case 'revoke':
     case 'resetlink':
-    case 'resetgrouplink':
+    case 'رستر':
     case 'resetgclink':
     case 'resetgruplink': {
        if (isBan) return reply(mess.banned)	 			
@@ -3547,32 +3547,32 @@ let mentioned = participants.map(v => v.jid)
     if (!m.isGroup) return replay(mess.grouponly)
     if (!isBotAdmins) return replay(mess.botadmin)
     if (!isAdmins && !isCreator) return replay(mess.useradmin)
-    Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
+    Chiku.sendMessage(from, { react: { text: "🔄" , key: m.key }})
     Chiku.groupRevokeInvite(m.chat)
     }
     break
 
 
-    case 'group': case 'grup': {
+    case 'group': case 'جروب': {
         if (isBan) return reply(mess.banned)	 			
      if (isBanChat) return reply(mess.bangc)
      if (!m.isGroup) return replay(mess.grouponly)
      if (!isBotAdmins) return replay(mess.botadmin)
      if (!isAdmins && !isCreator) return replay(mess.useradmin)
      Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
-     if (args[0] === 'close'){
-     await Chiku.groupSettingUpdate(m.chat, 'announcement').then((res) => replay(`Group has been closed!`)).catch((err) => replay(jsonformat(err)))
-     } else if (args[0] === 'open'){
-     await Chiku.groupSettingUpdate(m.chat, 'not_announcement').then((res) => replay(`Group has been opened!`)).catch((err) => replay(jsonformat(err)))
+     if (args[0] === 'قفل'){
+     await Chiku.groupSettingUpdate(m.chat, 'announcement').then((res) => replay(`تم اغلاق الجروب!`)).catch((err) => replay(jsonformat(err)))
+     } else if (args[0] === 'فتح'){
+     await Chiku.groupSettingUpdate(m.chat, 'not_announcement').then((res) => replay(`تم فتح الجروب!`)).catch((err) => replay(jsonformat(err)))
      } else {
      let buttons = [
-     { buttonId: '-group open', buttonText: { displayText: 'Open' }, type: 1 },
-     { buttonId: '-group close', buttonText: { displayText: 'Close' }, type: 1 }
+     { buttonId: '.جروب فتح', buttonText: { displayText: 'فتح' }, type: 1 },
+     { buttonId: '.جروب قفل', buttonText: { displayText: 'قفل' }, type: 1 }
      ]
      let buttonMessage = {
      image: BotLogo,
      jpegThumbnail: Thumb,
-     caption: `*「 ${global.BotName} 」*\n\n_Group Setting Changer tool_:`,
+     caption: `*「 ${global.BotName} 」*\n\n_أداة تغيير إعدادات المجموعة_:`,
      footer: `${BotName}`,
      buttons: buttons,
      headerType: 4
@@ -3582,55 +3582,55 @@ let mentioned = participants.map(v => v.jid)
      }
      break
 
-     case 'promote': {
+     case 'promote': case 'رفع': case 'ترقيه': case 'ترقية': {
         if (isBan) return reply(mess.banned)	 			
      if (isBanChat) return reply(mess.bangc)
      if (!m.isGroup) return replay(mess.grouponly)
      if (!isBotAdmins) return replay(mess.botadmin)
      if (!isAdmins && !isCreator) return replay(mess.useradmin)
-	 Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
+	 Chiku.sendMessage(from, { react: { text: "⬆️" , key: m.key }})
      let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
      await Chiku.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => replay(jsonformat(res))).catch((err) => replay(jsonformat(err)))
      }
      break
 
-     case 'demote': {
+     case 'demote':case 'تنزيل': case 'تخفيض': {
         if (isBan) return reply(mess.banned)	 			
      if (isBanChat) return reply(mess.bangc)
      if (!m.isGroup) return replay(mess.grouponly)
      if (!isBotAdmins) return replay(mess.botadmin)
      if (!isAdmins && !isCreator) return replay(mess.useradmin)
-	   Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
+	   Chiku.sendMessage(from, { react: { text: "⬇️" , key: m.key }})
      let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
      await Chiku.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => replay(jsonformat(res))).catch((err) => replay(jsonformat(err)))
      }
      break
 
-     case 'remove':{
+     case 'kick': case 'طرد': case 'اطرد': {
         if (isBan) return reply(mess.banned)	 			
      if (isBanChat) return reply(mess.bangc)
      if (!m.isGroup) return replay(mess.grouponly)
      if (!isBotAdmins) return replay(mess.botadmin)
      if (!isAdmins && !isCreator) return replay(mess.useradmin)
-	    Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
+	    Chiku.sendMessage(from, { react: { text: "👊" , key: m.key }})
      let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
      await Chiku.groupParticipantsUpdate(m.chat, [users], 'remove')
      }
      break
 
 
-     case 'join': {
+     case 'join':case 'ادخل': case 'انضم': {
         if (isBan) return reply(mess.banned)	 			
      if (isBanChat) return reply(mess.bangc)
      if (!isCreator) return replay(mess.botowner)
 	    Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
-     if (!args[0]) return replay(`Where's the link?`)
+     if (!args[0]) return replay(`اين الرابط?`)
      vdd = args[0]
      let vcc = vdd.split("https://chat.whatsapp.com/")[1]
-     if (!vcc) return replay("Link invalid!")
+     if (!vcc) return replay("الرابط خطأ!")
      if (isCreator) {
      await Chiku.groupAcceptInvite(vcc).then(async(res) => replay(jsonformat(res))).catch(_ => _)
-     replay("Succes!")
+     replay("تم الانضمام بنجاح!")
      } else {
      Chiku.query({
      tag: "iq",
@@ -3643,13 +3643,13 @@ let mentioned = participants.map(v => v.jid)
      }).then(async(res) => {
      sizny = res.content[0].attrs.size
      if (sizny < 20) {
-     teks = `Sorry, munimun 20 members are required in a group to add bot!`
+     teks = `معذرة 20 أعضاء مطلوبين في مجموعة لإضافة بوت!!`
      sendOrder(m.chat, teks, "667140254502463", fs.readFileSync('./Assets/pic7.jpg'), `${global.packname}`, `${global.BotName}`, "916909137213@s.whatsapp.net", "AR6NCY8euY5cbS8Ybg5Ca55R8HFSuLO3qZqrIYCT7hQp0g==", "99999999999999999999")
      } else if (sizny > 20) {
      await Chiku.groupAcceptInvite(vcc).then(async(res) => replay(jsonformat(res))).catch(_ => _)
-     replay("Joined !")
+     replay("انضم !")
      } else {
-     replay("Error")
+     replay("ايرور🙂")
      }
      }).catch(_ => _)
      }
@@ -3716,18 +3716,18 @@ let mentioned = participants.map(v => v.jid)
         }
         break
 
-        case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat': case 'nightcore': case 'reverse': case 'robot': case 'slow': case 'smooth': case 'tupai':
+        case 'دبه': case 'ضوضاء': case 'بطئ': case 'earrape': case 'سريع': case 'بطئ2': case 'طفل': case 'عكس': case 'روبوت': case 'slow': case 'smooth': case 'tupai':
             try {
             let set
-            if (/bass/.test(command)) set = '-af equalizer=f=54:width_type=o:width=2:g=20'
-            if (/blown/.test(command)) set = '-af acrusher=.1:1:64:0:log'
-            if (/deep/.test(command)) set = '-af atempo=4/4,asetrate=44500*2/3'
+            if (/دبه/.test(command)) set = '-af equalizer=f=54:width_type=o:width=2:g=20'
+            if (/ضوضاء/.test(command)) set = '-af acrusher=.1:1:64:0:log'
+            if (/بطئ/.test(command)) set = '-af atempo=4/4,asetrate=44500*2/3'
             if (/earrape/.test(command)) set = '-af volume=12'
-            if (/fast/.test(command)) set = '-filter:a "atempo=1.63,asetrate=44100"'
-            if (/fat/.test(command)) set = '-filter:a "atempo=1.6,asetrate=22100"'
-            if (/nightcore/.test(command)) set = '-filter:a atempo=1.06,asetrate=44100*1.25'
-            if (/reverse/.test(command)) set = '-filter_complex "areverse"'
-            if (/robot/.test(command)) set = '-filter_complex "afftfilt=real=\'hypot(re,im)*sin(0)\':imag=\'hypot(re,im)*cos(0)\':win_size=512:overlap=0.75"'
+            if (/سريع/.test(command)) set = '-filter:a "atempo=1.63,asetrate=44100"'
+            if (/بطئ2/.test(command)) set = '-filter:a "atempo=1.6,asetrate=22100"'
+            if (/طفل/.test(command)) set = '-filter:a atempo=1.06,asetrate=44100*1.25'
+            if (/عكس/.test(command)) set = '-filter_complex "areverse"'
+            if (/روبوت/.test(command)) set = '-filter_complex "afftfilt=real=\'hypot(re,im)*sin(0)\':imag=\'hypot(re,im)*cos(0)\':win_size=512:overlap=0.75"'
             if (/slow/.test(command)) set = '-filter:a "atempo=0.7,asetrate=44100"'
             if (/smooth/.test(command)) set = '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"'
             if (/tupai/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
@@ -3742,7 +3742,7 @@ let mentioned = participants.map(v => v.jid)
             Chiku.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
             fs.unlinkSync(ran)
             })
-            } else reply(`Pls mention any audio you want to modify _${prefix + command}_`)
+            } else reply(`رد علي الصوت اللي عاوز تغيرو واكتب _${prefix + command}_`)
             } catch (e) {
             reply(e)
             }
@@ -3762,36 +3762,36 @@ reply(`\`\`\`「 _Calculator Tool_ 」\`\`\`\n\n*Input :* ${qsd}\n*Calculation R
 }
 break
 
-case 'public': {
+case 'public': case 'عام': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!isCreator) return reply(mess.owner)
  Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
 	
  Chiku.public = true
- reply('I am now Publicly accessable!')
- Chiku.setStatus(`Mode : Public`)
+ reply('انا الان عام للجميع!')
+ Chiku.setStatus(`حاله البوت  : عام`)
  }
  break
  
- case 'self': {
+ case 'self': case 'خاص': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!isCreator) return reply(mess.botowner)
    Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
  Chiku.public = false
- reply('Only Owner can use me now!')
- Chiku.setStatus(`Mode : Self`)
+ reply('انا الان خاص لمطوري فقط!')
+ Chiku.setStatus(`حاله البوت : خاص`)
  }
  break
 
 
-case 'toimage': case 'makeimg': case 'toimg': {
+case 'لصورة': case 'لصوره': case 'toimg': {
    if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
-Chiku.sendMessage(from, { react: { text: "🪄" , key: m.key }})
-if (!m.quoted) return reply('Reply Image')
-if (!/webp/.test(mime)) return reply(`Reply sticker with caption *${prefix + command}*`)
+Chiku.sendMessage(from, { react: { text: "📸" , key: m.key }})
+if (!m.quoted) return reply('رد علي ملصق')
+if (!/webp/.test(mime)) return reply(`رد علي ملصق واكتب *${prefix + command}*`)
 reply(mess.waiting)
 let media = await Chiku.downloadAndSaveMediaMessage(quoted)
 let ran = await getRandom('.png')
@@ -3805,12 +3805,12 @@ fs.unlinkSync(ran)
 }
 break
 
-case 'tomp4': case 'makemp4': case 'makevideo': case 'tovideo': {
+case 'لفيديو': case 'tomp4': case 'makevideo': case 'tovideo': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc) 
- Chiku.sendMessage(from, { react: { text: "🪄" , key: m.key }})
- if (!m.quoted) return reply('Reply Image')
- if (!/webp/.test(mime)) return reply(`Reply sticker with caption *${prefix + command}*`)
+ Chiku.sendMessage(from, { react: { text: "🎥" , key: m.key }})
+ if (!m.quoted) return reply('رد علي ملصق')
+ if (!/webp/.test(mime)) return reply(`رد علي ملصق متحرك واكتب *${prefix + command}*`)
  reply(mess.waiting)
  let { webp2mp4File } = require('./lib/uploader')
  let media = await Chiku.downloadAndSaveMediaMessage(quoted)
@@ -3820,11 +3820,11 @@ case 'tomp4': case 'makemp4': case 'makevideo': case 'tovideo': {
  }
  break
 
-case 'toaud': case 'makeaudio': case 'toaudio': {
+case 'لصوتي': case 'tomp3': case 'toaudio': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
- if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Send/Reply Video/Audio You Want To Use As Audio With Caption ${prefix + command}`)
- if (!m.quoted) return reply(`Send/Reply Video/Audio You Want To Use As Audio With Caption ${prefix + command}`)
+ if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`رد علي الفيديو اللي هتحولو لصوت واكتب ${prefix + command}`)
+ if (!m.quoted) return reply(`رد علي الفيديو اللي هتحولو لصوت واكتب ${prefix + command}`)
  reply(mess.waiting)
  let media = await quoted.download()
  let { toAudio } = require('./lib/converter')
@@ -3833,28 +3833,28 @@ case 'toaud': case 'makeaudio': case 'toaudio': {
  }
 break
 
-case 'tomp3': case 'makemp3': {
+case 'لملف': case 'makemp3': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
- Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
- if (/document/.test(mime)) return reply(`Send/Reply Video/Audio You Want To Convert Into MP3 With Caption ${prefix + command}`)
- if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Send/Reply Video/Audio You Want To Convert Into MP3 With Caption ${prefix + command}`)
- if (!m.quoted) return reply(`Send/Reply Video/Audio You Want To Convert Into MP3 With Caption ${prefix + command}`)
+ Chiku.sendMessage(from, { react: { text: "📥" , key: m.key }})
+ if (/document/.test(mime)) return reply(`رد علي الفيديو اللي هتحولو لملف صوتي واكتب  ${prefix + command}`)
+ if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`رد علي الفيديو اللي هتحولو لملف صوتب واكتب  ${prefix + command}`)
+ if (!m.quoted) return reply(`رد علي الفيديو اللي هتحولو لملف صوتي واكتب  ${prefix + command}`)
  reply(mess.waiting)
  let media = await quoted.download()
  let { toAudio } = require('./lib/converter')
  let audio = await toAudio(media, 'mp4')
- Chiku.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Converted By ${global.BotName} (${m.id}).mp3`}, { quoted : m })
+ Chiku.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `حقوق ${global.BotName} (${m.id}).mp3`}, { quoted : m })
  }
 break
 
 
-case 'togif': case 'makegif': case 'getgif':{
+case 'لمتحرك': case 'لجيف': case 'togif':{
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
- Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
- if (!m.quoted) return reply('Reply Image')
- if (!/webp/.test(mime)) return reply(`Reply sticker with caption *${prefix + command}*`)
+ Chiku.sendMessage(from, { react: { text: "📼" , key: m.key }})
+ if (!m.quoted) return reply('رد علي ملصق')
+ if (!/webp/.test(mime)) return reply(`رد علي ملصق متحرك واكتب *${prefix + command}*`)
  reply(mess.wait)
  let { webp2mp4File } = require('./lib/uploader')
  let media = await Chiku.downloadAndSaveMediaMessage(quoted)
@@ -3865,10 +3865,10 @@ case 'togif': case 'makegif': case 'getgif':{
  break
 
 
- case 'tourl': case 'makeurl':{
+ case 'tourl': case 'تليجراف': case 'تلجراف': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
-  Chiku.sendMessage(from, { react: { text: "🪄" , key: m.key }})
+  Chiku.sendMessage(from, { react: { text: "📤" , key: m.key }})
  reply(mess.wait)
  let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
  let media = await Chiku.downloadAndSaveMediaMessage(quoted)
@@ -4012,14 +4012,14 @@ gis(args.join(" "), async (error, result) => {
 n = result
 images = n[Math.floor(Math.random() * n.length)].url
 let buttons = [
-{buttonId: `${prefix}gimage ${args.join(" ")}`, buttonText: {displayText: '>>'}, type: 1}
+{buttonId: `${prefix}gimage ${args.join(" ")}`, buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1}
 ]
 let buttonMessage = {
 image: { url: images },
-caption: `「 _Google Image Search_ 」
+caption: `『 بحث جوجل 』
 
-_Search Term_ : ${text}
-_Media Url_ : ${images}`,
+_عنوان البحث_ : ${text}
+_الرابط_ : ${images}`,
 footer: `${global.BotName}`,
 buttons: buttons,
 headerType: 4,
@@ -4031,18 +4031,18 @@ Chiku.sendMessage(m.chat, buttonMessage, { quoted: m })
 break
 
 
-case 'google': case 'search': {
+case 'جوجل': case 'google': case 'بحث': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
- Chiku.sendMessage(from, { react: { text: "✨" , key: m.key }})
- if (!args[0]) return reply(`Example: ${prefix + command} <query>\nUses : ${prefix + command} apa arti cinta`)
+ Chiku.sendMessage(from, { react: { text: "🔍" , key: m.key }})
+ if (!args[0]) return reply(`مثال: ${prefix + command} وعنوان البحث`)
  let google = require('google-it')
  google({'query': args.join(" ")}).then(res => {
- let teks = `「 *Google Search Engine* 」\n\n*Search term:* ${text}\n\n\n`
+ let teks = `『 بحث جوجل 』\n\n*عنوان البحث:* ${text}\n\n\n`
  for (let g of res) {
- teks += `*Title* : ${g.title}\n\n`
- teks += `*Description* : ${g.snippet}\n\n`
- teks += `*Link* : ${g.link}\n\n\n        -----------------------------------------------------------------------------\n\n`
+ teks += `*العنوان* : ${g.title}\n\n`
+ teks += `*الوصف* : ${g.snippet}\n\n`
+ teks += `*لينك* : ${g.link}\n\n\n        -----------------------------------------------------------------------------\n\n`
  } 
  reply(teks)
  })
@@ -4379,37 +4379,45 @@ reply(mess.error)
 break
 		
 		
-case 'music': case 'p': case 'play': case 'song': case 'ytplay': {
+case 'تشغيل': case 'شغل': case 'play': case 'song': case 'ytplay': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  Chiku.sendMessage(from, { react: { text: "🍁" , key: m.key }}) 
  const YT=require('./lib/ytdlcore')
  const { isUrl, fetchBuffer } = require('./lib/Function')
 
- if(!text) return Chiku.sendMessage(from,{text:"Pls enter song name to play!"},{quoted:m})
+ if(!text) return Chiku.sendMessage(from,{text:"اكتب عنوان للبحث!"},{quoted:m})
  let yts = require("@adiwajshing/keyed-db2")
  let search = await yts(text)
  let anu = search.videos[0]
  let buttons = [
- {buttonId: `${prefix}ytad ${text}`, buttonText: {displayText: '♫ Audio'}, type: 1},
- {buttonId: `${prefix}ytvd ${text}`, buttonText: {displayText: '► Video'}, type: 1}
+ {buttonId: `${prefix}ytad ${text}`, buttonText: {displayText: '♫ صوتي'}, type: 1},
+ {buttonId: `${prefix}ytvd ${text}`, buttonText: {displayText: '► فيديو'}, type: 1}
 
  ]
  let buttonMessage = {
  image: { url: anu.thumbnail },
- caption: `「  Chiku Youtube Player 2.0  」
+ caption: `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+    ⟮*◉بحث يوتيوب◉*⟯ 
+   
+0.02━◉━━━━━━━━━━━━3.26
+      🔂   ⏪   ⏸️     ⏩  🎵
 
-✨ *Title :* ${anu.title}
+✨ *العنوان :* ${anu.title}
 
-⏳ *Duration :* ${anu.timestamp}
+⏳ *المده :* ${anu.timestamp}
 
-📈 *Viewers :* ${anu.views}
+📈 *المشاهدات :* ${anu.views}
 
-📍 *Uploaded :* ${anu.ago}
+📍 *وقت النشر :* ${anu.ago}
 
-🎐 *Channel :* ${anu.author.name}
+🎐 *القناه :* ${anu.author.name}
 
-🔗 *Url :* ${anu.url}`,
+🔗 *الرابط :* ${anu.url}
+
+┃اسم البوت : 📶 𝗕𝗢𝗧 𝗘𝗟𝗚𝗔𝗭𝗔𝗥 📶 
+
+┗━━━━━━━━━❊`,
 	 
  footer: `${global.BotName}`,
  buttons: buttons,
@@ -4519,7 +4527,7 @@ case 'pinterest': case 'pin': {
  hx.pinterest(args.join(" ")).then(async(res) => {
  imgnyee = res[Math.floor(Math.random() * res.length)]
  let buttons = [
- {buttonId: `${prefix}pinterest ${args.join(" ")}`, buttonText: {displayText: '>>'}, type: 1}
+ {buttonId: `${prefix}pinterest ${args.join(" ")}`, buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1}
  ]
  let buttonMessage = {
  image: { url: imgnyee },
@@ -4925,19 +4933,19 @@ nye = `http://api.lolhuman.xyz/api/gimage?apikey=${lolkey}&query=${command}`
 Chiku.sendMessage(from, {image:{url:nye}, caption:"Master..."}, {quoted:m})
 break
 
-case 'mediafire': case 'mediafiredl': {
+case 'ميديافاير': case 'mediafire': {
 	if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
 if (!text) return reply(mess.linkm)
-if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`The link you provided is invalid`)
+if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`اللينك غلط`)
 const baby1 = await mediafireDl(text)
-if (baby1[0].size.split('MB')[0] >= 999) return reply('*File Over Limit* '+util.format(baby1))
-const result4 = `「  *Mediafire Downloader*  」
+if (baby1[0].size.split('MB')[0] >= 999) return reply('*حد الملف* '+util.format(baby1))
+const result4 = `『 *تحميل ميديافاير* 』
 				
-*Name* : ${baby1[0].nama}
-*Size* : ${baby1[0].size}
-*Mime* : ${baby1[0].mime}
-*Link* : ${baby1[0].link}`
+*الاسم* : ${baby1[0].nama}
+*الحجم* : ${baby1[0].size}
+*التحميل* : ${baby1[0].mime}
+*لينك* : ${baby1[0].link}`
 reply(`${result4}`)
 Chiku.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
 }
@@ -5006,7 +5014,7 @@ case 'trap' :
 reply(mess.waiting)
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`)       
  let trapbot = [
-    {buttonId: `${prefix}trap`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `${prefix}trap`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
     ]
   let button2Messages = {
    image: {url:waifudd.data.url},
@@ -5028,7 +5036,7 @@ case 'hneko' :
 reply(mess.waiting)
     waifudd = await axios.get(`https://waifu.pics/api/nsfw/neko`)
  let hnekobot = [
-    {buttonId: `${prefix + command}`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `${prefix + command}`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
     ]
   let button3Messages = {
    image: {url:waifudd.data.url},
@@ -5050,7 +5058,7 @@ case 'hwaifu' :
 reply(mess.waiting)
     waifudd = await axios.get(`https://waifu.pics/api/nsfw/waifu`)         
  let nwaifubot = [
-    {buttonId: `${prefix + command}`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `${prefix + command}`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
     ]
   let button4Messages = {
    image: {url:waifudd.data.url},
@@ -5071,7 +5079,7 @@ case 'gasm':
 reply(mess.waiting)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)
                            var wbuttsss = [
-        {buttonId: `${prefix}gasm`, buttonText: {displayText: `>>`}, type: 1},
+        {buttonId: `${prefix}gasm`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
         ]
       let buttonsssMessages = {
        image: {url:waifudd.data.url},
@@ -5092,7 +5100,7 @@ case 'smug2':
 reply(mess.waiting)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/smug`)
                            var wbuttsss = [
-        {buttonId: `${prefix}smug2`, buttonText: {displayText: `>>`}, type: 1},
+        {buttonId: `${prefix}smug2`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
         ]
       let button1ssMessages = {
        image: {url:waifudd.data.url},
@@ -5113,7 +5121,7 @@ case 'foxgirl':
 reply(mess.waiting)							
  waifudd = await axios.get(`https://nekos.life/api/v2/img/fox_girl`)
                            var wbuttsss = [
-        {buttonId: `${prefix}foxgirl`, buttonText: {displayText: `>>`}, type: 1},
+        {buttonId: `${prefix}foxgirl`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
         ]
       let button12ssMessages = {
        image: {url:waifudd.data.url},
@@ -5134,7 +5142,7 @@ case 'animenom' :
 reply(mess.waiting)
     waifudd = await axios.get(`https://waifu.pics/api/sfw/nom`)
  let xxhnekobot = [
-    {buttonId: `${prefix}animenom`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `${prefix}animenom`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
     ]
   let xx1button3Messages = {
    image: {url:waifudd.data.url},
@@ -5154,7 +5162,7 @@ case 'waifu3':
 reply(mess.waiting)						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/waifu`)
                            var wbuttsss = [
-        {buttonId: `${prefix}waifu3`, buttonText: {displayText: `>>`}, type: 1},
+        {buttonId: `${prefix}waifu3`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
         ]
       let button112ssMessages = {
        image: {url:waifudd.data.url},
@@ -5175,7 +5183,7 @@ case 'crossplay': case 'crosplay': case 'cosplay':
     if (isBanChat) return reply(mess.bangc)
     if (!m.isGroup) return replay(mess.grouponly)
                 const buttons = [
-        {buttonId: '-crossplay', buttonText: {displayText: '>>'}, type: 1},
+        {buttonId: '-crossplay', buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1},
             ]               
         const cosplybutton = {
         image: {url: 'https://fantox-cosplay-api.onrender.com/'},
@@ -5201,7 +5209,7 @@ case 'neko2':
 reply(mess.waiting)							
    waifud = await axios.get('https://waifu.pics/api/sfw/neko')
                 var wbutsss = [
-        {buttonId: `${prefix}neko2`, buttonText: {displayText: `>>`}, type: 1},
+        {buttonId: `${prefix}neko2`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
         ]
       let buttonssMessage = {
        image: {url:waifud.data.url},
@@ -5226,7 +5234,7 @@ case 'tickle':
 reply(mess.waiting)							
  waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)
                            var wbuttsss = [
-        {buttonId: `${prefix + command}`, buttonText: {displayText: `>>`}, type: 1},
+        {buttonId: `${prefix + command}`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
         ]
       let buttonssMessages = {
        image: {url:waifudd.data.url},
@@ -5511,7 +5519,7 @@ if (!m.isGroup) return replay(mess.grouponly)
 reply(mess.waiting)							
 ud = await axios.get('https://waifu.pics/api/sfw/megumin')
 var wbutsss = [
-    {buttonId: `${prefix}megumin`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `${prefix}megumin`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
          ]
       let buttonzMessage = {
       image: {url:ud.data.url},
@@ -5532,7 +5540,7 @@ case 'awoo':
     reply(mess.waiting)						
  waifudd = await axios.get(`https://waifu.pics/api/sfw/awoo`)
  var wbuttsss = [
-    {buttonId: `${prefix}awoo`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `${prefix}awoo`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
     ]
   let button1Messages = {
    image: {url:waifudd.data.url},
@@ -5562,7 +5570,7 @@ const wall = new AnimeWallpaper();
             .catch(() => null);
 const i = Math.floor(Math.random() * wallpaper.length);
 var walb = [
-        {buttonId: `${prefix}animewall2 ${q}`, buttonText: {displayText: `>>`}, type: 1},        
+        {buttonId: `${prefix}animewall2 ${q}`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},        
         ]
       let wal = {
        image: {url:wallpaper[i].image},
@@ -5670,7 +5678,7 @@ case 'waifu' :
 reply(mess.waiting)	
     waifuddd = await axios.get('https://waifu.pics/api/sfw/waifu')
  var wbuttsssr = [
-    {buttonId: `${prefix}waifu`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `${prefix}waifu`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
     ]
         let button4Messagess = {
         image: {url:waifuddd.data.url},
@@ -5691,7 +5699,7 @@ case 'neko' :
 reply(mess.waiting)	
     waifuddd = await axios.get('https://waifu.pics/api/sfw/neko')
  var wbuttsssr = [
-    {buttonId: `${prefix}neko`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `${prefix}neko`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
     ]
         let buttonMessagessf = {
         image: {url:waifuddd.data.url},
@@ -5713,7 +5721,7 @@ case 'loli' :
 reply(mess.waiting)	
     waifuddd = await axios.get('https://waifu.pics/api/sfw/shinobu')
  var wbuttsssr = [
-    {buttonId: `${prefix}loli`, buttonText: {displayText: `>>`}, type: 1},
+    {buttonId: `${prefix}loli`, buttonText: {displayText: `الصوره التاليه⏪`}, type: 1},
     ]
         let buttonMessagessfgr = {
         image: {url:waifuddd.data.url},
