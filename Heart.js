@@ -6068,7 +6068,7 @@ I am *chiku*, a bot  deploy by 🦋⃟≛⃝𝐀𝐘𝐔𝐒𝐇⃟≛⃝
 
  
                 let buttonMessage = {
-                    video:fs.readFileSync('./system/Chiku_2.mp4'),gifPlayback:true,
+                    video:fs.readFileSync('./system/elgazar.jpg'),gifPlayback:true,
                     caption: helpmenu,
                   
                     headerType: 4
@@ -6096,7 +6096,7 @@ case '':
                 {buttonId: `${prefix}help`, buttonText: {displayText: 'Help'}, type: 1}
                 ]
                 let buttonMessage = {
-                    video:fs.readFileSync('./system/Chiku.mp4'),gifPlayback:true,
+                    video:fs.readFileSync('./system/elgazar.jpg'),gifPlayback:true,
                     caption: needhelpmenu,
                     footer: `${global.BotName}`,
                     buttons: butRun,
@@ -6165,7 +6165,7 @@ const addmenu = `This feature is disabled by bot creator💫
 
  
                 let buttonMessage = {
-                    video:fs.readFileSync('./system/Chiku_2.mp4'),gifPlayback:true,
+                    video:fs.readFileSync('./system/elgazar.jpg'),gifPlayback:true,
                     caption: addmenu,
                   
                     headerType: 4
