@@ -6,4 +6,4 @@
 </p>
 
  
-[![النشر ](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Sjshskdhd/ELGAZAR_BOTV7/)
+[![النشر ](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/Sjshskdhd/ELGAZAR_BOTV7)
