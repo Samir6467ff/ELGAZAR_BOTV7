@@ -519,12 +519,12 @@ var levelRole = getLevelingLevel(m.sender)
                                         addLevelingXp(m.sender, amountXp)
                                         if (requiredXp <= getLevelingXp(m.sender)) {
                                         addLevelingLevel(m.sender, 1)
-teks = `「 *رفع مستوي المستخدم* 」\n\n@${m.sender.split("@")[0]} تم رفع مستوى!!\n\n*اكس بي المستخدم*: ${getLevelingXp(m.sender)}\n*لفل**: ${getLevel} -> ${getLevelingLevel(m.sender)}\n*دور*: ${role} \n\n`
+teks = `「 *User Level UP* 」\n\n@${m.sender.split("@")[0]} got leveled up!!\n\n*User XP*: ${getLevelingXp(m.sender)}\n*Level*: ${getLevel} -> ${getLevelingLevel(m.sender)}\n*Role*: ${role} \n\n`
 Chiku.sendMessage(m.chat, {text: teks, mentions:[m.sender]}, {quoted:m})
 }
 
                         } catch (err) {
-                                console.error("❌ ايرور !")
+                                console.error("❌ An error occured !")
                         }
                 }
                 if (prefix && command) {
@@ -542,7 +542,7 @@ Chiku.sendMessage(m.chat, {text: teks, mentions:[m.sender]}, {quoted:m})
                                         }
                                         
                         } catch (err) {
-                                console.error("❌ ايرور !")
+                                console.error("❌ An error occured !")
                         }
                 }
 
@@ -759,16 +759,18 @@ let afkTime = user.afkTime
 if (!afkTime || afkTime < 0) continue
 let reason = user.afkReason || ''
 reply(`
-متعملش ريب عليه لانه في وضع الاختفاء الان ${reason ? 'السبب ' + reason : 'بدون سبب'}
-مده الغياب ${clockString(new Date - afkTime)}
+Pls try not to tag him!
+He's in away from keyboard ${reason ? 'with reason ' + reason : 'no reason'}
+During ${clockString(new Date - afkTime)}
 `.trim())
 }
 
 if (db.users[m.sender].afkTime > -1) {
 let user = global.db.users[m.sender]
 reply(`
-منور لقد عدت ${user.afkReason ? ' السبب ' + user.afkReason : ''}
-مده الغياب ${clockString(new Date - user.afkTime)}
+Pls try not to tag him!
+He's Offline ${user.afkReason ? ' after ' + user.afkReason : ''}
+During ${clockString(new Date - user.afkTime)}
 `.trim())
 user.afkTime = -1
 user.afkReason = ''
@@ -776,7 +778,7 @@ user.afkReason = ''
 
 
 if (m.mtype === 'groupInviteMessage') {
-teks = `لا يمكنني الانضمام إلى المجموعة حتى يطلب مني *المطور* الانضمام. اكتب* - المطور * للحصول على رقم المطور واسأل.`
+teks = `I can't join the group untill my *Owner* ask me to join. Type *-owner* to get owner number and ask him.`
 sendOrder(m.chat, teks, "5123658817728409", fs.readFileSync('./Assets/pic10.jpg'), `${watermark}`, `${BotName}`, "916909137213@s.whatsapp.net", "AR7zJt8MasFx2Uir/fdxhkhPGDbswfWrAr2gmoyqNZ/0Wg==", "99999999999999999999")
 }
 
@@ -784,15 +786,15 @@ sendOrder(m.chat, teks, "5123658817728409", fs.readFileSync('./Assets/pic10.jpg'
 if (AntiLink) {
     linkgce = await Chiku.groupInviteCode(from)
     if (budy.includes(`https://chat.whatsapp.com/${linkgce}`)) {
-    reply(`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nانت ارسلت رابط هذا الجروب لهذا لم اطردك.`)
+    reply(`\`\`\`「  Antilink System  」\`\`\`\n\nNo action will be because you sent this group's link.`)
     } else if (isUrl(m.text)) {
-    bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nانت ادمن والادمن حر في ارسال اي رابط.`
+    bvl = `\`\`\`「  *Antilink System*  」\`\`\`\n\nAdmin has sent a link so no action is taken.`
     if (isAdmins) return reply(bvl)
     if (m.key.fromMe) return reply(bvl)
     if (isCreator) return reply(bvl)
     kice = m.sender
     await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
-    Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} تم طرده لارساله الروابط في الجروب!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+    Chiku.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka Has been removed for sending link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
     } else {
     }
     }
@@ -800,32 +802,32 @@ if (AntiLink) {
     if (antiWame)
     if (budy.includes(`wa.me`)) {
   if (!isBotAdmins) return
-  bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nالادمن ارسل رابط والادمن حر في ارسال اي روابط!!`
+  bvl = `\`\`\`「 _'wa.me' PM link Detected!_  」\`\`\`\n\nLink sent by Admin so no action is taken!`
   if (isAdmins) return reply(bvl)
   if (m.key.fromMe) return reply(bvl)
   if (isCreator) return reply(bvl)
   kice = m.sender
   await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-  Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} تم طرده لارساله الروابط في الجروب!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+  Chiku.sendMessage(from, {text:`\`\`\`「 'wa.me' PM link Detected! 」\`\`\`\n\n@${kice.split("@")[0]} Baka Has been removed for sending link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
   } else {
   }
   if (antiWame)
   if (budy.includes(`http://wa.me`)) {
 if (!isBotAdmins) return
-bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nالادمن ارسل رابط والادمن حر في ارسال اي روابط!!`
+bvl = `\`\`\`「 'wa.me' PM link Detected! 」\`\`\`\n\nLink sent by Admin so no action is taken!`
 if (isAdmins) return reply(bvl)
 if (m.key.fromMe) return reply(bvl)
 if (isCreator) return reply(bvl)
 kice = m.sender
 await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]}  تم طرده لارساله لينك شات في الجروب!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+Chiku.sendMessage(from, {text:`\`\`\`「 'wa.me' PM link Detected! 」\`\`\`\n\n@${kice.split("@")[0]}  Baka Has been removed for sending link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 } else {
 }
 
 if (antiVirtex) {
     if (budy.length > 3500) {
-    reply(`*تحذير!*\n\n`.repeat(300))
-    reply(`\`\`\`تم الكشف عن فيروس !!\`\`\`\n\nطرد المرسل...`)
+    reply(`*Caution!*\n\n`.repeat(300))
+    reply(`\`\`\`Virus Detected !!\`\`\`\n\nRevoving sender...`)
     if (!isBotAdmins) return reply(mess.botAdmin)
     Chiku.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
     }
@@ -836,15 +838,15 @@ if (antiVirtex) {
         if (!isBotAdmins) return
         linkgce = await Chiku.groupInviteCode(from)
         if (budy.includes(`https://chat.whatsapp.com/${linkgce}`)) {
-        reply(`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nلم يتم طردك لانك ارسلت رابط هذا الجروب!`)
+        reply(`\`\`\`「  Antilink System  」\`\`\`\n\nNo action will be taken because you sent this group's link!`)
         } else if (isUrl(m.text)) {
-        bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nالادمن ارسل رابط وهو حر في ارسال اي روابط!`
+        bvl = `\`\`\`「  Antilink System  」\`\`\`\n\nAdmin has sent a group link so no action will be taken!`
         if (isAdmins) return reply(bvl)
         if (m.key.fromMe) return reply(bvl)
         if (isCreator) return reply(bvl)
         kice = m.sender
         await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-        Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} تم طرده لارساله رابط واتساب في الجروب!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+        Chiku.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka has been removed for sending link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
         } else {
         }
         }
@@ -853,52 +855,52 @@ if (antiVirtex) {
         if (AntiLinkYoutubeVid)
         if (budy.includes("https://youtu.be/")){
         if (!isBotAdmins) return
-        bvl = `\`\`\`『⚠️منع الروابط⚠️』」\`\`\`\n\nالادمن ارسل رابط وهو حر في ارسال اي روابط!`
+        bvl = `\`\`\`「  Antilink System  」」\`\`\`\n\nLink sent by Admin so no action will be taken!`
         if (isAdmins) return reply(bvl)
         if (m.key.fromMe) return reply(bvl)
         if (isCreator) return reply(bvl)
         kice = m.sender
         await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-        Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} تم طرده لارساله رابط يوتيوب في الجروب`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+        Chiku.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka has been removed for sending Yt video link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
         } else {
         }
         
         if (AntiLinkYoutubeChannel)
            if (budy.includes("https://youtube.com/")){
         if (!isBotAdmins) return
-        bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nالادمن ارسل رابط وهو حر في ارسال اي روابط!`
+        bvl = `\`\`\`「  Antilink System  」\`\`\`\n\nLink sent by Admin so no action will be taken!`
         if (isAdmins) return reply(bvl)
         if (m.key.fromMe) return reply(bvl)
         if (isCreator) return reply(bvl)
         kice = m.sender
         await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-        Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} م طرده لارساله رابط قناه يوتيوب في الجروب!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+        Chiku.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka has been removed for sending Yt channel link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
         } else {
         }
         
         if (AntiLinkInstagram)
            if (budy.includes("https://www.instagram.com/")){
         if (!isBotAdmins) return
-        bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nالادمن ارسل رابط وهو حر في ارسال اي روابط!`
+        bvl = `\`\`\`「  Antilink System  」\`\`\`\n\nLink sent by Admin so no action will be taken!`
         if (isAdmins) return reply(bvl)
         if (m.key.fromMe) return reply(bvl)
         if (isCreator) return reply(bvl)
         kice = m.sender
         await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-        Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} تم طرده لارساله رابط انستجرام في الجروب!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+        Chiku.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka has been removed for sending Instagram link in this group! No promotion is allowed!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
         } else {
         }
         
         if (AntiLinkFacebook)
            if (budy.includes("https://facebook.com/")){
         if (!isBotAdmins) return
-        bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nالادمن ارسل رابط وهو حر في ارسال اي روابط!`
+        bvl = `\`\`\`「  Antilink System  」\`\`\`\n\nLink sent by Admin so no action will be taken!`
         if (isAdmins) return reply(bvl)
         if (m.key.fromMe) return reply(bvl)
         if (isCreator) return reply(bvl)
         kice = m.sender
         await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-        Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} تم طرده لارساله رابط فيسبوك في الجروب!!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+        Chiku.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka has been removed for sending Facebook link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
         } else {
         }
         
@@ -906,52 +908,52 @@ if (antiVirtex) {
            if (budy.includes("https://t.me/")){
         if (AntiLinkTelegram)
         if (!isBotAdmins) return
-        bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nالادمن ارسل رابط وهو حر في ارسال اي روابط!`
+        bvl = `\`\`\`「  Antilink System  」\`\`\`\n\nLink sent by Admin so no action will be taken!`
         if (isAdmins) return reply(bvl)
         if (m.key.fromMe) return reply(bvl)
         if (isCreator) return reply(bvl)
         kice = m.sender
         await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-        Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} تم طرده لارساله رابط تليجرام في الجروب!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+        Chiku.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka has been removed for sending Telegram link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
         } else {
         }
         
         if (AntiLinkTiktok)
            if (budy.includes("https://www.tiktok.com/")){
         if (!isBotAdmins) return
-        bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nالادمن ارسل رابط وهو حر في ارسال اي روابط!`
+        bvl = `\`\`\`「  Antilink System  」\`\`\`\n\nLink sent by Admin so no action will be taken!`
         if (isAdmins) return reply(bvl)
         if (m.key.fromMe) return reply(bvl)
         if (isCreator) return reply(bvl)
         kice = m.sender
         await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-        Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} تم طرده لارساله رابط تيك توك في الجروب!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+        Chiku.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka has been removed for sending Tiktok link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
         } else {
         }
         
         if (AntiLinkTwitter)
            if (budy.includes("https://twitter.com/")){
         if (!isBotAdmins) return
-        bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nالادمن ارسل رابط وهو حر في ارسال اي روابط!`
+        bvl = `\`\`\`「  Antilink System  」\`\`\`\n\nLink sent by Admin so no action will be taken!`
         if (isAdmins) return reply(bvl)
         if (m.key.fromMe) return reply(bvl)
         if (isCreator) return reply(bvl)
         kice = m.sender
         await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-        Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} تم طرده لارساله رابط تويتر في الجروب!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+        Chiku.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka has been removed for sending Twitter link in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
         } else {
         }
         
         if (AntiLinkAll)
            if (budy.includes("https://")){
         if (!isBotAdmins) return
-        bvl = `\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\nالادمن ارسل رابط وهو حر في ارسال اي روابط!`
+        bvl = `\`\`\`「  Antilink System  」\`\`\`\n\nLink sent by Admin so no action will be taken!`
         if (isAdmins) return reply(bvl)
         if (m.key.fromMe) return reply(bvl)
         if (isCreator) return reply(bvl)
         kice = m.sender
         await Chiku.groupParticipantsUpdate(m.chat, [kice], 'remove')
-        Chiku.sendMessage(from, {text:`\`\`\`『⚠️منع الروابط⚠️』\`\`\`\n\n@${kice.split("@")[0]} تم طرده لإرسال الروابط في هذا الجروب!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+        Chiku.sendMessage(from, {text:`\`\`\`「  Antilink System  」\`\`\`\n\n@${kice.split("@")[0]} Baka has been removed for sending links in this group!`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
         } else {
         }
         
@@ -1396,7 +1398,7 @@ const ftroli = {
 
 
     const menulist = `
-    Elgazar bot ${pushname} 👋.انا العزيز  ${global.BotName}, تطويري بواسطة: ᴇʟɢᴀᴢᴀʀ🍒 للانتقال باستخدام واتساب إلى المستوى التالي.
+    Konichiwa ${pushname} dear 👋. I am ${global.BotName}, a bot developed by: Ayush to take your WhatsApp usage into next level.
         
        「 System Info 」
     
@@ -1492,14 +1494,14 @@ for (let anju of Ayushaudio){
             isWin = true
             }
             let winner = isSurrender ? room.game.currentTurn : room.game.winner
-            let str = `رقم الغرفه: ${room.id}
+            let str = `Room ID: ${room.id}
     ${arr.slice(0, 3).join('')}
     ${arr.slice(3, 6).join('')}
     ${arr.slice(6).join('')}
-    ${isWin ? `@${winner.split('@')[0]} الفائز!` : isTie ? `انتهت اللعبه` : `دور ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
+    ${isWin ? `@${winner.split('@')[0]} Won!` : isTie ? `Game Over` : `Turn ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
     ❌: @${room.game.playerX.split('@')[0]}
     ⭕: @${room.game.playerO.split('@')[0]}
-    اكتب *surrender* للاستسلام والاعتراف بالهزيمة`
+    Typed *surrender* to surrender and admited defeat`
             if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
             room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
             if (room.x !== room.o) await Chiku.sendText(room.x, str, m, { mentions: parseMention(str) } )
@@ -1515,117 +1517,69 @@ for (let anju of Ayushaudio){
 	
 	
 	let smallinput = budy.toLowerCase()
-    if (smallinput.includes('نورت')) {
-      reply (`*بنوري طبعا✨*`);
+    if (smallinput.includes('hello')) {
+      reply (`Hello ${pushname}, I am ${BotName}. How can i help you?`);
     } 
-    
-if (smallinput.includes('جزار') || smallinput.includes(' hui')) {
-      reply (`*قلب الجزار من جوا🥺♥✨*`);
-      }
-      
-    if( smallinput.includes('بحبك') || smallinput.includes('انا بحبك') || smallinput.includes('love you') || smallinput.includes('I love you bot')){
-      reply (`*بحبك اكتر🥺✨*`);
+	
+//if (smallinput.includes('hi')) {
+
+   //   reply (`Hello ${pushname}, I am ${BotName}. How can i help you?`);
+
+   // } 
+		
+	 if (smallinput=='Ayush') {
+        reply (`My Boss is lost in another Multiverse, and I lost the connection with him...`)
     }
-   
-    if (smallinput=='bot') {
-      reply (`مرحبا *${pushname}*, انا *${BotName}*, بوت واتساب مطور من الجزار*  اكتب  *${prefix}الاوامر* لظهور قائمه الاوامر الخاصه بي.`);
+	
+	
+
+    if( smallinput.includes('konichiwa') || smallinput.includes('konochiwa') || smallinput.includes('konichiba') || smallinput.includes('salute')){
+      reply (`Konichiwa ${pushname}, I am ${BotName}. How can i help you?`);
+    }
+    
+	
+	
+	 if (smallinput=='Chiku') {
+        reply ('Yes I am Alive 🫂')
+    }
+	
+	
+if (smallinput=='ping') {
+        reply (`Hey ${pushname} Pong📍 ${latensie.toFixed(4)} ms`)
     }
 
-    if (smallinput=='بوت') {
-        reply (`*اسمي الجزار يروحي♥✨*`)
+	
+    if (smallinput.includes('good morning') || smallinput.includes('ohayo')) {
+      reply (`Good morning to you too ${pushname} ☺️. Have a great day 😇.`);
     }
-    
-    if (smallinput=='السلام عليكم') {
-        reply (`*وعليكم السلام حبي تفضل❤*`)
-    }
-    
-    if (smallinput=='ميكاسا') {
-        reply (`*ميكاسا عمتكم🥺♥✨*`)
-    }
-    
-    if (smallinput=='توغا') {
-        reply (`*توغا عمتكم🥺♥✨*`)
-    }
-    
-    if (smallinput=='كلخرا') {
-        reply (`*ما اكلك طعمك زق مثل وجهك🤢*`)
-    }
-    
-    if (smallinput=='كل خرا') {
-        reply (`*ما اكلك طعمك زق مثل وجهك🤢*`)
-    }
-    
-    if (smallinput=='تبا لك') {
-        reply (`*ولك يزق😆*`)
+	
+    if (smallinput.includes('good afternoon') || smallinput.includes('konnichiwa')) {
+
+      reply (`Good afthernoon to you too ${pushname} ✨. Wishing you an enjoyable afternoon too 😇🤞🏻.`);
+
     }
 
-    if (smallinput=='هاي') {
-        reply (`*هاي يروحي🥺♥*`)
-    }
-    
-    if (smallinput=='ايتاشي') {
-        reply (`*ايتاشي عمك🤺✨*`)
-    }
-    
-    if (smallinput=='الجزار') {
-        reply (`*الجزار عمك🤺✨*`)
-    }
-    
-    if (smallinput=='من صنعك') {
-        reply (`*الجزار مطوري 🥺✨*`)
-    }
-    
-    if (smallinput=='زورو') {
-        reply (`*زورو عمك🤺✨*`)
-    }
-    
-    if (smallinput=='لا') {
-        reply (`*ليش لا يكلب👾 *`)
-    }
-    
-    if (smallinput=='اسكت') {
-        reply (`*اما انت غتت صحيح🥺💔*`)
-    }
-    
-if (smallinput=='احا') {
-        reply (`*احتين علي احتك🥺😂✨*`)
-    }
-if (smallinput=='😂😂😂') {
-        reply (`*دوم الضحكه الحلوه❤✨*`)
+
+
+    //if (smallinput.includes('good afthernoon')) {
+     // reply (`Huh ${pushname} 😇. Wishing you an enjoyable afternoon too.`);
+ //   }
+	
+	
+	
+	
+    if (smallinput.includes('good night')) {
+      reply (`Good night to you too ${pushname} 😇. Sleep well and sweet dreams.`);
     }
 
-    
-if (smallinput=='😂😂') {
-        reply (`*دوم يروحي🥺❤✨*`)
+    if (smallinput.includes('arigato')|| smallinput.includes('arigatou') || smallinput.includes('thank')) {
+      reply (`Mention not ${pushname} 😇. I am a bot afterall.`);
     }
-
-    if (smallinput.includes('تصبح علي خير') || smallinput.includes('ohayo')) {
-      reply (`*وانت من اهل الخير يروحي🥺❤*`);
-    }
-
-if (smallinput=='كلزق') {
-        reply (`*ما اكلك يوصخ🗿👞*`)
-    }
-    
-    if (smallinput=='كل زق') {
-        reply (`*ما اكلك يوصخ🗿👞*`)
-    }
-    
-    if (smallinput=='دز') {
-        reply (`*دز انت🤺*`)
-    }
-    
-    if (smallinput=='اتفق') {
-        reply (`*اطلق من يتفق✨*`)
-    }
-    
-    if (smallinput.includes('🙃')) {
-      reply (`*اقلب وجهك يورع😂✨*`);
-    }
-
-    if (smallinput.includes('🙂🙂')|| smallinput.includes('arigatou') || smallinput.includes('thank')) {
-      reply (`*ابتسم للحياه يا حياتي♥✨*`);
-    }      
+	
+	
+	
+	
+	
 
 switch(command) {
 	
@@ -1633,11 +1587,10 @@ switch(command) {
         if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
     Chiku.sendMessage(from, { react: { text: "❤" , key: m.key }})
-    let { data } = await axios.get('https://youtube.com/@ABDALLAH_MOHAMED');
-    teks = `لا تنسي الاشتراك بقناه اليوتيوب⭐️
-https://youtube.com/@ABDALLAH_MOHAMED `
+    let { data } = await axios.get('https://github.com/Ayush-pandey-u/Chiku-MD');
+    teks = `*Chiku Script*\n\n*Total Stars*: ${data.stargazers_count}⭐\n*Total Forks*: ${data.forks_count} forks\n*GitHub*: https://github.com/Ayush-pandey-u/Chiku-MD\n\nDont forget to follow me on *GitHub* and give a ⭐️ to my projects. `
     let buttons = [
-    {buttonId: `${prefix}menu`, buttonText: {displayText: 'قائمه البوت✨'}, type: 1}
+    {buttonId: `${prefix}owner`, buttonText: {displayText: '🍁 Owner🍁'}, type: 1}
     ]
     let buttonMessage = {
     image: Thumb,
@@ -1661,7 +1614,7 @@ https://youtube.com/@ABDALLAH_MOHAMED `
     break
 
 
-case 'بروفايل': case 'profile': case 'ايدي': case
+case 'me': case 'profile':
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
   if (!isDarah){ addInventoriDarah(m.sender, DarahAwal) }
@@ -1683,25 +1636,12 @@ case 'بروفايل': case 'profile': case 'ايدي': case
       pfp ='https://wallpapercave.com/wp/wp10524580.jpg'
     }
 
-     const profilexx = `*⋆ صورتك قمر ياروحي..🥺🖤*
-ꔹ━━━━━ꔹ
-*اسمك الجميل..* 
-𓆩${pushname}𓆪
-ꔹ━━━━━ꔹ
-*البايو بتاعك..*
-𓆩 ${bioo}𓆪
-ꔹ━━━━━ꔹ
-*رتبتك فجروب..*
-𓆩${adn}𓆪
-ꔹ━━━━━ꔹ
-*مبرمج السورس..*
- t.me/A_M_030
-ꔹ━━━━━ꔹ`
+     const profilexx = `*「  Profile Info  」*\n\n*User Name* : ${pushname}\n*Bio* : ${bioo}\n*Group Admin Status* : ${adn}\n*Level* : ${levelMenu}\n*Exp* : ${xpMenu} out of ${reqXp}\n*Role* : ${role}`
  
 
 
 let buttonspro = [
-    {buttonId: `${prefix}soulmate`, buttonText: {displayText: 'توأم روحك🥺✨'}, type: 1}
+    {buttonId: `${prefix}soulmate`, buttonText: {displayText: 'Your Soulmate'}, type: 1}
     ]
             let buttonMessage = {
                 image: { url: pfp },
@@ -1718,16 +1658,16 @@ let buttonspro = [
         	
             break
 
-		case 'report': case 'ابلاغ ': {
+		case 'report': case 'suggest ': {
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-    if (!text) return reply(`يرجى تقديم ابلاغ عن مشكله تريد تسليمها`)
-    if (text.length > 300) return reply(`هل تحاول إرسال فيروس!`)
-    const txtmsg = `*📮 رساله التقرير*\n\n*المرسل ➛* wa.me/${m.sender.split("@")[0]}\n\n*اسم الجروب ➛* ${groupName}\n\n*الرساله ➛*  ${text}`
+    if (!text) return reply(`please provide a report message you want to deliver`)
+    if (text.length > 300) return reply(`Are you trying to send virus!`)
+    const txtmsg = `*📮 Report Message*\n\n*Sender ➛* wa.me/${m.sender.split("@")[0]}\n\n*Group Name ➛* ${groupName}\n\n*Message ➛*  ${text}`
 	for (let mod of global.Owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != '6297175943@s.whatsapp.net'))
 	await Chiku.sendMessage(`${mod}`, {text: `${txtmsg}`},  { quoted: m })
 	await Chiku.sendMessage(`120363026915700516@g.us`, {text: `${txtmsg}`, mentions: groupAdmins}, { quoted: m })
-    replay(`*✅ تم تقديم ابلاغك بنجاح لدعم الجروب والمطور*\n\n*سوف تحصل على رد قريبا ♥️*`); 
+    replay(`*✅ Your Report has been submitted Successfully to Support group & Owner*\n\n*You will get response shortly ♥️*`); 
  }
  break   
 		
@@ -1735,7 +1675,7 @@ let buttonspro = [
 		
 //game
 		
-      case'هديه': case'مرتبي': case 'مكافأه': {
+      case'daily': case'claim': case 'reward': {
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc)
@@ -1744,15 +1684,15 @@ let buttonspro = [
 	const cara = "cara"
 	const daily  = await eco.daily(user, cara, 9999); //give 999 for daily, can be changed
 	
-	        if (daily.cd) return replay(`لقد حصلت علي مرتبك اليوم عد  ${daily.cdL}`); //cdL is already formatted cooldown Left
+	        if (daily.cd) return replay(`You already claimed daily for today, come back in ${daily.cdL}`); //cdL is already formatted cooldown Left
 	
-            replay(`لقد اخذت مرتبك💰${daily.amount} اليوم`);        
+            replay(`You claimed 💰${daily.amount} for daily`);        
 }
 break
 		
 				
 
-  case'المحفظه':  case 'محفظه': {
+  case'wallet':  case 'purse': {
 
         if (isBan) return reply(mess.banned)	 			
 
@@ -1767,32 +1707,32 @@ break
 
     const balance = await eco.balance(user, cara); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
 
-    await replay(`👛 ${pushname}'محفظه:\n\n_💰${balance.wallet}_`);
+    await replay(`👛 ${pushname}'s Purse:\n\n_💰${balance.wallet}_`);
 
 }
 
 break
 
     	
-	case'البنك':  case 'levee': {
+	case'bank':  case 'levee': {
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc)	
-Chiku.sendMessage(from, { react: { text: "🏦" , key: m.key }})
+Chiku.sendMessage(from, { react: { text: "💳" , key: m.key }})
 		
     const user = m.sender
     const cara = "cara"
     const balance = await eco.balance(user, cara); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
-    await replay(`🏦 ${pushname}'بنك:\n\n_💰${balance.bank}/${balance.bankCapacity}_`); 
+    await replay(`🏦 ${pushname}'s Bank:\n\n_💰${balance.bank}/${balance.bankCapacity}_`); 
 }
 break
 		
 		
-		case'القدره':  case 'ترقيه': {
+		case'capacity':  case 'bankupgrade': {
 			Chiku.sendMessage(from, { react: { text: "💲" , key: m.key }})
 		
 	//if (!isCreator) return replay(mess.botowner)
-	if (!text) return replay(`💴 قدرة البنك 💳\n\n1 | 1000 دولار = 💰100\n\n2 | 10000 دولار = 💰1000\n\n3 | 100000 دولار = 💰10000\n\nمثال- ${prefix}ترقيه 1 او ${prefix}القدره 1000`)	
+	if (!text) return replay(`💴 Bank-capacity 💳\n\n1 | 1000 sp = 💰100\n\n2 | 10000 sp = 💰1000\n\n3 | 100000 sp = 💰10000\n\nExample- ${prefix}capacity 1 OR ${prefix}bankupgrade 1000`)	
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         const user = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
 	const cara = "cara"
@@ -1802,22 +1742,22 @@ break
   switch (value) {
           case '1000':
           case '1':
-          if (k > balance.wallet ) return replay(`عليك أن تدفع 💰100 لزيادة قدرة البنك ~ 1000 دولار`);
+          if (k > balance.wallet ) return replay(`You need to pay 💰100 to increase bank capacity ~ 1000 sp`);
             const deduct1 = await eco.deduct(user, cara, 100);
             const add1 = eco.giveCapacity(user, cara, 1000); 
-                await replay(`1000 💰تمت إضافة تخزين الماس في حساب ${pushname} في البنك`)
+                await replay(`1000 💰diamond storage has been added in ${pushname} bank`)
          case '10000':
           case '2':
-          if (k > balance.wallet ) return replay(`عليك أن تدفع 💰1000 لزيادة قدرة البنك ~ 10000 دولار`);
+          if (k > balance.wallet ) return replay(`You need to pay 💰1000 to increase bank capacity ~ 10000 sp`);
             const deduct2 = await eco.deduct(user, cara, 1000);
             const add2 = eco.giveCapacity(user, cara, 10000); 
-                await replay(`10000 💰تمت إضافة تخزين الماس في حساب ${pushname} في البنك`)
+                await replay(`10000 💰diamond storage has been added in ${pushname} bank`)
          case '100000':
           case '3':
-          if (k > balance.wallet ) return replay(`عليك أن تدفع 💰10000 لزيادة قدرة البنك ~ 100000 دولار`);
+          if (k > balance.wallet ) return replay(`You need to pay 💰10000 to increase bank capacity ~ 100000 sp`);
             const deduct3 = await eco.deduct(user, cara, 10000);
             const add3 = eco.giveCapacity(user, cara, 100000); 
-                await replay(`100000 💰تمت إضافة تخزين الماس في حساب ${pushname} في البنك`)
+                await replay(`100000 💰diamond storage has been added in ${pushname} bank`)
           }
             }
                 break
@@ -1825,18 +1765,18 @@ break
 		
 		  
 		  
-	case'ايداع':  case 'pay-in': {
+	case'deposit':  case 'pay-in': {
         if (isBan) return reply(mess.banned)
 	Chiku.sendMessage(from, { react: { text: "📥" , key: m.key }})
 		
         if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-		if (!text) return replay("قدم المبلغ الذي تريد إيداعه!");
+		if (!text) return replay("Provide the amount you want to deposit!");
 		const texts = text.trim();
 		const user = m.sender;
 		const cara = 'cara'
         const deposit = await eco.deposit(user, cara, texts);
-            if(deposit.noten) return replay('لا يمكن ايداع ما لا تملكه.'); //if user states more than whats in his wallet
-             replay(`ادعت بنجاح 💰${deposit.amount} إلى البنك الذي تتعامل معه.`)
+            if(deposit.noten) return replay('You can\'t deposit what you don\'t have.'); //if user states more than whats in his wallet
+             replay(`Successfully Deposited 💰${deposit.amount} to your bank.`)
 		
 }
 break	
@@ -1907,20 +1847,20 @@ break
   }
 		  
 		  
-		case'سحب':  case 'withdrawal': {
+		case'withdraw':  case 'withdrawal': {
       if (isBan) return reply(mess.banned)	 			
       if (isBanChat) return reply(mess.bangc)
 	Chiku.sendMessage(from, { react: { text: "💸" , key: m.key }})
 			
       if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         const user = m.sender
-		if (!text) return replay("قدم المبلغ الذي تريد سحبه!");
+		if (!text) return replay("Provide the amount you want to withdraw!");
 		const query = text.trim();
         const cara = 'cara'
         const withdraw = await eco.withdraw(user, cara, query);
-        if(withdraw.noten) return replay('🏧 عدم كفاية الأموال في البنك'); //if user states more than whats in his wallet
+        if(withdraw.noten) return replay('🏧 Insufficient fund in bank'); //if user states more than whats in his wallet
         const add = eco.give(user, cara, query);
-          replay(`🏧 تنبيه  💰${withdraw.amount} تمت إضافته في محفظتك.`)
+          replay(`🏧 ALERT  💰${withdraw.amount} has been added in your wallet.`)
         
 }
 break  
@@ -1928,14 +1868,14 @@ break
 		  
 		  
 		  
-		case'اسرقه':  case 'هجوم': {
+		case'rob':  case 'attack': {
 		Chiku.sendMessage(from, { react: { text: "🔪" , key: m.key }})
 	if (!text) return replay(`Use ${prefix}rob @user`)
 	const target =
 			             m.quoted && m.mentionedJid.length === 0
 			             ? m.quoted.sender
 			             : m.mentionedJid[0] || null;    
-           if (!target || target === m.sender) return replay("ماذا تحاول أن تفعل!")
+           if (!target || target === m.sender) return replay("what are you trying to do!")
            if (m.quoted?.sender && !m.mentionedJid.includes(m.quoted.sender)) m.mentionedJid.push(m.quoted.sender)
         while (m.mentionedJid.length < 2) m.mentionedJid.push(m.sender)
         const cara = "cara"
@@ -1946,29 +1886,29 @@ break
 	const balance2  = await eco.balance(user2, cara)
 	const typ = ['ran','rob','caught'];
     const random = typ[Math.floor(Math.random() * typ.length)];
-    if (k > balance1.wallet) return replay(`☹️ لم يكن لديك ما يكفي من المال لدفع طارئ ننشغل لك`);
-    if (k > balance2.wallet) return replay(`آسف ، ضحيتك فقيرة جدا 🤷🏽‍♂️ اتركه.`);
+    if (k > balance1.wallet) return replay(`☹️ You don't have enough money to pay incase you get caught`);
+    if (k > balance2.wallet) return replay(`Sorry, your victim is too poor 🤷🏽‍♂️ let go.`);
     let tpy = random
   switch (random) {
           case 'ran':
-                await replay(`هربت ضحيتك ، كن أكثر رعبا المره القادمه.`)
+                await replay(`Your victim escaped, be more scaryðŸ˜¤ next time.`)
   }
 	}
                 break  
 		
 		
 		  
-	case'اعطيه':  case 'تحويل': {
+	case'transfer':  case 'give': {
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc) 
 	Chiku.sendMessage(from, { react: { text: "🗿" , key: m.key }})
 	let value = text.trim().split(" ");
-	if (value[0] === "") return replay(`اكتب ${prefix}تحويل 100 @يوزر`);
+	if (value[0] === "") return replay(`Use ${prefix}transfer 100 @user`);
 	const target =
 			             m.quoted && m.mentionedJid.length === 0
 			             ? m.quoted.sender
 			             : m.mentionedJid[0] || null;    
-           if (!target || target === m.sender) return replay("ماذا تحاول أن تفعل!")
+           if (!target || target === m.sender) return replay("what are you trying to do!")
            if (m.quoted?.sender && !m.mentionedJid.includes(m.quoted.sender)) m.mentionedJid.push(m.quoted.sender)
         while (m.mentionedJid.length < 2) m.mentionedJid.push(m.sender)
         const cara = "cara"
@@ -1977,34 +1917,34 @@ break
 		           const word = value[0];
 		           const code = value[1];
 		let d = parseInt(word)
-		if (!d) return replay("تحقق من النص الخاص بك من فضلك ، أنت تستخدم الأمر بطريقة خاطئةة")
+		if (!d) return replay("check your text plz u r using the command in a wrong way")
 		
 		const balance = await eco.balance(user1, cara); 
         let a = (balance.wallet) < parseInt(word)
         //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.	
-        if(a == true) return replay("ليس لديك ما يكفي من المال للتحويل");
+        if(a == true) return replay("you dont have sufficient money to transfer");
         
         const deduct = await eco.deduct(user1, cara, value[0]);
         const give = await eco.give(user2, cara, value[0]);
-        replay(`📠 صفقة ناجحة`)
+        replay(`📠 Transaction successful`)
 
 }
 break  	  
 	
 		
 		
-	 case 'ثروتي': case 'الثروه': {
+	 case 'wealth': case 'ritual': {
                     if (!isCreator) return replay(mess.botowner)
                     var user = m.sender
                     var cara = 'cara'
                     const give1 = eco.give(user, cara, 2000)
-                    replay(`انت غني جدا😱`)
+                    replay(`You are the wealthiest my *Lord*`)
             }
             break
             
 		
 		
-		case'رهان':  case 'مقامره': {
+		case'gamble':  case 'lottery': {
     //var response = await Miku.groupInviteCode(from)
     //var link1 = `https://chat.whatsapp.com/${response}`
     //var link2 = `https://chat.whatsapp.com/BXQaaeg7utI29OI4RbhdIhl`
@@ -2019,7 +1959,7 @@ break
     const k = 50
     const a = (k) > parseInt(value)
     const twice = gg*2
-    const f = ["فوق", "يمين", "يسار", "اسفل", "فوق", "يسار", "اسفل", "يمين", "فوق", "اسفل", "يمين", "يسار"]
+    const f = ["up", "right", "left", "down", "up", "left", "down", "right", "up", "down", "right", "left"]
     const r = f[Math.floor(Math.random () * f.length)]
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
@@ -2027,21 +1967,21 @@ break
     //if (link1 == link2){
        if (texts[0] === "")
            return replay(
-               `مثال:  ${prefix}مقامره 100 الاتجاه(يسار,يمين,فوق,اسفل)`
+               `Example:  ${prefix}gamble 100 direction(left,right,up,down)`
            );
-       if (!value) return replay("*من فضلك ، حدد المبلغ الذي تقامر به!");
-       if (!opp) return replay("حدد الاتجاه الذي تراهن عليه!");
-       if (!gg) return replay("تحقق من النص الخاص بك من فضلك ، أنت تستخدم الأمر بطريقة خاطئة")
+       if (!value) return replay("*Please, specify the amount you are gambling with!");
+       if (!opp) return replay("Specify the direction you are betting on!");
+       if (!gg) return replay("Check your text please, You are using the command in a wrong way")
        if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-       if (g == false) return replay(`ليس لديك ما يكفي 💰 الماس للمقامرة مع`);
-       if (a == true) return replay(`اسف ${pushname}, يمكنك المقامرة فقط بأكثر من 💰50.`);
+       if (g == false) return replay(`You don't have sufficient 💰 Diamond to gamble with`);
+       if (a == true) return replay(`Sorry ${pushname}, you can only gamble with more than 💰50.`);
        if ( r == opp){
           let give = await eco.give(user , cara, twice);
-          replay(`*📉 لقد فزت 💰${twice}*`)
+          replay(`*📉 You won 💰${twice}*`)
        }
        else{
           let deduct = await eco.deduct(user, cara, texts[0]);
-          replay(`*📈 لقد خسرت 💰${texts[0]}*`)
+          replay(`*📈 You lost 💰${texts[0]}*`)
         }
     //}
     //else{
@@ -2120,29 +2060,29 @@ case'slot': case 'spin': {
 break
 */	
 
-case'تدوير': case 'فاكهه': {
+case'slot': case 'spin': {
     if (isBan) return replay(mess.banned);
     if (isBanChat) return replay(mess.bangc)
     if (!m.isGroup) return replay(mess.grouponly)
     var today = new Date();
 if (today.getDay() == 6 || today.getDay() == 5 || today.getDay() == 0){
-    if (text == 'help') return replay(`*1:* استخدم ${prefix}تدوير للعب\n\n*2:* يجب أن يكون لديك 💰100 في محفظتك\n\n*3:* إذا لم يكن لديك المال في المحفظة قم بالانسحاب من البنك الذي تتعامل معه\n\n*4:* إذا لم يكن لديك المال في البنك الذي تتعامل معه أيضا قم باستخدام ميزات الاقتصاد لكسب المال`)
-    if (text == 'money') return replay(`*1:* خسارة كبيرة --> +💰20\n\n*2:* خسارة صغيرة --> -💰20\n\n*3:* فوز كبير --> +💰100\n\n*4:* فوز صغير --> -💰50\n\n*5:* 🎉 الفوز بالجائزة الكبرى --> +💰1000`)
+    if (text == 'help') return replay(`*1:* Use ${prefix}slot to play\n\n*2:* You must have 💰100 in your wallet\n\n*3:* If you don't have money in wallet then withdraw from your bank\n\n*4:* If you don't have money in your bank too then use economy features to gain money`)
+    if (text == 'money') return replay(`*1:* Small Win --> +💰20\n\n*2:* Small Lose --> -💰20\n\n*3:* Big Win --> +💰100\n\n*4:* Big Lose --> -💰50\n\n*5:* 🎉 JackPot --> +💰1000`)
     const fruit1= ["🥥", "🍎", "🍇"]
     const fruit2 = ["🍎", "🍇", "🥥"]  
     const fruit3 = ["🍇", "🥥", "🍎"]         
     const fruit4 = ["🍇", "🥥", "🍎"]
-    const lose = ['*أنت بذيء في لعب هذه اللعبة*\n\n_--> 🍍-🥥-🍎_', '*خارج الخط تماما*\n\n_--> 🥥-🍎-🍍_', '*هل أنت مبتدئ?*\n\n_--> 🍎-🍍-🥥_']
-    const smallLose = ['*لا يمكنك حصاد جوز الهند🥥 في مزرعة أناناس🍍*\n\n_--> 🍍>🥥<🍍_', '*التفاح وجوز الهند ليست أفضل كومبو*\n\n_--> 🍎>🥥<🍎_', '*جوز الهند وأبل ليست صفقة كبيرة*\n\n_--> 🥥>🍎<🥥_']
-    const won = ['*لقد حصدت سلة من*\n\n_--> 🍎+🍎+🍎_', '*مثير للإعجاب ، يجب أن تكون متخصصًا في نتف جوز الهند*\n\n_--> 🥥+🥥+🥥_', '*من المدهش أنك ستصنع عصير أناناس للعائلة*\n\n_--> 🍍+🍍+🍍_']             
-    const near = ['*واو ، لقد كنت قريبًا جدًا من ربح الأناناس*\n\n_--> 🍎-🍍+🍍_', '*هممم ، لقد كنت قريبًا جدًا من الفوز بالتفاح*\n\n_--> 🍎+🍎-🍍_']          
-    const jack = ['*🥳 الفوز بالجائزة الكبرى 🤑*\n\n_--> 🍇×🍇×🍇×🍇_', '*🎉 الفوز بالجائزه الاكبر!*\n\n_--> 🥥×🥥×🥥×🥥_', '*🎊 لقد حصلت للتو على الفوز بالجائزة الكبرى 💰1000*']
+    const lose = ['*You suck at playing this game*\n\n_--> 🍍-🥥-🍎_', '*Totally out of line*\n\n_--> 🥥-🍎-🍍_', '*Are you a newbie?*\n\n_--> 🍎-🍍-🥥_']
+    const smallLose = ['*You cannot harvest coconut 🥥 in a pineapple 🍍 farm*\n\n_--> 🍍>🥥<🍍_', '*Apples and Coconut are not best Combo*\n\n_--> 🍎>🥥<🍎_', '*Coconuts and Apple are not great deal*\n\n_--> 🥥>🍎<🥥_']
+    const won = ['*You harvested a basket of*\n\n_--> 🍎+🍎+🍎_', '*Impressive, You must be a specialist in plucking coconuts*\n\n_--> 🥥+🥥+🥥_', '*Amazing, you are going to be making pineapple juice for the family*\n\n_--> 🍍+🍍+🍍_']             
+    const near = ['*Wow, you were so close to winning pineapples*\n\n_--> 🍎-🍍+🍍_', '*Hmmm, you were so close to winning Apples*\n\n_--> 🍎+🍎-🍍_']          
+    const jack = ['*🥳 JackPot 🤑*\n\n_--> 🍇×🍇×🍇×🍇_', '*🎉 JaaackPooot!*\n\n_--> 🥥×🥥×🥥×🥥_', '*🎊 You Just hit a jackpot worth 💰1000*']
     const user = m.sender
     const cara = "cara"
     const k = 100
     const balance1  = await eco.balance(user, cara)
     
-    if (k > balance1.wallet) return replay(`أنت ستدور على محفظتك ، ما تحتاجه على الأقل 💰100`);
+    if (k > balance1.wallet) return replay(`You are going to be spinning on your wallet, you need at least 💰100`);
     const f1 = fruit1[Math.floor(Math.random() * fruit1.length)];
     const f2 = fruit2[Math.floor(Math.random() * fruit2.length)];
     const f3 = fruit3[Math.floor(Math.random() * fruit3.length)];
@@ -2155,19 +2095,19 @@ if (today.getDay() == 6 || today.getDay() == 5 || today.getDay() == 0){
     
     if ((f1 !== f2) && f2 !== f3){
        const deduct1 = await eco.deduct(user, cara, 50);
-              replay(`${mess1}\n\n*خساره كبيره -->* _💰50_`)
+              replay(`${mess1}\n\n*Big Lose -->* _💰50_`)
     }
     else if ((f1 == f2) && f2 == f3){
        const give1 = await eco.give(user, cara, 100); 
-             replay(`${mess2}\n*_فوز كبير -->* _💰100_`)
+             replay(`${mess2}\n*_Big Win -->* _💰100_`)
     }
     else if ((f1 == f2) && f2 !== f3){
        const give2 = await eco.give(user, cara, 20);
-             replay(`${mess3}\n*فوز صغير -->* _💰20_`)
+             replay(`${mess3}\n*Small Win -->* _💰20_`)
     }
     else if ((f1 !== f2) && f1 == f3){
        const deduct2 = await eco.deduct(user, cara, 20);
-             replay(`${mess5}\n\n*خسارة صغيرة -->* _💰20_`)
+             replay(`${mess5}\n\n*Small Lose -->* _💰20_`)
     }
     else if ((f1 !== f2) && f2 == f3){
        const give4 = eco.give(user, cara, 20); 
@@ -2175,14 +2115,14 @@ if (today.getDay() == 6 || today.getDay() == 5 || today.getDay() == 0){
     }
     else if (((f1 == f2) && f2 == f3) && f3 == f4){
        const give5 = eco.give(user, cara, 1000);
-            replay(`${mess4}\n\n_🎊 الفوز بالجائزة الكبرى --> _💰1000_`)
+            replay(`${mess4}\n\n_🎊 JackPot --> _💰1000_`)
     }
     else { 
-            replay(`هل تفهم ما تفعله?`)
+            replay(`Do you understand what you are doing?`)
     }
  }
  else{
-        replay(`*يمكنك فقط لعب هذه اللعبة خلال عطلات نهاية الأسبوع*\n\n*🌿 الجمعه*\n*🎏 السبت*\n*🎐 الاحد*`)
+        replay(`*You can only play this game during weekends*\n\n*🌿 Friday*\n*🎏 Saturday*\n*🎐 Sunday*`)
  }
 }
 break
@@ -2191,15 +2131,15 @@ break
 		
 		
 		
-case 'اكس-او': case 'ttt': case 'اكس': {
+case 'ttc': case 'ttt': case 'tictactoe': {
     if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
     let TicTacToe = require("./lib/tictactoe")
     this.game = this.game ? this.game : {}
-    if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return replay(`انت في جوله مع شخص`)
+    if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return replay(`You Are Still In The Game`)
     let room = Object.values(this.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
     if (room) {
-    reply('تم العثور على شريك!')
+    reply('Partner found!')
     room.o = m.chat
     room.game.playerO = m.sender
     room.state = 'PLAYING'
@@ -2218,12 +2158,12 @@ if (isBanChat) return reply(mess.banChat)
     9: '9️⃣',
     }[v]
     })
-    let str = `رقم الغرفه: ${room.id}
+    let str = `Room ID: ${room.id}
 ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
-دور @${room.game.currentTurn.split('@')[0]}
-اكتب *surrender* للاستسلام والاعتراف بالهزيمة`
+Waiting @${room.game.currentTurn.split('@')[0]}
+Type *surrender* to surrender and admit defeat`
     if (room.x !== room.o) await Chiku.sendText(room.x, str, m, { mentions: parseMention(str) } )
     await   Chiku.sendText(room.o, str, m, { mentions: parseMention(str) } )
     } else {
@@ -2235,14 +2175,14 @@ ${arr.slice(6).join('')}
     state: 'WAITING'
     }
     if (text) room.name = text
-    reply('في انتظار لاعب اخر' + (text ? ` اكتب الأمر أدناه ${prefix}${command} ${text}` : ''))
+    reply('Waiting For Partner' + (text ? ` Type The Command Below ${prefix}${command} ${text}` : ''))
     this.game[room.id] = room
     }
     }
     break		
 		
 		//Hosted platfrom info
-		   case 'statusbot': case 'الحاله': case 'المعلومات': {
+		   case 'statusbot': case 'server':{
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
                     cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
@@ -2273,12 +2213,12 @@ ${arr.slice(6).join('')}
                 neww = performance.now()
                 oldd = performance.now()
                 respon = `
-سرعة الاستجابة ${latensi.toFixed(4)} _ثانيه_ \n ${oldd - neww} _ميلي ثانية_\n\nوقت التشغيل : ${runtime(process.uptime())}
-» معلومات سيرفر الجزار 
-الرام: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
-_NodeJS الذاكره_
+Response Speed ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nRuntime : ${runtime(process.uptime())}
+» Chiku's Server Info 
+RAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
+_NodeJS Memory Usaage_
 ${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}
-${cpus[0] ? `_إجمالي استخدام وحدة المعالجة المركزية_
+${cpus[0] ? `_Total CPU Usage_
 ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
 _CPU Core(s) Usage (${cpus.length} Core CPU)_
 ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
@@ -2289,59 +2229,45 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 
 		
 		
-case 'بان': case 'bangroup':{
+case 'banchat': case 'bangroup':{
 if (isBan) return reply(mess.banned)	 			
 if (!isCreator) return replay(mess.botowner)
-if (args[0] === "فتح") {
-if (isBanChat) return replay('هذا الجررل محظور من استخدامي بالفعل!')
+if (args[0] === "on") {
+if (isBanChat) return replay('This Group is Already Banned from using me!')
 banchat.push(from)
-replay('تم حظر هذا الجروب من استخدامي!')
+replay('This Group has been banned from using me!')
 var groupe = await Chiku.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-Chiku.sendMessage(from, {text: `\`\`\`𓆩  ملاحظه  𓆪\`\`\`\n\nهذا الجروب ممنوع من استخدام البوت. لذا ، هنا لا يمكن لأحد أن يستخدمني بعد الآن!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-} else if (args[0] === "قفل") {
-if (!isBanChat) return replay('هذا الجروب محظور فعلا من استخدامي!')
+Chiku.sendMessage(from, {text: `\`\`\`「 Notice 」\`\`\`\n\nThis group is banned from using bot. So, here nobody can use me anymore!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+} else if (args[0] === "off") {
+if (!isBanChat) return replay('This Group is Already Banned from using me!')
 let off = banchat.indexOf(from)
 banchat.splice(off, 1)
-replay('تم *رفع الحظر* عن هذا الجروب من استخدامي!')
+replay('This Group has been *unbanned* from using me!')
 } else {
   let buttonsntnsfw = [
-  { buttonId: `${prefix}بان فتح`, buttonText: { displayText: 'حظر' }, type: 1 },
-  { buttonId: `${prefix}بان قفل`, buttonText: { displayText: 'الغاء' }, type: 1 }
+  { buttonId: `${prefix}bangroup on`, buttonText: { displayText: 'Ban' }, type: 1 },
+  { buttonId: `${prefix}bangroup off`, buttonText: { displayText: 'Unban' }, type: 1 }
   ]
-  await Chiku.sendButtonText(m.chat, buttonsntnsfw, `اختار من الزر.\n\n *فتح / قفل*`, `${global.BotName }`, m)
+  await Chiku.sendButtonText(m.chat, buttonsntnsfw, `Please choose any Button below.\n\n *On / Off*`, `${global.BotName }`, m)
   }
   }
   break
 		  
 
-case 'support': case 'الدعم':
+case 'support': case 'supportgc':
     
-    reply(`• جروب الدعم: https://chat.whatsapp.com/JzklQWsJ4XH4UQ1mAgLYON
-
-• قناة برمجه الجزار للشروحات: https://youtube.com/@ABDALLAH_MOHAMED`)
+    reply(`⃣ *chiku support group:* ⃣\n\n🏮https://chat.whatsapp.com/FoS7pSPtfMqBuoireK4aAJ `)
     break
 
-case 'التنصيب': case 'التسجيل':
+case 'repo': case 'botrepo':
     
-    reply(`• مرحبا ياروحي ⤌⤈       
-𓆩 *${pushname}* 𓆪
-• انا بوت واتس اسمي ⤌⤈
-𓆩 *${global.BotName}* 𓆪
-• تم تطويري وبرمجتي •
-• بواسطه عبدالله محمد •
-• اذا كنت تريد صنع بوت مماثل لهذا •
-يجب عليك الانظمام لهذه القناه وسماع الشروحات لتنصيب بوت وتس مثل هذا البوت
- 
-قناة برمجه الجزار للشروحات
-https://youtube.com/@ABDALLAH_MOHAMED
-
-لينك شاتي 
-https://api.whatsapp.com/send?phone=+201098906252`)
+    reply(`✍ My Source Code is </> - \n
+  ➡ https://github.com/Ayush-pandey-u/Chiku-MD `)
     break
 
 case 'nsfwmenu':
@@ -2358,13 +2284,13 @@ case 'reaction': case 'react': case 'reactions': case 'r':
         break   
     
 
-case 'limituser': case 'userlimit': case 'الحد':
+case 'limituser': case 'userlimit': case 'limit':
             if (isBan) return reply(mess.banned)	 			
             if (isBanChat) return reply(mess.bangc)
             {      
-               let txt = `「 *حد جميع المستخدمين* 」\n\n`
+               let txt = `「 *All User Limit* 」\n\n`
                  for (let i of _limit){
-                 txt += ` *معرف المستخدم :* @${i.id.split("@")[0]}\n➸ *الحد* : ${i.limit}\n`
+                 txt += ` *User ID :* @${i.id.split("@")[0]}\n➸ *Limit* : ${i.limit}\n`
                  }
                 reply(txt)       
               }
@@ -2385,16 +2311,16 @@ case 'ringtone': {
 	    break
 
 
-case 'film': case 'movie': case 'فيلم':
+case 'film': case 'movie': case 'moviesearch':
 if (isBan) return reply(mess.banned)
 	if (isBanChat) return reply(mess.bangc)
 	reply(mess.waiting)
-if (!q) return reply(`الرجاء إدخال مصطلح البحث عن فيلم بالانجليزي...\nمثال: ${prefix}فيلم Spiderman`)
+if (!q) return reply(`Please enter a Movie search term...\nExample: ${prefix}movie Spiderman`)
 xfarrapi.Film(q)
     .then(data => {console.log(data)
-    let krl = `*عنوان البحث:* ${q}\n\n`
+    let krl = `*Search Term:* ${q}\n\n`
 			    for (let i of data) {
-                krl += (`${prefix}----------------------------------------------------------------------------\n\n\n*اسم الفيلم:* ${i.judul}\n *الجوده :* ${i.quality}\n *النوع : ${i.type}*\n *نشر في :* ${i.upload}\n *الرابط :* ${i.link}\n\n\n`)
+                krl += (`${prefix}----------------------------------------------------------------------------\n\n\n*Movie Name:* ${i.judul}\n *Quality :* ${i.quality}\n *Type : ${i.type}*\n *Uploaded on :* ${i.upload}\n *Source URL :* ${i.link}\n\n\n`)
                 }
                Chiku.sendMessage(from, { image: { url: data[0].thumb}, caption: krl }, { quoted: fdocs })
 });
@@ -2749,8 +2675,8 @@ if (!isCreator) return replay(mess.botowner);
  }
  break
 		
-		case 'السرعه': case 'speedcheck': {
-             m.reply(`انتظر ${pushname} جاري قياس السرعه... ⚙️`)
+		case 'speedtest': case 'speedcheck': {
+             m.reply(`Plz Wait ${pushname} Testing Speed... ⚙️`)
              let cp = require('child_process')
              let { promisify } = require('util')
              let exec = promisify(cp.exec).bind(cp)
@@ -2770,13 +2696,13 @@ if (!isCreator) return replay(mess.botowner);
 		
 		
 		
- case 'afk': case 'اختفاء': {
+ case 'afk': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  let user = global.db.users[m.sender]
  user.afkTime = + new Date
  user.afkReason = args.join(" ")
- replay(`${m.pushName} انه في وضع الاختفاء.\nالسبب : ${args.join(" ") ? args.join(" ") : ''}`)
+ replay(`${m.pushName} is now Away From Keyboard.\nAFK Reason : ${args.join(" ") ? args.join(" ") : ''}`)
  }
  break
 
@@ -6068,7 +5994,7 @@ I am *chiku*, a bot  deploy by 🦋⃟≛⃝𝐀𝐘𝐔𝐒𝐇⃟≛⃝
 
  
                 let buttonMessage = {
-                    video:fs.readFileSync('./system/elgazar.jpg'),gifPlayback:true,
+                    video:fs.readFileSync('./system/Chiku_2.mp4'),gifPlayback:true,
                     caption: helpmenu,
                   
                     headerType: 4
@@ -6096,7 +6022,7 @@ case '':
                 {buttonId: `${prefix}help`, buttonText: {displayText: 'Help'}, type: 1}
                 ]
                 let buttonMessage = {
-                    video:fs.readFileSync('./system/elgazar.jpg'),gifPlayback:true,
+                    video:fs.readFileSync('./system/Chiku.mp4'),gifPlayback:true,
                     caption: needhelpmenu,
                     footer: `${global.BotName}`,
                     buttons: butRun,
@@ -6165,7 +6091,7 @@ const addmenu = `This feature is disabled by bot creator💫
 
  
                 let buttonMessage = {
-                    video:fs.readFileSync('./system/elgazar.jpg'),gifPlayback:true,
+                    video:fs.readFileSync('./system/Chiku_2.mp4'),gifPlayback:true,
                     caption: addmenu,
                   
                     headerType: 4
