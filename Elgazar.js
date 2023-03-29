@@ -1661,7 +1661,7 @@ https://youtube.com/@ABDALLAH_MOHAMED `
     break
 
 
-case 'بروفايل': case 'profile': case 'ايدي': case
+case 'بروفايل': case 'profile': case 'ايدي':
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
   if (!isDarah){ addInventoriDarah(m.sender, DarahAwal) }
@@ -1672,7 +1672,7 @@ case 'بروفايل': case 'profile': case 'ايدي': case
      var flob = await getBuffer(picak+'User Profile')
      var bio= await Chiku.fetchStatus(m.sender)
      var bioo = bio.status
-     const adn= isAdmins? "True":"False"
+     const adn= isAdmins? "مشرف في الجروب":"مجرد عضو"
      
      try {
         
@@ -1680,7 +1680,7 @@ case 'بروفايل': case 'profile': case 'ايدي': case
     
           } catch (e) {
      
-      pfp ='https://wallpapercave.com/wp/wp10524580.jpg'
+      pfp ='https://telegra.ph/file/f1a719ad79f830231d984.jpg'
     }
 
      const profilexx = `*⋆ صورتك قمر ياروحي..🥺🖤*
@@ -2289,31 +2289,31 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 
 		
 		
-case 'banchat': case 'bangroup':{
+case 'بان': case 'bangroup':{
 if (isBan) return reply(mess.banned)	 			
 if (!isCreator) return replay(mess.botowner)
-if (args[0] === "on") {
-if (isBanChat) return replay('This Group is Already Banned from using me!')
+if (args[0] === "فتح") {
+if (isBanChat) return replay('هذا الجررل محظور من استخدامي بالفعل!')
 banchat.push(from)
-replay('This Group has been banned from using me!')
+replay('تم حظر هذا الجروب من استخدامي!')
 var groupe = await Chiku.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-Chiku.sendMessage(from, {text: `\`\`\`「 Notice 」\`\`\`\n\nThis group is banned from using bot. So, here nobody can use me anymore!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-} else if (args[0] === "off") {
-if (!isBanChat) return replay('This Group is Already Banned from using me!')
+Chiku.sendMessage(from, {text: `\`\`\`𓆩  ملاحظه  𓆪\`\`\`\n\nهذا الجروب ممنوع من استخدام البوت. لذا ، هنا لا يمكن لأحد أن يستخدمني بعد الآن!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+} else if (args[0] === "قفل") {
+if (!isBanChat) return replay('هذا الجروب محظور فعلا من استخدامي!')
 let off = banchat.indexOf(from)
 banchat.splice(off, 1)
-replay('This Group has been *unbanned* from using me!')
+replay('تم *رفع الحظر* عن هذا الجروب من استخدامي!')
 } else {
   let buttonsntnsfw = [
-  { buttonId: `${prefix}bangroup on`, buttonText: { displayText: 'Ban' }, type: 1 },
-  { buttonId: `${prefix}bangroup off`, buttonText: { displayText: 'Unban' }, type: 1 }
+  { buttonId: `${prefix}بان فتح`, buttonText: { displayText: 'حظر' }, type: 1 },
+  { buttonId: `${prefix}بان قفل`, buttonText: { displayText: 'الغاء' }, type: 1 }
   ]
-  await Chiku.sendButtonText(m.chat, buttonsntnsfw, `Please choose any Button below.\n\n *On / Off*`, `${global.BotName }`, m)
+  await Chiku.sendButtonText(m.chat, buttonsntnsfw, `اختار من الزر.\n\n *فتح / قفل*`, `${global.BotName }`, m)
   }
   }
   break
