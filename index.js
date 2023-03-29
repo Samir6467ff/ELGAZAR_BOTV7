@@ -26,8 +26,8 @@ console.log(color(figlet.textSync('Chiku Bot', {
 		whitespaceBreak: true
         }), 'yellow'))
 
-console.log(color('\nHello, I am Kai, the main Developer of this bot.\n\nThanks for using: Chiku Bot','aqua'))
-console.log(color('\nYou can follow me on GitHub: Kai0071','aqua'))
+console.log(color('\nمرحبا ، أنا الجزار ، المطور الرئيسي لهذا البوت.\n\nشكرًا لاستخدام: ELGAZAR BOT','aqua'))
+console.log(color('\nافرح تم تشغيل البوت بنجاح✅'))
 
     let { version, isLatest } = await fetchLatestBaileysVersion()
     const Chiku = ChikuConnect({
@@ -45,7 +45,7 @@ store.bind(Chiku.ev)
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
     let pa7rick = await Chiku.sendContact(callerId, global.owner)
-    Chiku.sendMessage(callerId, { text: `Baka! You will be blocked automatically for calling me!`}, { quoted : pa7rick })
+    Chiku.sendMessage(callerId, { text: `حبيبي! سيتم حظرك تلقائيا لاتصالك بي!`}, { quoted : pa7rick })
     await sleep(8000)
     await Chiku.updateBlockStatus(callerId, "block")
     }
@@ -60,7 +60,7 @@ if (mek.key && mek.key.remoteJid === 'status@broadcast') return
 if (!Chiku.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
 if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
 m = smsg(Chiku, mek, store)
-require("./Heart")(Chiku, m, chatUpdate, store)
+require("./Elgazar")(Chiku, m, chatUpdate, store)
 } catch (err) {
 console.log(err)
 }
@@ -97,19 +97,19 @@ Chiku.ev.on('groups.update', async pea => {
         if (pea[0].announce == true) {
         //Chiku.send5ButImg(pea[0].id, `Grop has been *Closed!* Only *Admins* can send Messages!`, `Chiku Bot`, wm_fatih, [])
 
-        Chiku.sendMessage(m.chat, { image: wm_fatih, caption: 'Grop has been *Closed!* Only *Admins* can send Messages!'})
+        Chiku.sendMessage(m.chat, { image: wm_fatih, caption: 'تم اغلاق الجروب يمكن لادمن فقط ارسال الرسائل!'})
         } else if(pea[0].announce == false) {
        // Chiku.send5ButImg(pea[0].id, `Grop has been *Opened!* Now *Everyone* can send Messages!`, `Chiku Bot`, wm_fatih, [])
-       Chiku.sendMessage(m.chat, { image: wm_fatih, caption: 'Grop has been *Opened!* Now *Everyone* can send Messages!'})
+       Chiku.sendMessage(m.chat, { image: wm_fatih, caption: 'تم فتح الجروب الان يمكن للجميع ارسال الرسائل!'})
         } else if (pea[0].restrict == true) {
         //Chiku.send5ButImg(pea[0].id, `Group Info modification has been *Restricted*, Now only *Admins* can edit Group Info !`, `Chiku Bot`, wm_fatih, [])
-        Chiku.sendMessage(m.chat, { image: wm_fatih, caption: 'Group Info modification has been *Restricted*, Now only *Admins* can edit Group Info !'})
+        Chiku.sendMessage(m.chat, { image: wm_fatih, caption: 'تم تعديل معلومات الجرول يمكن الان لادمن فقط تعديل معلومات الجروب !'})
         } else if (pea[0].restrict == false) {
         //Chiku.send5ButImg(pea[0].id, `Group Info modification has been *Un-Restricted*, Now only *Everyone* can edit Group Info !`, `Chiku Bot`, wm_fatih, [])
-        Chiku.sendMessage(m.chat, { image: wm_fatih, caption: 'Group Info modification has been *Un-Restricted*, Now only *Everyone* can edit Group Info !'})
+        Chiku.sendMessage(m.chat, { image: wm_fatih, caption: 'تم تعديل معلومات الجروب الآن يمكن للجميع  تعديل معلومات الجروب !'})
         } else {
         //Chiku.send5ButImg(pea[0].id, `Group Subject has been uhanged To:\n\n*${pea[0].subject}*`, `Chiku Bot`, wm_fatih, [])
-        Chikutextddfq =`Group Subject has been updated To:\n\n*${pea[0].subject}*`
+        Chikutextddfq =`تم تحديث اسم الجروب إلى:\n\n*${pea[0].subject}*`
         Chiku.sendMessage(pea[0].id, { image: wm_fatih, caption: Chikutextddfq})
       }
      })
@@ -133,13 +133,13 @@ Chiku.ev.on('group-participants.update', async (anu) => {
                 try {
                     ppuser = await Chiku.profilePictureUrl(num, 'image')
                 } catch {
-                    ppuser = 'https://images6.alphacoders.com/690/690121.jpg'
+                    ppuser = 'https://telegra.ph/file/f1a719ad79f830231d984.jpg'
                 }
 
                 try {
                     ppgroup = await Chiku.profilePictureUrl(anu.id, 'image')
                 } catch {
-                    ppgroup = 'https://telegra.ph/file/4cc2712eee93c105f6739.jpg'
+                    ppgroup = 'https://telegra.ph/file/f1a719ad79f830231d984.jpg'
                 }
 
                 let targetname = await Chiku.getName(num)
@@ -149,16 +149,20 @@ Chiku.ev.on('group-participants.update', async (anu) => {
                 if (anu.action == 'add') {
                 let WAuserName = num
                 Chikutext = `
-Hello @${WAuserName.split("@")[0]},
-
-I am *Chiku Bot*, Welcome to ${metadata.subject}.
-
-*Group Description:*
+⋆ اهلا بيك يا..
+ @${WAuserName.split("@")[0]},
+ꔹ━━━━━ꔹ
+⋆ نورت جروب..
+${metadata.subject}.
+ꔹ━━━━━ꔹ
+⋆ وهذا هو وصف الجروب..
 ${metadata.desc}
+ꔹ━━━━━ꔹ
+⋆ من فضلك التزم بالقوانين..
 `
 
     let buttonMessage = {
-    image: await getBuffer(ppgroup),
+    image: await getBuffer(ppuser),
     mentions: [num],
     caption: Chikutext,
     footer: `${global.BotName}`,
@@ -168,9 +172,14 @@ Chiku.sendMessage(anu.id, buttonMessage)
                 } else if (anu.action == 'remove') {
                 	let WAuserName = num
                     Chikutext = `
-Okay Bye 👋, @${WAuserName.split("@")[0]},
+⋆ مع السلامه 👋
+, @${WAuserName.split("@")[0]}, 
+ꔹ━━━━━ꔹ
+⋆ حد يبقي في جروب قمر زي جروب
+${metadata.subject}.
+ꔹ━━━━━ꔹ
+⋆ ويغادر يحمار يلا غور فداهيه..🖤😂
 
-I hope you will come back soon, but You will be missed!
 `
 
     let buttonMessage = {
@@ -259,14 +268,14 @@ I hope you will come back soon, but You will be missed!
         const { connection, lastDisconnect } = update	    
         if (connection === 'close') {
         let reason = lastDisconnect.error ? lastDisconnect?.error?.output.statusCode : 0;
-            if (reason === DisconnectReason.badSession) { console.log(`Bad Session File, Please Delete Session and Scan Again`); process.exit(); }
-            else if (reason === DisconnectReason.connectionClosed) { console.log("Connection closed, reconnecting...."); startChiku(); }
-            else if (reason === DisconnectReason.connectionLost) { console.log("Connection Lost from Server, reconnecting..."); startChiku(); }
-            else if (reason === DisconnectReason.connectionReplaced) { console.log("Connection Replaced, Another New Session Opened, Please Close Current Session First"); process.exit(); }
-            else if (reason === DisconnectReason.loggedOut) { console.log(`Device Logged Out, Please Delete Session and Scan Again.`); process.exit(); }
-            else if (reason === DisconnectReason.restartRequired) { console.log("Restart Required, Restarting..."); startChiku(); }
-            else if (reason === DisconnectReason.timedOut) { console.log("Connection TimedOut, Reconnecting..."); startChiku(); }
-            else { console.log(`Unknown DisconnectReason: ${reason}|${connection}`) }
+            if (reason === DisconnectReason.badSession) { console.log(`ملف جلسة تالف ، يرجى حذف الجلسة والمسح مرة أخرى`); process.exit(); }
+            else if (reason === DisconnectReason.connectionClosed) { console.log("تم إغلاق الاتصال ، جاري إعادة الاتصال...."); startChiku(); }
+            else if (reason === DisconnectReason.connectionLost) { console.log("انقطع الاتصال من الخادم ، جاري إعادة الاتصال..."); startChiku(); }
+            else if (reason === DisconnectReason.connectionReplaced) { console.log("تم استبدال الاتصال ، وفتح جلسة جديدة أخرى ، يرجى إغلاق الجلسة الحالية أولاً"); process.exit(); }
+            else if (reason === DisconnectReason.loggedOut) { console.log(`تم تسجيل خروج الجهاز ، يرجى حذف الجلسة والمسح الضوئي مرة أخرى.`); process.exit(); }
+            else if (reason === DisconnectReason.restartRequired) { console.log("مطلوب إعادة التشغيل ، إعادة التشغيل..."); startChiku(); }
+            else if (reason === DisconnectReason.timedOut) { console.log("انتهى وقت الاتصال ، جاري إعادة الاتصال..."); startChiku(); }
+            else { console.log(`سبب قطع الاتصال غير معروف: ${reason}|${connection}`) }
         }
         //console.log('Connected...', update)
     })
