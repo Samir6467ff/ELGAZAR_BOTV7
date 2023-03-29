@@ -10,15 +10,15 @@ global.antitags = true
 //global.autoTyping = false //auto tying in gc (true to on, false to off)
 //global.autoRecord = true //auto recording (true to on, false to off)
 
-global.Owner = ['919006765023','919006765023']  //If you want singal number so global.Owner = ['919006765023'] Change into your number
-global.OwnerNumber = ['919006765023','919006765023']  //If you want singal number so global.Owner = ['919006765023'] Change into your number
-global.ownertag = ['919006765023']
-global.BotName = "CHIKU-MD"
-global.packname = "Chiku bot"
-global.author = "By: Ayush"
-global.OwnerName = "Ayush"
-global.BotSourceCode = "https://github.com/Ayush-pandey-u/Chiku-MD"
-global.SupportGroupLink = "https://chat.whatsapp.com/FoS7pSPtfMqBuoireK4aAJ"
+global.Owner = ['201098906252','201098906252']  //If you want singal number so global.Owner = ['919006765023'] Change into your number
+global.OwnerNumber = ['201098906252','201098906252']  //If you want singal number so global.Owner = ['201098906252'] Change into your number
+global.ownertag = ['201098906252']
+global.BotName = "❤️ᗴᒪᘜᗩᘔᗩᖇ ᗷOT❤️"
+global.packname = "⍣الجزار الوزير يروحي⍣"
+global.author = "⍣01098906252⍣"
+global.OwnerName = "ᗴᒪᘜᗩᘔᗩᖇ ᗩᒪᗯᗩᘔᗴᖇ❤️"
+global.BotSourceCode = "https://youtube.com/@ABDALLAH_MOHAMED"
+global.SupportGroupLink = "https://chat.whatsapp.com/JzklQWsJ4XH4UQ1mAgLYON"
 global.sessionName = "session"
 
 // Prefix //
@@ -28,9 +28,9 @@ global.prefa = ['.']
 
 global.location = "bihar, India"
 global.reactmoji = "❤️"
-global.themeemoji = "💖"
+global.themeemoji = "🐦"
 global.vidmenu = { url: 'https://media.tenor.com/Jdu0Ov8X2sIAAAAC/A17-Bot.mp4' }
-global.websitex = "https://github.com/Ayush-pandey-u/Chiku-MD"
+global.websitex = "https://youtube.com/@ABDALLAH_MOHAMED"
 global.lolhuman = "KaysaS"
 
 
@@ -61,19 +61,19 @@ global.ntilink = []
 
 
 global.mess = {
-    jobdone: 'Job done...',
-    useradmin: 'Sorry, only *Group Admins* can use this command *Dear*!',
-    botadmin: 'Sorry, i cant execute this command without being an *Admin* of this group.',
-    botowner: 'Only my *Owner* can use this command, Yeah!',
-    grouponly: 'This command is only made for *Groups*, Baka!',
-    privateonly: 'This command is only made for *Private Chat*, Okey ?!',
-    botonly: 'Only the *Bot itself* can use this command!',
+    jobdone: 'تم يروحي',
+    useradmin: '『 الامر دا لادمن بس! 』',
+    botadmin: '『 ارفع البوت ادمن الاول 』',
+    botowner: '『 الميزه دي للمطور بس!』',
+    grouponly: '『 الميزه دي للجروبات بس! 』',
+    privateonly: '『 الميزه دي في الخاص بس! 』',
+    botonly: '『 الميزه دي للبوت بس! 』',
     waiting: '█████████████]99%',
-    nolink: 'Please provide me *link*, Uff!',
-    error: 'An error occurd!',
-    banned: 'You are *Banned* fron using commands!, Haha',
-    bangc: 'This Group is *Banned* from using Commands!',
-    nonsfw: 'Dont be a pervert  Uff! This is not a NSFW enabled group!, Uff!,'
+    nolink: '『 فين الرابط? 』',
+    error: '『 ايرور! 』',
+    banned: '『 انت محظور من استخدام البوت اتواصل مع المطور لالغاء حظرك! 』',
+    bangc: '『 تم حظر الجروب دا من استخدام البوت! 』',
+    nonsfw: '『 لا يوجد اباحي بالبوت احترم نفسك! 』,'
     
 }
 
