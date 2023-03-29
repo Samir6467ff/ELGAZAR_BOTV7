@@ -1492,14 +1492,14 @@ for (let anju of Ayushaudio){
             isWin = true
             }
             let winner = isSurrender ? room.game.currentTurn : room.game.winner
-            let str = `Room ID: ${room.id}
+            let str = `رقم الغرفه: ${room.id}
     ${arr.slice(0, 3).join('')}
     ${arr.slice(3, 6).join('')}
     ${arr.slice(6).join('')}
     ${isWin ? `@${winner.split('@')[0]} الفائز!` : isTie ? `انتهت اللعبه` : `دور ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
     ❌: @${room.game.playerX.split('@')[0]}
     ⭕: @${room.game.playerO.split('@')[0]}
-    Typed *surrender* to surrender and admited defeat`
+    اكتب *surrender* للاستسلام والاعتراف بالهزيمة`
             if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
             room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
             if (room.x !== room.o) await Chiku.sendText(room.x, str, m, { mentions: parseMention(str) } )
@@ -1661,7 +1661,7 @@ https://youtube.com/@ABDALLAH_MOHAMED `
     break
 
 
-case 'بروفايل': case 'profile': case 'ايدي':
+case 'بروفايل': case 'profile': case 'ايدي': case
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
   if (!isDarah){ addInventoriDarah(m.sender, DarahAwal) }
@@ -1670,21 +1670,20 @@ case 'بروفايل': case 'profile': case 'ايدي':
      
 
      var flob = await getBuffer(picak+'User Profile')
-     var bio= await Miku.fetchStatus(m.sender)
+     var bio= await Chiku.fetchStatus(m.sender)
      var bioo = bio.status
-     const adn= isAdmins? "مشرف في الجروب":"مجرد عضو"
+     const adn= isAdmins? "True":"False"
      
      try {
         
-        pfp=await Miku.profilePictureUrl(m.sender, 'image')
+        pfp=await Chiku.profilePictureUrl(m.sender, 'image')
     
           } catch (e) {
      
-      pfp ='https://telegra.ph/file/f1a719ad79f830231d984.jpg'
+      pfp ='https://wallpapercave.com/wp/wp10524580.jpg'
     }
 
-     const profilexx = `
-*⋆ صورتك قمر ياروحي..🥺🖤*
+     const profilexx = `*⋆ صورتك قمر ياروحي..🥺🖤*
 ꔹ━━━━━ꔹ
 *اسمك الجميل..* 
 𓆩${pushname}𓆪
@@ -1702,7 +1701,7 @@ case 'بروفايل': case 'profile': case 'ايدي':
 
 
 let buttonspro = [
-    {buttonId: `.soulmate`, buttonText: {displayText: 'توأم روحك🥺✨'}, type: 1}
+    {buttonId: `${prefix}soulmate`, buttonText: {displayText: 'توأم روحك🥺✨'}, type: 1}
     ]
             let buttonMessage = {
                 image: { url: pfp },
@@ -1712,6 +1711,10 @@ let buttonspro = [
                 headerType: 4
             }
         Chiku.sendMessage(m.chat,buttonMessage,{quoted:m})
+		
+		
+		
+		
         	
             break
 
@@ -1732,7 +1735,7 @@ let buttonspro = [
 		
 //game
 		
-      case'هديه': case'claim': case 'مكافأه': {
+      case'هديه': case'مرتبي': case 'مكافأه': {
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc)
@@ -1741,9 +1744,9 @@ let buttonspro = [
 	const cara = "cara"
 	const daily  = await eco.daily(user, cara, 9999); //give 999 for daily, can be changed
 	
-	        if (daily.cd) return replay(`لقد ادعت بالفعل اليوم ، عد ${daily.cdL}`); //cdL is already formatted cooldown Left
+	        if (daily.cd) return replay(`لقد حصلت علي مرتبك اليوم عد  ${daily.cdL}`); //cdL is already formatted cooldown Left
 	
-            replay(`لقد ادعت💰${daily.amount} يوميا`);        
+            replay(`لقد اخذت مرتبك💰${daily.amount} اليوم`);        
 }
 break
 		
@@ -1775,7 +1778,7 @@ break
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc)	
-Chiku.sendMessage(from, { react: { text: "💳" , key: m.key }})
+Chiku.sendMessage(from, { react: { text: "🏦" , key: m.key }})
 		
     const user = m.sender
     const cara = "cara"
@@ -1802,19 +1805,19 @@ break
           if (k > balance.wallet ) return replay(`عليك أن تدفع 💰100 لزيادة قدرة البنك ~ 1000 دولار`);
             const deduct1 = await eco.deduct(user, cara, 100);
             const add1 = eco.giveCapacity(user, cara, 1000); 
-                await replay(`1000 💰تمت إضافة تخزين الماس في ${pushname} البنك`)
+                await replay(`1000 💰تمت إضافة تخزين الماس في حساب ${pushname} في البنك`)
          case '10000':
           case '2':
           if (k > balance.wallet ) return replay(`عليك أن تدفع 💰1000 لزيادة قدرة البنك ~ 10000 دولار`);
             const deduct2 = await eco.deduct(user, cara, 1000);
             const add2 = eco.giveCapacity(user, cara, 10000); 
-                await replay(`10000 💰تمت إضافة تخزين الماس في ${pushname} البنك`)
+                await replay(`10000 💰تمت إضافة تخزين الماس في حساب ${pushname} في البنك`)
          case '100000':
           case '3':
           if (k > balance.wallet ) return replay(`عليك أن تدفع 💰10000 لزيادة قدرة البنك ~ 100000 دولار`);
             const deduct3 = await eco.deduct(user, cara, 10000);
             const add3 = eco.giveCapacity(user, cara, 100000); 
-                await replay(`100000 💰تمت إضافة تخزين الماس في ${pushname} البنك`)
+                await replay(`100000 💰تمت إضافة تخزين الماس في حساب ${pushname} في البنك`)
           }
             }
                 break
@@ -2215,7 +2218,7 @@ if (isBanChat) return reply(mess.banChat)
     9: '9️⃣',
     }[v]
     })
-    let str = `ايدي الروم: ${room.id}
+    let str = `رقم الغرفه: ${room.id}
 ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
@@ -2239,7 +2242,7 @@ ${arr.slice(6).join('')}
     break		
 		
 		//Hosted platfrom info
-		   case 'statusbot': case 'السرعه': case 'بينج': {
+		   case 'statusbot': case 'الحاله': case 'المعلومات': {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
                     cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
@@ -2286,31 +2289,31 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 
 		
 		
-case 'banchat': case 'bangroup':{
+case 'بان': case 'bangroup':{
 if (isBan) return reply(mess.banned)	 			
 if (!isCreator) return replay(mess.botowner)
-if (args[0] === "on") {
-if (isBanChat) return replay('This Group is Already Banned from using me!')
+if (args[0] === "فتح") {
+if (isBanChat) return replay('هذا الجررل محظور من استخدامي بالفعل!')
 banchat.push(from)
-replay('This Group has been banned from using me!')
+replay('تم حظر هذا الجروب من استخدامي!')
 var groupe = await Chiku.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-Chiku.sendMessage(from, {text: `\`\`\`「 Notice 」\`\`\`\n\nThis group is banned from using bot. So, here nobody can use me anymore!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-} else if (args[0] === "off") {
-if (!isBanChat) return replay('This Group is Already Banned from using me!')
+Chiku.sendMessage(from, {text: `\`\`\`𓆩  ملاحظه  𓆪\`\`\`\n\nهذا الجروب ممنوع من استخدام البوت. لذا ، هنا لا يمكن لأحد أن يستخدمني بعد الآن!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+} else if (args[0] === "قفل") {
+if (!isBanChat) return replay('هذا الجروب محظور فعلا من استخدامي!')
 let off = banchat.indexOf(from)
 banchat.splice(off, 1)
-replay('This Group has been *unbanned* from using me!')
+replay('تم *رفع الحظر* عن هذا الجروب من استخدامي!')
 } else {
   let buttonsntnsfw = [
-  { buttonId: `${prefix}bangroup on`, buttonText: { displayText: 'Ban' }, type: 1 },
-  { buttonId: `${prefix}bangroup off`, buttonText: { displayText: 'Unban' }, type: 1 }
+  { buttonId: `${prefix}بان فتح`, buttonText: { displayText: 'حظر' }, type: 1 },
+  { buttonId: `${prefix}بان قفل`, buttonText: { displayText: 'الغاء' }, type: 1 }
   ]
-  await Chiku.sendButtonText(m.chat, buttonsntnsfw, `Please choose any Button below.\n\n *On / Off*`, `${global.BotName }`, m)
+  await Chiku.sendButtonText(m.chat, buttonsntnsfw, `اختار من الزر.\n\n *فتح / قفل*`, `${global.BotName }`, m)
   }
   }
   break
@@ -2382,16 +2385,16 @@ case 'ringtone': {
 	    break
 
 
-case 'film': case 'movie': case 'moviesearch':
+case 'film': case 'movie': case 'فيلم':
 if (isBan) return reply(mess.banned)
 	if (isBanChat) return reply(mess.bangc)
 	reply(mess.waiting)
-if (!q) return reply(`Please enter a Movie search term...\nExample: ${prefix}movie Spiderman`)
+if (!q) return reply(`الرجاء إدخال مصطلح البحث عن فيلم بالانجليزي...\nمثال: ${prefix}فيلم Spiderman`)
 xfarrapi.Film(q)
     .then(data => {console.log(data)
-    let krl = `*Search Term:* ${q}\n\n`
+    let krl = `*عنوان البحث:* ${q}\n\n`
 			    for (let i of data) {
-                krl += (`${prefix}----------------------------------------------------------------------------\n\n\n*Movie Name:* ${i.judul}\n *Quality :* ${i.quality}\n *Type : ${i.type}*\n *Uploaded on :* ${i.upload}\n *Source URL :* ${i.link}\n\n\n`)
+                krl += (`${prefix}----------------------------------------------------------------------------\n\n\n*اسم الفيلم:* ${i.judul}\n *الجوده :* ${i.quality}\n *النوع : ${i.type}*\n *نشر في :* ${i.upload}\n *الرابط :* ${i.link}\n\n\n`)
                 }
                Chiku.sendMessage(from, { image: { url: data[0].thumb}, caption: krl }, { quoted: fdocs })
 });
@@ -2746,8 +2749,8 @@ if (!isCreator) return replay(mess.botowner);
  }
  break
 		
-		case 'speedtest': case 'speedcheck': {
-             m.reply(`Plz Wait ${pushname} Testing Speed... ⚙️`)
+		case 'السرعه': case 'speedcheck': {
+             m.reply(`انتظر ${pushname} جاري قياس السرعه... ⚙️`)
              let cp = require('child_process')
              let { promisify } = require('util')
              let exec = promisify(cp.exec).bind(cp)
@@ -2767,13 +2770,13 @@ if (!isCreator) return replay(mess.botowner);
 		
 		
 		
- case 'afk': {
+ case 'afk': case 'اختفاء': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  let user = global.db.users[m.sender]
  user.afkTime = + new Date
  user.afkReason = args.join(" ")
- replay(`${m.pushName} is now Away From Keyboard.\nAFK Reason : ${args.join(" ") ? args.join(" ") : ''}`)
+ replay(`${m.pushName} انه في وضع الاختفاء.\nالسبب : ${args.join(" ") ? args.join(" ") : ''}`)
  }
  break
 
