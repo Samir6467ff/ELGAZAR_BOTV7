@@ -10,8 +10,8 @@ global.antitags = true
 //global.autoTyping = false //auto tying in gc (true to on, false to off)
 //global.autoRecord = true //auto recording (true to on, false to off)
 
-global.Owner = ['201098906252','201098906252']  //If you want singal number so global.Owner = ['201098906252'] Change into your number
-global.OwnerNumber = ['201098906252','201098906252']  //If you want singal number so global.Owner = ['201098906252'] Change into your number
+global.Owner = ['201098906252']
+global.OwnerNumber = ['201098906252']
 global.ownertag = ['201098906252']
 global.BotName = "❤️ᗴᒪᘜᗩᘔᗩᖇ ᗷOT❤️"
 global.packname = "⍣الجزار الوزير يروحي⍣"
