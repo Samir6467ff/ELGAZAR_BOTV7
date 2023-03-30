@@ -3144,7 +3144,7 @@ if (!isCreator) return replay(mess.botowner);
  replay('Deactivated antiwame !')
  } else {
    let buttonsntwame = [
-   { buttonId: `${prefix}antiwame فتح`, buttonText: { displayText: 'فتح }, type: 1 },
+   { buttonId: `${prefix}antiwame فتح`, buttonText: { displayText: 'فتح' }, type: 1 },
    { buttonId: `${prefix}antiwame قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
    await Chiku.sendButtonText(m.chat, buttonsntwame, `اختار من الزر\n\nفتح او\nقفل`, `${global.BotName}`, m)
