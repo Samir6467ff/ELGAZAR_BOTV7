@@ -1629,7 +1629,7 @@ if (smallinput=='كلزق') {
 
 switch(command) {
 	
-    case 'sc': case 'script': case 'sourcecode': {
+    case 'sc': case 'سكريبت': case 'السورس': {
         if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
     Chiku.sendMessage(from, { react: { text: "❤" , key: m.key }})
@@ -1637,7 +1637,7 @@ switch(command) {
     teks = `لا تنسي الاشتراك بقناه اليوتيوب⭐️
 https://youtube.com/@ABDALLAH_MOHAMED `
     let buttons = [
-    {buttonId: `${prefix}menu`, buttonText: {displayText: 'قائمه البوت✨'}, type: 1}
+    {buttonId: `${prefix}menu`, buttonText: {displayText: 'قائمه الاوامر✨'}, type: 1}
     ]
     let buttonMessage = {
     image: Thumb,
@@ -1718,7 +1718,7 @@ let buttonspro = [
         	
             break
 
-		case 'report': case 'ابلاغ ': {
+		case 'report': case 'ابلاغ': {
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
     if (!text) return reply(`يرجى تقديم ابلاغ عن مشكله تريد تسليمها`)
@@ -1930,7 +1930,7 @@ break
 		  
 		case'اسرقه':  case 'هجوم': {
 		Chiku.sendMessage(from, { react: { text: "🔪" , key: m.key }})
-	if (!text) return replay(`Use ${prefix}rob @user`)
+	if (!text) return replay(`اكتب ${prefix}هجوم @يوزر`)
 	const target =
 			             m.quoted && m.mentionedJid.length === 0
 			             ? m.quoted.sender
@@ -2435,7 +2435,7 @@ if (isBanChat) return reply(mess.bangc)
         anu = await wikimedia(args)
         hasil = anu[Math.floor(Math.random() * anu.length)]
         let buttons = [
-            {buttonId: `${prefix}wikimedia ${args.join(" ")}`, buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1}
+            {buttonId: `${prefix}ويكيديا ${args.join(" ")}`, buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1}
         ]
         let buttonMessage = {
             image: { url: hasil.image },
@@ -3350,7 +3350,7 @@ if (isBanChat) return reply(mess.bangc)
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isAdmins && !isCreator) return replay(mess.useradmin) 
- Chiku.sendMessage(from, { react: { text: "👾 " , key: m.key }})
+ Chiku.sendMessage(from, { react: { text: "✨" , key: m.key }})
  let teks = `══✪〘 *منشن للكل👥* 〙✪══
   
  *الرساله : ${args.join(" ") ? args.join(" ") : 'مفيش رساله'}*\n\n`
@@ -6877,6 +6877,7 @@ break
 case 'help': case 'القائمه': case 'menu': case 'بوت': case 'الاوامر':case 'اوامر':{
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
+    Chiku.sendMessage(from, { react: { text: "✨" , key: m.key }})
       
  const helpmenu = `
 •╗ مرحبا ياعزيزي ⤌⤈       
