@@ -2513,9 +2513,10 @@ let sections = []
     case 'اعدادات':{
         if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
+    Chiku.sendMessage(from, { react: { text: "⚙️" , key: m.key }})
             let sections = []
-            let com = [`group open`,`leveling on`,`antilinkgc on`,`antilinktg on`,`antilinktt on`,`antilinkytch on`,`antilinkytvid on`,`antilinkig on`,`antilinkfb on`,`antilinktwit on`,`antilinkall on`,`antiwame on`]
-            let comm = [`group close`,`leveling off`,`antilinkgc off`,`antilinktg off`,`antilinktt off`,`antilinkytch off`,`antilinkytvid off`,`antilinkig on`,`antilinkfb off`,`antilinktwit off`,`antilinkall off`,`antiwame off`]
+            let com = [`group open`,`antilinkgc on`,`antilinktg on`,`antilinktt on`,`antilinkytch on`,`antilinkytvid on`,`antilinkig on`,`antilinkfb on`,`antilinktwit on`,`antilinkall on`,`antiwame on`]
+            let comm = [`group close`,`antilinkgc off`,`antilinktg off`,`antilinktt off`,`antilinkytch off`,`antilinkytvid off`,`antilinkig on`,`antilinkfb off`,`antilinktwit off`,`antilinkall off`,`antiwame off`]
             let listnya = [`جروب فتح/قفل`,`منع روابط الجروب فتح/قفل`,`منع روابط تليجرام فتح/قفل`,`منع روابط تيكتوك فتح/قفل`,`منع روابط قنوات يوتيوب فتح/قفل`,`منع روابط فيديوهات يوتيوب فتح/قفل`,`منع روابط انستجرام فتح/قفل`,`منع روابط فيسبوك فتح/قفل`,`منع روابط تويتر فتح/قفل`,`منع كل الروابط فتح/قفل`,`منع لينك الشات فتح/قفل`]
             let suruh = [`فتح`, `قفل`]
             let fiturname = [`الجروب`,`روابط الجروب`,`روابط تلجرام`,`روابط تيكتوك`,`روابط قنوات يوتيوب`,`روابط فيديوهات يوتيوب`,`روابط انستجرام`,`روابط فيسبوك`,`روابط تويتر`,`كل الروابط`,`لينك الشات`]
@@ -2829,7 +2830,7 @@ if (!isCreator) return replay(mess.botowner);
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (args[0] === "on") {
+ if (args[0] === "فتح") {
  if (AntiLink) return replay('نشط بالفعل')
  ntilink.push(from)
  replay('تم تشغيل منع روابط الجروبات.')
@@ -2840,15 +2841,15 @@ if (!isCreator) return replay(mess.botowner);
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
  Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
- } else if (args[0] === "off") {
+ } else if (args[0] === "قفل") {
  if (!AntiLink) return replay('غير نشط بالفعل!')
  let off = ntilink.indexOf(from)
  ntilink.splice(off, 1)
  replay('تم ايقاف تشغيل من روابط الجروبات!')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkgc on`, buttonText: { displayText: 'فتح' }, type: 1 },
-   { buttonId: `${prefix}antilinkgc off`, buttonText: { displayText: 'قفل' }, type: 1 }
+   { buttonId: `${prefix}antilinkgc فتح`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkgc قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
    await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فنح / قفل`, `${global.BotName}`, m)
    }
@@ -2862,7 +2863,7 @@ if (!isCreator) return replay(mess.botowner);
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (args[0] === "on") {
+ if (args[0] === "فتح") {
  if (AntiLinkYoutubeVid) return replay('نشط بالفعل')
  ntilinkytvid.push(from)
  replay('تم تشغيل منع روابط فيديوهات يوتيوب !')
@@ -2873,15 +2874,15 @@ if (!isCreator) return replay(mess.botowner);
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
  Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
- } else if (args[0] === "off") {
+ } else if (args[0] === "قفل") {
  if (!AntiLinkYoutubeVid) return replay('غير نشط بالفعل')
  let off = ntilinkytvid.indexOf(from)
  ntilinkytvid.splice(off, 1)
  replay('تم ايقاف تشغيل منع روابط فيديوهات يوتيوب !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkyoutubevideo on`, buttonText: { displayText: 'فتح' }, type: 1 },
-   { buttonId: `${prefix}antilinkyoutubevideo off`, buttonText: { displayText: 'قفل' }, type: 1 }
+   { buttonId: `${prefix}antilinkyoutubevideo فتح`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkyoutubevideo قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
    await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فتح / قفل`, `${global.BotName}`, m)
    }
@@ -2896,7 +2897,7 @@ if (!isCreator) return replay(mess.botowner);
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (args[0] === "on") {
+ if (args[0] === "فتح") {
  if (AntiLinkYoutubeChannel) return replay('نشط بالفعل')
  ntilinkytch.push(from)
  replay('تم تشغيل منع روابط قنوات يوتيوب !')
@@ -2907,15 +2908,15 @@ if (!isCreator) return replay(mess.botowner);
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
  Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
- } else if (args[0] === "off") {
+ } else if (args[0] === "قفل") {
  if (!AntiLinkYoutubeChannel) return replay('غير نشط بالفعل')
  let off = ntilinkytch.indexOf(from)
  ntilinkytch.splice(off, 1)
  replay('تم ايقاف تشغيل منع روابط قنوات يوتيوب !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkyoutubech on`, buttonText: { displayText: 'فتح' }, type: 1 },
-   { buttonId: `${prefix}antilinkyoutubech off`, buttonText: { displayText: 'قفل' }, type: 1 }
+   { buttonId: `${prefix}antilinkyoutubech فتح`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkyoutubech قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
    await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فتح / قفل`, `${global.BotName}`, m)
    }
@@ -2929,7 +2930,7 @@ if (!isCreator) return replay(mess.botowner);
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (args[0] === "on") {
+ if (args[0] === "فتح") {
  if (AntiLinkInstagram) return replay('نشط بالفعل')
  ntilinkig.push(from)
  replay('تم تشغيل منع روابط انستجرام !')
@@ -2940,15 +2941,15 @@ if (!isCreator) return replay(mess.botowner);
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
  Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
- } else if (args[0] === "off") {
+ } else if (args[0] === "قفل") {
  if (!AntiLinkInstagram) return replay('غير نشط بالفعل')
  let off = ntilinkig.indexOf(from)
  ntilinkig.splice(off, 1)
  replay('تم ايقاف تشغيل منع روابط انستجرام !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkinstagram on`, buttonText: { displayText: 'فتح' }, type: 1 },
-   { buttonId: `${prefix}antilinkinstagram off`, buttonText: { displayText: 'قفل' }, type: 1 }
+   { buttonId: `${prefix}antilinkinstagram فتح`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkinstagram قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
    await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فتح / قفل`, `${global.BotName}`, m)
    }
@@ -2961,7 +2962,7 @@ if (!isCreator) return replay(mess.botowner);
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (args[0] === "on") {
+ if (args[0] === "فتح") {
  if (AntiLinkFacebook) return replay('نشط بالفعل')
  ntilinkfb.push(from)
  replay('تم تشغيل منع روابط فيسبوك !')
@@ -2972,15 +2973,15 @@ if (!isCreator) return replay(mess.botowner);
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
  Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
- } else if (args[0] === "off") {
+ } else if (args[0] === "قفل") {
  if (!AntiLinkFacebook) return replay('غير نشط بالفعل')
  let off = ntilinkfb.indexOf(from)
  ntilinkfb.splice(off, 1)
  replay('تم ايقاف تشغيل منع روابط فيسبوك !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkfacebook on`, buttonText: { displayText: 'فتح' }, type: 1 },
-   { buttonId: `${prefix}antilinkfacebook off`, buttonText: { displayText: 'قفل' }, type: 1 }
+   { buttonId: `${prefix}antilinkfacebook فتح`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinkfacebook قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
    await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فتح / قفل `, `${global.BotName}`, m)
    }
@@ -2994,7 +2995,7 @@ if (!isCreator) return replay(mess.botowner);
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (args[0] === "on") {
+ if (args[0] === "فتح") {
  if (AntiLinkTelegram) return replay('نشط بالفعل')
  ntilinktg.push(from)
  replay('تم تشغيل منع روابط تليجرام !')
@@ -3005,15 +3006,15 @@ if (!isCreator) return replay(mess.botowner);
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
  Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
- } else if (args[0] === "off") {
+ } else if (args[0] === "قفل") {
  if (!AntiLinkTelegram) return replay('غير نشط بالفعل')
  let off = ntilinkig.indexOf(from)
  ntilinkig.splice(off, 1)
  replay('تم ايقاف تشغيل منع روابط تليجرام')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinktelegram on`, buttonText: { displayText: 'فتح' }, type: 1 },
-   { buttonId: `${prefix}antilinktelegram off`, buttonText: { displayText: 'قفل' }, type: 1 }
+   { buttonId: `${prefix}antilinktelegram فتح`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinktelegram قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
    await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر فتح / قفل `, `${global.BotName}`, m)
    }
@@ -3027,7 +3028,7 @@ if (!isCreator) return replay(mess.botowner);
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (args[0] === "on") {
+ if (args[0] === "فتح") {
  if (AntiLinkTiktok) return replay('نشط بالفعل')
  ntilinktt.push(from)
  replay('تم تشغيل منع روابط تيكتوك !')
@@ -3038,15 +3039,15 @@ if (!isCreator) return replay(mess.botowner);
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
  Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
- } else if (args[0] === "off") {
+ } else if (args[0] === "قفل") {
  if (!AntiLinkTiktok) return replay('غير نشط بالفعل')
  let off = ntilinktt.indexOf(from)
  ntilinktt.splice(off, 1)
  replay('تم ايقاف تشغيل منع روابط تيكتوك !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinktiktok on`, buttonText: { displayText: 'فتح' }, type: 1 },
-   { buttonId: `${prefix}antilinktiktok off`, buttonText: { displayText: 'قفل' }, type: 1 }
+   { buttonId: `${prefix}antilinktiktok فتح`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinktiktok قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
    await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر\n\nفتح او\nقفل`, `${global.BotName}`, m)
    }
@@ -3059,7 +3060,7 @@ if (!isCreator) return replay(mess.botowner);
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (args[0] === "on") {
+ if (args[0] === "فتح") {
  if (AntiLinkTwitter) return replay('نشط بالفعل')
  ntilinktwt.push(from)
  replay('تم تشغيل منع روابط تويتر !')
@@ -3070,15 +3071,15 @@ if (!isCreator) return replay(mess.botowner);
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
  Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
- } else if (args[0] === "off") {
+ } else if (args[0] === "قفل") {
  if (!AntiLinkTwitter) return replay('غير نشط بالفعل')
  let off = ntilinktwt.indexOf(from)
  ntilinktwt.splice(off, 1)
  replay('تم ايقاف تشغيل منع روابط تويتر !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinktwt on`, buttonText: { displayText: 'فتح' }, type: 1 },
-   { buttonId: `${prefix}antilinktwt off`, buttonText: { displayText: 'قفل' }, type: 1 }
+   { buttonId: `${prefix}antilinktwt فتح`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}antilinktwt قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
    await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر\n\nفتح او\nقفل`, `${global.BotName}`, m)
    }
@@ -3086,13 +3087,13 @@ if (!isCreator) return replay(mess.botowner);
    break
 
 
-   case 'antilinkall': {
+   case 'antilinkall': case 'الروابط': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (args[0] === "on") {
+ if (args[0] === "فتح") {
  if (AntiLinkTwitter) return replay('نشط بالفعل')
  ntilinkall.push(from)
  replay('تم تشغيل منع جميع الروابط !')
@@ -3103,15 +3104,15 @@ if (!isCreator) return replay(mess.botowner);
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
  Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تفعيل منع الروابط`, contextInfo: { mentionedJid : mems }}, {quoted:m})
- } else if (args[0] === "off") {
+ } else if (args[0] === "قفل") {
  if (!AntiLinkAll) return replay('غير نشط بالفعل')
  let off = ntilinkall.indexOf(from)
  ntilinkall.splice(off, 1)
  replay('تم ايقاف تشغيل منع جميع الروابط !')
  } else {
    let buttonsntilink = [
-   { buttonId: `${prefix}antilinkall on`, buttonText: { displayText: 'فتح' }, type: 1 },
-   { buttonId: `${prefix}antilinkall off`, buttonText: { displayText: 'قفل' }, type: 1 }
+   { buttonId: `${prefix}الروابط فتح`, buttonText: { displayText: 'فتح' }, type: 1 },
+   { buttonId: `${prefix}الروابط قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
    await Chiku.sendButtonText(m.chat, buttonsntilink, `اختار من الزر\n\nفتح او\nقفل`, `${global.BotName}`, m)
    }
@@ -3125,28 +3126,28 @@ if (!isCreator) return replay(mess.botowner);
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isBotAdmins) return replay(mess.botadmin)
  if (!isAdmins && !isCreator) return replay(mess.useradmin)
- if (args[0] === "on") {
+ if (args[0] === "فتح") {
  if (antiWame) return replay('نشط بالفعل')
  ntwame.push(from)
- replay('Activated antiwame !')
+ replay('منع الحذف نشط !')
  var groupe = await Chiku.groupMetadata(from)
  var members = groupe['participants']
  var mems = []
  members.map(async adm => {
  mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
  })
- Chiku.sendMessage(from, {text: `\`\`\`*「  Warning  」*\`\`\`\n\nAntilink is enabled!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
- } else if (args[0] === "off") {
+ Chiku.sendMessage(from, {text: `\`\`\`『⚠️تحذير⚠️』\`\`\`\n\nتم تشغيل منع الحذف!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+ } else if (args[0] === "قفل") {
  if (!antiWame) return replay('غير نشط بالفعل')
  let off = nttoxic.indexOf(from)
  ntwame.splice(off, 1)
  replay('Deactivated antiwame !')
  } else {
    let buttonsntwame = [
-   { buttonId: `${prefix}antiwame on`, buttonText: { displayText: 'On' }, type: 1 },
-   { buttonId: `${prefix}antiwame off`, buttonText: { displayText: 'Off' }, type: 1 }
+   { buttonId: `${prefix}antiwame فتح`, buttonText: { displayText: 'فتح }, type: 1 },
+   { buttonId: `${prefix}antiwame قفل`, buttonText: { displayText: 'قفل' }, type: 1 }
    ]
-   await Chiku.sendButtonText(m.chat, buttonsntwame, `Please click the button below\n\nOn to enable\nOff to disable`, `${global.BotName}`, m)
+   await Chiku.sendButtonText(m.chat, buttonsntwame, `اختار من الزر\n\nفتح او\nقفل`, `${global.BotName}`, m)
    }
    }
    break
@@ -3350,7 +3351,7 @@ if (isBanChat) return reply(mess.bangc)
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
  if (!isAdmins && !isCreator) return replay(mess.useradmin) 
- Chiku.sendMessage(from, { react: { text: "✨" , key: m.key }})
+ Chiku.sendMessage(from, { react: { text: "💀" , key: m.key }})
  let teks = `══✪〘 *منشن للكل👥* 〙✪══
   
  *الرساله : ${args.join(" ") ? args.join(" ") : 'مفيش رساله'}*\n\n`
@@ -4305,7 +4306,7 @@ case 'fbddlxx': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  let buttons = [
- {buttonId: `${prefix}menu`, buttonText: {displayText: '✨Menu✨'}, type: 1}
+ {buttonId: `${prefix}menu`, buttonText: {displayText: '⋆ القائمه •'}, type: 1}
  ]
  let buttonMessage = {
  video: {url:args[0]},
@@ -4878,7 +4879,7 @@ case 'شخصيتك': case 'الشخصيه':
 case 'truth': case 'انصح': case 'نصيحه': 
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "🗿" , key: m.key }})
 		
                            const truth =[
 "عامل الناس بأخلاقك ولا بأخلاقهم", 
@@ -4950,7 +4951,7 @@ case 'truth': case 'انصح': case 'نصيحه':
 case 'hfhdhr': case 'اسال': case 'اسأل': 
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "👽" , key: m.key }})
 		
                            const hfhdhr =[
 "أكثر جملة أثرت بك في حياتك؟ ",
@@ -5203,7 +5204,7 @@ case 'hfhdhr': case 'اسال': case 'اسأل':
 case 'hdydg': case 'حروف': 
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "📄" , key: m.key }})
 		
                            const hdydg =[
 " جماد بحرف ⤌ ر  ", 
@@ -5265,7 +5266,7 @@ case 'hdydg': case 'حروف':
 case 'verdad2': case 'كت': 
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "🌞" , key: m.key }})
 		
                            const verdad2 =[
 "『فيجيتا』","『غوكو』","『شيسوي』","『ايتاشي』","『ناروتو』","『كيلوا』","『لوفي زورو سانجي』","『زاراكي ايزن توسين』","『ناروتو ساسكي كاكاشي』","『مادارا اوبيتو』","『هاشيراما توبيراما』","『انزاي دازاي』","『هاغومورو』","『سوكونا يوجي』","『كاكاشي هاتاكي』","『فوغاكو اوتشيها』","『ناروتو اوزوماكي』","『غارب لوفي ايس ساب』و","『اكاينو اوكيجي كيزارو』","『غون كيلوا』","『اوميني』","『سيلفا زينو نيترو』","『استا يامي』","『كيسكي يوروتشي ايتشيغو』","『ساروتوبي دانزو』","『فوجيتورا』","『نامي روبين』","『هيماواري هينات』","『ستارك جريمجو نيل』","『الوكا』","『شينو كيبا』","『روك لي مايت غاي』","『ايتاشي ساسكي』","『كونان ناغاتو ياهيكو』","『جيرايا تسونادي』","『ساي اينو』","『شينرا』","『ثوركيل ثورفين ثورز』","『اشيلاد』","『لاو ميهوك زورو』","『تيتش ادوارد』","『ناكا اوتشيها』","『هيروزين ساروتوبي』","『مونكي دي لوفي』","『كارين』","『موريا』","『اشورا هامورا』","『انيوشا كاجومي』","『ديدارا ساسوري』","『روجر رايلي』","『تانجيرو نيزيكو』","『زينيتسو اينوسكي』","『زيك ايرين』","『ميكاسا اني』","『ليفاي اكيرمان』","『ايروين مايكي』","『مايكي دراكن』","『هيسوكا』","『ارمين』","『هاتسوني ميكو』","『كورو』","『اوراهارا كيسكي』","『شينوبو كاناو』","『كيسامي اكاشي』","『كوزان』"
@@ -5278,7 +5279,7 @@ case 'verdad2': case 'كت':
 case 'verda': case 'بوست': 
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "🎊" , key: m.key }})
 		
                            const verda =[
 " أحياناً.. ويصبح الوهم حقيقه😪.",
@@ -5395,7 +5396,7 @@ case 'verda': case 'بوست':
 case 'verda1': case 'اذكار': 
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "🤲🏻" , key: m.key }})
 		
                            const verda1 =[
 "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ , وَشُكْرِكَ , وَحُسْنِ عِبَادَتِكَ🎈💞", 
@@ -5448,7 +5449,7 @@ case 'verda1': case 'اذكار':
 case 'verdajj': case 'خيروك': case 'لو':
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "🎭" , key: m.key }})
 		
                            const verdajj =[
 "لو خيروك |  بين الإبحار لمدة أسبوع كامل أو السفر على متن طائرة لـ 3 أيام متواصلة؟ ",
@@ -5556,7 +5557,7 @@ case 'verdajj': case 'خيروك': case 'لو':
 case 'hdudh': case 'تويت':
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "♣️" , key: m.key }})
 		
                            const hdudh =[
 "مرتبط؟ ", 
@@ -5931,7 +5932,7 @@ case 'hdudh': case 'تويت':
 case 'jfysudh': case 'فزوره': 
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "🪅" , key: m.key }})
 		
                            const jfysudh =[
 "ايه الحاجه اللي لازم تكسرها قبل ما تستخدها؟ ", 
@@ -6835,7 +6836,7 @@ teks = "\nDarkjokes"
 Chiku.sendMessage(m.chat, { image : { url : res }, caption: teks }, { quoted : m })
 break
 
-case 'leavegc': case 'leavegroup': case 'bye': {
+case 'leavegc': case 'اخرج': case 'غادر': {
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
     if (!m.isGroup) return replay(mess.grouponly)
@@ -6846,7 +6847,7 @@ case 'leavegc': case 'leavegroup': case 'bye': {
                 break
 
 
-case 'bc': case 'broadcast': case 'bcall': {
+case 'bc': case 'شير': case 'اذاعه': {
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
 if (!isCreator) return replay(mess.botowner)
@@ -6857,12 +6858,12 @@ for (let yoi of anu) {
 await sleep(1500)
 let btn = [{
 quickReplyButton: {
-displayText: '💡 Menu 💡',
+displayText: '⋆ القائمه •',
 id: '.menu'
 }  
 }, {
 quickReplyButton: {
-displayText: 'Bot Owner',
+displayText: '⋆ مبرمج البوت •',
 id: '.owner'
 }
 }]
@@ -6977,45 +6978,20 @@ break
 
 
 
-case 'Chiku': case '17': 
+case 'الجزار': case 'عبدالله': 
 		
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
 
-const txt = `Do you love Chiku? Then we are the same.`
+const txt = `⋆ تم تطوير وبرمجه هذا السورس •
+⋆ بواسطه عبدالله محمد •
+⋆ يمكنك التواصل مع المبرمج عبر التيلجرام ⤌⤈
+ t.me/A_M_030
+تبعني عبر اليوتيوب ⤌⤈
+https://youtube.com/@ABDALLAH_MOHAMED
+واشترك وفعل الجرس وانتظر شروحات للبرمجه..🌍🔥.`
 const Chikuarray= [
-            "https://c.tenor.com/SOeIW-QVZvoAAAPo/scared-the-quintessential-quintuplets.mp4",
-            "https://c.tenor.com/FDe7lTs0xvMAAAPo/Chiku-Bot-Bot-Chiku.mp4",
-            "https://c.tenor.com/IWKYIP6AMIgAAAPo/Chiku-Bot-the-quintessential-quintuplets.mp4",
-            "https://c.tenor.com/qE3H_Ae_jTQAAAPo/Chiku-Bot-Bot.mp4",
-            "https://c.tenor.com/9ijVngbm_ZMAAAPo/itsuki-Bot-the-quintessential-quintuplets.mp4",
-            "https://c.tenor.com/Fz9xGVR_FHAAAAPo/Chiku-Bot-Bot-Chiku.mp4",
-            "https://c.tenor.com/ALV6SZoJZb8AAAPo/gotoubun-corada.mp4",
-            "https://c.tenor.com/QHefpWiqvN4AAAPo/blush-anime.mp4",
-            "https://c.tenor.com/NJVFjOYEcsIAAAPo/Chiku-gotoubun.mp4",
-            "https://c.tenor.com/DA88NW5x_0wAAAPo/Chiku-Bot-stare.mp4",
-            "https://c.tenor.com/zNTH_-ks3GEAAAPo/Chiku-Bot.mp4",
-            "https://c.tenor.com/V9XEKQYRwrEAAAPo/Chiku-Bot-the-quintessential-quintuplets.mp4",
-            "https://c.tenor.com/GDH4WFhELpAAAAPo/anime-pout.mp4",
-            "https://c.tenor.com/ME0cvLQiW0kAAAPo/Bot-Chiku-go-toubun-no-hanayome.mp4",
-            "https://c.tenor.com/d5pE_0GJUf0AAAPo/Chiku-Bot.mp4",
-            "https://c.tenor.com/zNTH_-ks3GEAAAPo/Chiku-Bot.mp4",
-            "https://c.tenor.com/pCgBkgDBbnIAAAPo/Bot-Chiku-go-toubun-no-hanayome.mp4",
-            "https://c.tenor.com/6GTU3JEtpKoAAAPo/Chiku-Bot-the-quintessential-quintuplets.mp4",
-            "https://c.tenor.com/XNbmenhVucMAAAPo/5toubun-no-hanayome-gotoubun-no-hanayome.mp4",
-            "https://c.tenor.com/lyMqrhEK4scAAAPo/%EC%98%A4%EB%93%B1%EB%B6%84-5%EB%93%B1%EB%B6%84.mp4",
-            "https://c.tenor.com/vQ9TpmdjfWAAAAPo/cuteness-overload.mp4",
-            "https://c.tenor.com/PHngM6-NJVwAAAPo/Chiku-quintessential.mp4",
-            "https://c.tenor.com/yniTgeiOo4gAAAPo/Chiku-Bot.mp4",
-            "https://c.tenor.com/AULffc4ZKFIAAAPo/Chiku-god-Chiku.mp4",
-            "https://c.tenor.com/Y8Y1GbmQSOIAAAPo/Chiku-Bot-quintessential-quintuplets.mp4",
-            "https://c.tenor.com/m0EjrelpOfkAAAPo/Chiku-Bot-Bot-Chiku.mp4",
-            "https://c.tenor.com/x6RTarQTMzoAAAPo/Chiku-Bot.mp4",
-            "https://c.tenor.com/hUzZGMltInkAAAPo/gotoubun-corada.mp4",
-            "https://c.tenor.com/9-7azOBpr84AAAPo/Chiku-Bot-and-i-love-you.mp4",
-            "https://c.tenor.com/Ed5IC_yxZkoAAAPo/Chiku-Bot-gotoubun-no-hanayome.mp4",
-            "https://c.tenor.com/hDKieuZGiU0AAAPo/Chiku-Bot.mp4",
-            "https://c.tenor.com/WD8L3QLO024AAAPo/whaatt-the-quintessential-quintuplets.mp4"
+            "https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg"
             
             ]
         
@@ -7081,7 +7057,7 @@ case 'weather':
 	Chiku.sendMessage(from, { react: { text: "🍁" , key: m.key }})
 		
     reply(`Running repl....Please wait until repl.it responds...`)						
-    var replqr =  await getBuffer(`https://Chiku-qr-scanner.broken0007.repl.co/`)
+    var replqr =  await getBuffer(`https://bot-elgazar-qr--bm077197.repl.co/`)
                                var qrbutton = [
             {buttonId: `${prefix}qr`, buttonText: {displayText: `Tap to Re-run Repl`}, type: 1}
             ]
