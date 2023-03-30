@@ -3,7 +3,6 @@
 
 process.on('uncaughtException', console.error)
 require("./config")
-const ytdl = require('ytdlcore')
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType, WAFlag } = require('@adiwajshing/baileys')
 const zChiku = require("@adiwajshing/baileys")
 const fs = require('fs')
@@ -2402,7 +2401,7 @@ xfarrapi.Film(q)
 break
 
 
-case 'wallpaper': case 'animewallpaper': case 'انمي': {
+case 'wallpaper': case 'animewallpaper': case 'ويلبر': {
 if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
 if (!args.join(" ")) return reply("اكتب اسم شخصيه انمي للبحث!")
@@ -3988,7 +3987,7 @@ break
 		
 		
 
- case 'owner': case 'Ayush': case 'creator': case 'mod': case 'mods':{
+ case 'owner': case 'المطور': case 'mod': case 'المالك':{
     Chiku.sendContact(m.chat, global.Owner, m)
     }
     break
@@ -4004,7 +4003,7 @@ case 'translate': case 'ts': case 'trans': {
     break
 
 
-case 'gimage': case 'gig': case 'googleimage':{
+case 'gimage': case 'صورة': case 'صوره':{
    if (isBan) return reply(mess.banned)	 			
 if (isBanChat) return reply(mess.bangc)
 if (!args[0]) return reply("Enter a search term to get Google Image!")
@@ -4013,7 +4012,7 @@ gis(args.join(" "), async (error, result) => {
 n = result
 images = n[Math.floor(Math.random() * n.length)].url
 let buttons = [
-{buttonId: `${prefix}gimage ${args.join(" ")}`, buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1}
+{buttonId: `${prefix}صوره ${args.join(" ")}`, buttonText: {displayText: 'الصوره التاليه⏪'}, type: 1}
 ]
 let buttonMessage = {
 image: { url: images },
@@ -4380,19 +4379,20 @@ reply(mess.error)
 break
 		
 		
-case 'تشغيل': case 'play': case 'شغل': case 'ytplay': {
+case 'تشغيل': case 'شغل': case 'play': case 'song': case 'ytplay': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
+ Chiku.sendMessage(from, { react: { text: "🍁" , key: m.key }}) 
  const YT=require('./lib/ytdlcore')
  const { isUrl, fetchBuffer } = require('./lib/Function')
 
- if(!text) return Chiku.sendMessage(from,{text:"ادخل اسم اغنيه للبحث!"},{quoted:m})
- let yts = require("yt-search")
+ if(!text) return Chiku.sendMessage(from,{text:"اكتب عنوان للبحث!"},{quoted:m})
+ let yts = require("@adiwajshing/keyed-db2")
  let search = await yts(text)
  let anu = search.videos[0]
  let buttons = [
- {buttonId: `${prefix}ytad ${anu.url}`, buttonText: {displayText: '♫ صوتي'}, type: 1},
- {buttonId: `${prefix}ytvd ${anu.url}`, buttonText: {displayText: '► فيديو'}, type: 1}
+ {buttonId: `${prefix}ytad ${text}`, buttonText: {displayText: '♫ صوتي'}, type: 1},
+ {buttonId: `${prefix}ytvd ${text}`, buttonText: {displayText: '► فيديو'}, type: 1}
 
  ]
  let buttonMessage = {
@@ -4418,6 +4418,7 @@ case 'تشغيل': case 'play': case 'شغل': case 'ytplay': {
 ┃اسم البوت : 📶 𝗕𝗢𝗧 𝗘𝗟𝗚𝗔𝗭𝗔𝗥 📶 
 
 ┗━━━━━━━━━❊`,
+	 
  footer: `${global.BotName}`,
  buttons: buttons,
  headerType: 4,
@@ -4503,7 +4504,7 @@ case 'تشغيل': case 'play': case 'شغل': case 'ytplay': {
  break
 
 
-case 'couplepp': case 'cpp': case 'ppcouple': {
+case 'couplepp': case 'تطقيم': case 'طقم': {
 if (isBan) return reply(mess.banned)
 if (isBanChat) return reply(mess.bangc)
 Chiku.sendMessage(from, { react: { text: "🙀" , key: m.key }})
@@ -4511,8 +4512,8 @@ Chiku.sendMessage(from, { react: { text: "🙀" , key: m.key }})
          reply(mess.waiting)
          let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
          let random = anu[Math.floor(Math.random() * anu.length)]
-         Chiku.sendMessage(m.chat, { image: { url: random.male }, caption: `For him...` }, { quoted: m })
-         Chiku.sendMessage(m.chat, { image: { url: random.female }, caption: `For her...` }, { quoted: m })
+         Chiku.sendMessage(m.chat, { image: { url: random.male }, caption: `ولد🙎🏻‍♂️` }, { quoted: m })
+         Chiku.sendMessage(m.chat, { image: { url: random.female }, caption: `بنت️🙎🏻‍♀️` }, { quoted: m })
      }
  break
 
@@ -4546,7 +4547,7 @@ case 'pinterest': case 'pin': {
 
 
 
-case 'swm': case 'take': case 'stickerwm': case 'steal':{
+case 'زرف': case 'take': case 'سرقة': case 'سرقه':{
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
  Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
@@ -4563,12 +4564,12 @@ let media = await quoted.download()
 let encmedia = await Chiku.sendImageAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
 await fs.unlinkSync(encmedia)
 } else if (/video/.test(mime)) {
-if ((quoted.msg || quoted).seconds > 11) return reply('Maximum 10 seconds is allowed!')
+if ((quoted.msg || quoted).seconds > 40) return reply('حد اقصي10ثواني!')
 let media = await quoted.download()
 let encmedia = await Chiku.sendVideoAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
 await fs.unlinkSync(encmedia)
 } else {
-reply(`Send Image/Video With Caption ${prefix + command}\nVideo Duration 1-9 seconds is allowed!`)
+reply(`رد علي صوره او فيديو واكتب ${prefix + command}\nالمده لا تزيد عن10ثواني!`)
 }
 }
 break
@@ -4576,13 +4577,13 @@ break
 
 
 
-case 'smeme': case 'stickermeme': case 'stickmeme': {
+case 'smeme': case 'كتابه': case 'اكتب': {
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
 let { TelegraPh } = require('./lib/uploader')
-if (!text) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
-if (text.includes('|')) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
-if (!/image/.test(mime)) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
+if (!text) return reply(`رد علي صوره واكتب الامر ${prefix + command} *والنص*`)
+if (text.includes('|')) return reply(`رد علي صوره واكتب الامر ${prefix + command} *والنص*`)
+if (!/image/.test(mime)) return reply(`رد علي صوره واكتب الامر ${prefix + command} *والنص*`)
 reply(mess.wait)
 mee = await Chiku.downloadAndSaveMediaMessage(quoted)
 mem = await TelegraPh(mee)
@@ -4592,7 +4593,7 @@ await fs.unlinkSync(memek)
 }
 break
 
-case 'sgif': case 'sticker': case 's': {
+case 'استيكر': case 'sticker': case 's': case 'ملصق': case 'ستيكر': {
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
  if (/image/.test(mime)) {
@@ -4600,12 +4601,12 @@ case 'sgif': case 'sticker': case 's': {
  let encmedia = await Chiku.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
  await fs.unlinkSync(encmedia)
  } else if (/video/.test(mime)) {
- if ((quoted.msg || quoted).seconds > 11) return reply('Maximum 10 seconds!')
+ if ((quoted.msg || quoted).seconds > 11) return reply('حد اقصي10ثواني!')
  let media = await quoted.download()
  let encmedia = await Chiku.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
  await fs.unlinkSync(encmedia)
  } else {
- reply(`Send Image/Video With Caption ${prefix + command}\nVideo Duration 1-9 Seconds`)
+ reply(`ارسل صورة او فيديو وقم بالرد وكتابه الامر ${prefix + command}\nيسمح بمدة الفيديو من 1 إلى 9 ثوان`)
  }
  }
  break
@@ -4641,7 +4642,7 @@ Chiku.sendMessage(from, {text : `Case : ${kasus}\n\nDead : ${kematian}\n\nHealed
 break
 
 
-case 'couple': case 'ship': {
+case 'جواز': case 'زواج': {
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
 if (!m.isGroup) return replay(`${mess.grouponly}`)
@@ -4650,17 +4651,36 @@ if (!m.isGroup) return replay(`${mess.grouponly}`)
 let member = participants.map(u => u.id)
 let orang = member[Math.floor(Math.random() * member.length)]
 let jodoh = member[Math.floor(Math.random() * member.length)]
-let jawab = `@${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}
-Ohh i see 👀💖...`
+let jawab = `@${orang.split('@')[0]} 「 معلش زوجناكم لأنكم تصلحون لبعض 🤡 」◣ @${jodoh.split('@')[0]}
+「 الي يشوفهم مناسبين لبعض زيي يضغط يب 🤡 」◣`
 let menst = [orang, jodoh]
 let buttons = [
-{ buttonId: '❤️', buttonText: { displayText: 'Congratulations ❤️' }, type: 1 }
+{ buttonId: '「 يب هم مناسبين لبعض😂🤡 」◣', buttonText: { displayText: '「 يب هم مناسبين لبعض😂🤡 」◣' }, type: 1 }
 ]
 await Chiku.sendButtonText(m.chat, buttons, jawab, Chiku.user.name, m, {mentions: menst})
 }
 break
 
-case 'soulmate': {
+case 'طلاق': {
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+if (!m.isGroup) return replay(`${mess.grouponly}`)
+ Chiku.sendMessage(from, { react: { text: "💔" , key: m.key }})
+	
+let member = participants.map(u => u.id)
+let orang = member[Math.floor(Math.random() * member.length)]
+let jodoh = member[Math.floor(Math.random() * member.length)]
+let jawab = `@${orang.split('@')[0]} 「 معلش طلقناكم لأنكم لا تصلحون لبعض 💔 」◣ @${jodoh.split('@')[0]}
+「 الي يشوفهم مش مناسبين لبعض زيي يضغط يب 🤡 」◣`
+let menst = [orang, jodoh]
+let buttons = [
+{ buttonId: '「 يب هم مش مناسبين لبعض 💔 」◣', buttonText: { displayText: '「 يب هم مش مناسبين لبعض 💔 」◣' }, type: 1 }
+]
+await Chiku.sendButtonText(m.chat, buttons, jawab, Chiku.user.name, m, {mentions: menst})
+}
+break
+
+case 'زوجني': case 'جوزني': {
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
 if (!m.isGroup) return replay(`${mess.grouponly}`)
@@ -4668,32 +4688,104 @@ if (!m.isGroup) return replay(`${mess.grouponly}`)
 let member = participants.map(u => u.id)
 let me = m.sender
 let jodoh = member[Math.floor(Math.random() * member.length)]
-let jawab = `👫 Soulmates
-@${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
+let jawab = `「 معلش زوجناكم لأنكم تصلحون لبعض 🤡 」◣
+@${me.split('@')[0]} 「 الي يشوفهم مناسبين لبعض زيي يضغط يب 🤡 」◣ @${jodoh.split('@')[0]}`
 let ments = [me, jodoh]
 let buttons = [
-{ buttonId: '❤️', buttonText: { displayText: 'Be my Soulmate ❤️' }, type: 1 }
+{ buttonId: '「 الي يشوفهم مناسبين لبعض زيي يضغط يب 🤡 」◣', buttonText: { displayText: '「 يب هم مناسبين لبعض😂🤡 」◣' }, type: 1 }
 ]
 await Chiku.sendButtonText(m.chat, buttons, jawab, Chiku.user.name, m, {mentions: ments})
 }
 break
 
-case 'handsomecheck':
+case 'طلقني': {
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "😺" , key: m.key }})
-				if (!text) return replay(`Tag Someone, Example : ${prefix + command} @Ayush`)
+if (!m.isGroup) return replay(`${mess.grouponly}`)
+ Chiku.sendMessage(from, { react: { text: "💔" , key: m.key }})
+let member = participants.map(u => u.id)
+let me = m.sender
+let jodoh = member[Math.floor(Math.random() * member.length)]
+let jawab = `「 معلش طلقناكم لأنكم لا تصلحون لبعض 💔 」◣
+@${me.split('@')[0]} 「 الي يشوفهم مش مناسبين لبعض زيي يضغط يب 🤡 」◣ @${jodoh.split('@')[0]}`
+let ments = [me, jodoh]
+let buttons = [
+{ buttonId: '「 الي يشوفهم مش مناسبين لبعض زيي يضغط يب 🤡 」◣', buttonText: { displayText: '「 يب هم مش مناسبين لبعض 💔 」◣' }, type: 1 }
+]
+await Chiku.sendButtonText(m.chat, buttons, jawab, Chiku.user.name, m, {mentions: ments})
+}
+break
+
+case 'رفيق': case 'soulmate': {
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+if (!m.isGroup) return replay(`${mess.grouponly}`)
+ Chiku.sendMessage(from, { react: { text: "👫" , key: m.key }})
+let member = participants.map(u => u.id)
+let me = m.sender
+let jodoh = member[Math.floor(Math.random() * member.length)]
+let jawab = `👫 رفيق الروح
+@${me.split('@')[0]} ❤ @${jodoh.split('@')[0]}`
+let ments = [me, jodoh]
+let buttons = [
+{ buttonId: '❤', buttonText: { displayText: 'كن رفيق الروح❤✨' }, type: 1 }
+]
+await Chiku.sendButtonText(m.chat, buttons, jawab, Chiku.user.name, m, {mentions: ments})
+}
+break
+
+case 'فراق': case 'فارقني': {
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+if (!m.isGroup) return replay(`${mess.grouponly}`)
+ Chiku.sendMessage(from, { react: { text: "💔" , key: m.key }})
+let member = participants.map(u => u.id)
+let me = m.sender
+let jodoh = member[Math.floor(Math.random() * member.length)]
+let jawab = `تم فراقكم 🙂💔
+@${me.split('@')[0]} 💔 @${jodoh.split('@')[0]}`
+let ments = [me, jodoh]
+let buttons = [
+{ buttonId: '💔', buttonText: { displayText: 'فارقني 💔️' }, type: 1 }
+]
+await Chiku.sendButtonText(m.chat, buttons, jawab, Chiku.user.name, m, {mentions: ments})
+}
+break
+
+case 'الحب': case 'حب':
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+	Chiku.sendMessage(from, { react: { text: "❤" , key: m.key }})
+				if (!text) return replay(`منشن علي شخص, مثال : ${prefix + command} @Abdallah`)
 					const gan = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const teng = gan[Math.floor(Math.random() * gan.length)]
-Chiku.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${teng}%*` }, { quoted: m })
+Chiku.sendMessage(from, { text: `*${command}*\n\nالاسم : ${q}\nالاجابه : *${teng}%*` }, { quoted: m })
 					break
-case 'beautifulcheck':
+case 'الجمال': case 'جمال':
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-				if (!text) return replay(`Tag Someone, Example : ${prefix + command} @Ayush`)
+				if (!text) return replay(`منشن علي شخص, مثال : ${prefix + command} @Abdallah`)
 					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const tik = can[Math.floor(Math.random() * can.length)]
-Chiku.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${tik}%*` }, { quoted: m })
+Chiku.sendMessage(from, { text: `*${command}*\n\nالاسم : ${q}\nالاجابه : *${tik}%*` }, { quoted: m })
+					break
+					
+					case 'ذكاء': case 'الذكاء':
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+				if (!text) return replay(`منشن علي شخص, مثال : ${prefix + command} @Abdallah`)
+					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
+					const tik = can[Math.floor(Math.random() * can.length)]
+Chiku.sendMessage(from, { text: `*${command}*\n\nالاسم : ${q}\nالاجابه : *${tik}%*` }, { quoted: m })
+					break
+					
+					case 'الغباء': case 'غباء':
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+				if (!text) return replay(`منشن علي شخص, مثال : ${prefix + command} @Abdallah`)
+					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
+					const tik = can[Math.floor(Math.random() * can.length)]
+Chiku.sendMessage(from, { text: `*${command}*\n\nالاسم : ${q}\nالاجابه : *${tik}%*` }, { quoted: m })
 					break
 
 case 'awesomecheck':
@@ -4703,226 +4795,1209 @@ case 'awesomecheck':
           case 'lesbiancheck':
              case 'hornycheck':
                  case 'prettycheck':
-                    case 'lovelycheck':
-                      case 'uglycheck':
+                    case 'الكره':
+                      case 'الكرة':
                         if (isBan) return reply(mess.banned)
                         if (isBanChat) return reply(mess.bangc)
 		Chiku.sendMessage(from, { react: { text: "😺" , key: m.key }})
 		
-				if (!text) return replay(`Tag Someone, Example : ${prefix + command} @Ayush`)
+				if (!text) return replay(`منشن علي شخص, مثال : ${prefix + command} @Abdallah`)
 					const sangeh = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const sange = sangeh[Math.floor(Math.random() * sangeh.length)]
-Chiku.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${sange}%*` }, { quoted: m })
+Chiku.sendMessage(from, { text: `*${command}*\n\nالاسم : ${q}\nالاجابه : *${sange}%*` }, { quoted: m })
 					break
 
 
-case 'charactercheck':
+case 'شخصيتك': case 'الشخصيه':
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
 	Chiku.sendMessage(from, { react: { text: "🤧" , key: m.key }})
 	
-					if (!text) return replay(`Tag Someone, Example : ${prefix + command} @Ayush`)
-					const Chikutttt =['Compassionate','Generous','Grumpy','Forgiving','Obedient','Good','Simp','Kind-Hearted','patient','UwU','top, anyway','Helpful']
+					if (!text) return replay(`منشن علي شخص, مثال : ${prefix + command} @Abdallah`)
+					const Chikutttt =['زفت','واطي','غبي','مطيع','غلبان','جدع','طيب','حبوب','جميل','حمار','محترم','شرموط','كلب','ورع']
 					const taky = Chikutttt[Math.floor(Math.random() * Chikutttt.length)]
-					Chiku.sendMessage(from, { text: `Character Check : ${q}\nAnswer : *${taky}*` }, { quoted: m })
+					Chiku.sendMessage(from, { text: `التحقق من الشخصية : ${q}\nالاجابه : *${taky}*` }, { quoted: m })
 				     break
                    
- case 'dare':
+ case 'dare': case 'صراحه': case 'صراحة':
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🌝" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "😑" , key: m.key }})
 	
                    const dare =[
-         "eat 2 tablespoons of rice without any side dishes, if it's dragging you can drink",
-         "spill people who make you pause",
-         "call crush/pickle now and send ss",
-         "drop only emote every time you type on gc/pc for 1 day.",
-         "say Welcome to Who Wants To Be a Millionaire! to all the groups you have",
-         "call ex saying miss",
-         "sing the chorus of the last song you played",
-         "vn your ex/crush/girlfriend, says hi (name), wants to call, just a moment. I miss🥺👉🏼👈🏼",
-         "Bang on the table (which is at home) until you get scolded for being noisy",
-         "Tell random people - I was just told I was your twin first, we separated, then I had plastic surgery. And this is the most ciyusss_ thing",
-         "mention ex's name",
-         "make 1 rhyme for the members!",
-         "send ur whatsapp chat list",
-         "chat random people with gheto language then ss here",
-         "tell your own version of embarrassing things",
-         "tag the person you hate",
-         "Pretending to be possessed, for example: possessed by dog, possessed by grasshoppers, possessed by refrigerator, etc.",
-         "change name to *I AM DONKEY* for 24 hours",
-         "shout *ma chuda ma chuda ma chuda* in front of your house",
-         "snap/post boyfriend photo/crush",
-         "tell me your boyfriend type!",
-         "say *i hv crush on you, do you want to be my girlfriend?* to the opposite sex, the last time you chatted (submit on wa/tele), wait for him to reply, if you have, drop here",
-         "record ur voice that read *titar ke age do titar, titar ke piche do titar*",
-         "prank chat ex and say *i love u, please come back.* without saying dare!",
-         "chat to contact wa in the order according to your battery %, then tell him *i am lucky to hv you!*",
-         "change the name to *I am a child of randi* for 5 hours",
-         "type in bengali 24 hours",
-         "Use selmon bhoi photo for 3 days",
-         "drop a song quote then tag a suitable member for that quote",
-         "send voice note saying can i call u baby?",
-         "ss recent call whatsapp",
-         "Say *YOU ARE SO BEAUTIFUL DON'T LIE* to guys!",
-         "pop to a group member, and say fuck you",
-         "Act like a chicken in front of ur parents",
-         "Pick up a random book and read one page out loud in vn n send it here",
-         "Open your front door and howl like a wolf for 10 seconds",
-         "Take an embarrassing selfie and paste it on your profile picture",
-         "Let the group choose a word and a well known song. You have to sing that song and send it in voice note",
-         "Walk on your elbows and knees for as long as you can",
-         "sing national anthem in voice note",
-         "Breakdance for 30 seconds in the sitting room😂",
-         "Tell the saddest story you know",
-         "make a twerk dance video and put it on status for 5mins",
-         "Eat a raw piece of garlic",
-         "Show the last five people you texted and what the messages said",
-         "put your full name on status for 5hrs",
-         "make a short dance video without any filter just with a music and put it on ur status for 5hrs",
-         "call ur bestie, bitch",
-         "put your photo without filter on ur status for 10mins",
-         "say i love oli london in voice note🤣🤣",
-         "Send a message to your ex and say I still like you",
-         "call Crush/girlfriend/bestie now and screenshot here",
-         "pop to one of the group member personal chat and Say you ugly bustard",
-         "say YOU ARE BEAUTIFUL/HANDSOME to one of person who is in top of ur pinlist or the first person on ur chatlist",
-         "send voice notes and say, can i call u baby, if u r boy tag girl/if girl tag boy",
-         "write i love you (random grup member name, who is online) in personal chat, (if u r boy write girl name/if girl write boy name) take a snap of the pic and send it here",
-         "use any bollywood actor photo as ur pfp for 3 days",
-         "put your crush photo on status with caption, this is my crush",
-         "change name to I AM GAY for 5 hours",
-         "chat to any contact in whatsapp and say i will be ur bf/gf for 5hours",
-         "send voice note says i hv crush on you, want to be my girlfriend/boyfriend or not? to any random person from the grup(if u girl choose boy, if boy choose girl",
-         "slap ur butt hardly send the sound of slap through voice note😂",
-         "state ur gf/bf type and send the photo here with caption, ugliest girl/boy in the world",
-         "shout bravooooooooo and send here through voice note",
-         "snap your face then send it here",
-         "Send your photo with a caption, i am lesbian",
-         "shout using harsh words and send it here through vn",
-         "shout you bastard in front of your mom/papa",
-         "change the name to i am idiot for 24 hours",
-         "slap urself firmly and send the sound of slap through voice note😂",
-         "say i love the bot owner Ayush through voice note",
-         "send your gf/bf pic here",
-         "make any tiktok dance challenge video and put it on status, u can delete it after 5hrs",
-         "breakup with your best friend for 5hrs without telling him/her that its a dare",
-          "tell one of your frnd that u love him/her and wanna marry him/her, without telling him/her that its a dare",
-          "say i love depak kalal through voice note",
-          "write i am feeling horny and put it on status, u can delete it only after 5hrs",
-          "write i am lesbian and put it on status, u can delete only after 5hrs",
-          "kiss your mommy or papa and say i love you😌",
-          "put your father name on status for 5hrs",
-          "send abusive words in any grup, excepting this grup, and send screenshot proof here"
+         "صراحه  |  صوتك حلوة؟",
+"صراحه  |  التقيت الناس مع وجوهين؟",
+"صراحه  |  شيء وكنت تحقق اللسان؟",
+"صراحه  |  أنا شخص ضعيف عندما؟",
+"صراحه  |  هل ترغب في إظهار حبك ومرفق لشخص أو رؤية هذا الضعف؟",
+"صراحه  |  يدل على أن الكذب مرات تكون ضرورية شي؟",
+"صراحه  |  أشعر بالوحدة على الرغم من أنني تحيط بك كثيرا؟",
+"صراحه  |  كيفية الكشف عن من يكمن عليك؟",
+"صراحه  |  إذا حاول شخص ما أن يكرهه أن يقترب منك ويهتم بك تعطيه فرصة؟",
+"صراحه  |  أشجع شيء حلو في حياتك؟",
+"صراحه  |  طريقة جيدة يقنع حتى لو كانت الفكرة خاطئة توافق؟",
+"صراحه  |  كيف تتصرف مع من يسيئون فهمك ويأخذ على ذهنه ثم ينتظر أن يرفض؟",
+"صراحه  |  التغيير العادي عندما يكون الشخص الذي يحبه؟",
+"صراحه  |  المواقف الصعبة تضعف لك ولا ترفع؟",
+"صراحه  |  نظرة و يفسد الصداقة؟",
+"صراحه  |  ‏‏إذا أحد قالك كلام سيء بالغالب وش تكون ردة فعلك؟",
+"صراحه  |  شخص معك بالحلوه والمُره؟",
+"صراحه  |  ‏هل تحب إظهار حبك وتعلقك بالشخص أم ترى ذلك ضعف؟",
+"صراحه  |  تأخذ بكلام اللي ينصحك ولا تسوي اللي تبي؟",
+"صراحه  |  وش تتمنى الناس تعرف عليك؟",
+"صراحه  |  ابيع المجرة عشان؟",
+"صراحه  |  أحيانا احس ان الناس ، كمل؟",
+"صراحه  |  مع مين ودك تنام اليوم؟",
+"صراحه  |  صدفة العمر الحلوة هي اني؟",
+"صراحه  |  الكُره العظيم دايم يجي بعد حُب قوي تتفق؟",
+"صراحه  |  صفة تحبها في نفسك؟",
+"صراحه  |  ‏الفقر فقر العقول ليس الجيوب  ، تتفق؟",
+"صراحه  |  تصلي صلواتك الخمس كلها؟",
+"صراحه  |  ‏تجامل أحد على راحتك؟",
+"صراحه  |  اشجع شيء سويتة بحياتك؟",
+"صراحه  |  وش ناوي تسوي اليوم؟",
+"صراحه  |  وش شعورك لما تشوف المطر؟",
+"صراحه  |  غيرتك هاديه ولا تسوي مشاكل؟",
+"صراحه  |  ما اكثر شي ندمن عليه؟",
+"صراحه  |  اي الدول تتمنى ان تزورها؟",
+"صراحه  |  متى اخر مره بكيت؟",
+"صراحه  |  تقيم حظك ؟ من عشره؟",
+"صراحه  |  هل تعتقد ان حظك سيئ؟",
+"صراحه  |  شـخــص تتمنــي الإنتقــام منـــه؟",
+"صراحه  |  كلمة تود سماعها كل يوم؟",
+"صراحه  |  **هل تُتقن عملك أم تشعر بالممل؟",
+"صراحه  |  هل قمت بانتحال أحد الشخصيات لتكذب على من حولك؟",
+"صراحه  |  متى آخر مرة قمت بعمل مُشكلة كبيرة وتسببت في خسائر؟",
+"صراحه  |  ما هو اسوأ خبر سمعته بحياتك؟",
+"‏صراحه  | هل جرحت شخص تحبه من قبل ؟",
+"صراحه  |  ما هي العادة التي تُحب أن تبتعد عنها؟",
+"‏صراحه  | هل تحب عائلتك ام تكرههم؟",
+"‏صراحه  |  من هو الشخص الذي يأتي في قلبك بعد الله – سبحانه وتعالى- ورسوله الكريم – صلى الله عليه وسلم؟",
+"‏صراحه  |  هل خجلت من نفسك من قبل؟",
+"‏صراحه  |  ما هو ا الحلم  الذي لم تستطيع ان تحققه؟",
+"‏صراحه  |  ما هو الشخص الذي تحلم به كل ليلة؟",
+"‏صراحه  |  هل تعرضت إلى موقف مُحرج جعلك تكره صاحبهُ؟",
+"‏صراحه  |  هل قمت بالبكاء أمام من تُحب؟",
+"‏صراحه  |  ماذا تختار حبيبك أم صديقك؟",
+"‏صراحه  | هل حياتك سعيدة أم حزينة؟",
+"صراحه  |  ما هي أجمل سنة عشتها بحياتك؟",
+"‏صراحه  |  ما هو عمرك الحقيقي؟",
+"‏صراحه  |  ما اكثر شي ندمن عليه؟",
+"صراحه  |  ما هي أمنياتك المُستقبلية؟‏",
+"صراحه  | هل قبلت فتاه؟"
      ]
                    const Chikudareww = dare[Math.floor(Math.random() * dare.length)]
-                   buffer = await getBuffer(`https://picfiles.alphacoders.com/600/thumb-600449.png`)
-                   Chiku.sendMessage(from, { image: buffer, caption: '*You have chosen Dare*\n\n'+ Chikudareww }, {quoted:m})
+                   buffer = await getBuffer(`https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg`)
+                   Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في لعبة صراحه*\nꔹ━━━━━ꔹ\n'+ Chikudareww }, {quoted:m})
                    break
                        
 
-case 'truth':
+case 'truth': case 'انصح': case 'نصيحه': 
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
-	Chiku.sendMessage(from, { react: { text: "🌝" , key: m.key }})
+	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
 		
                            const truth =[
-                 "Have you ever liked anyone? How long?",
-                 "If you can or if you want, which gc/outside gc would you make friends with? (maybe different/same type)",
-                 "apa ketakutan terbesar kamu?",
-                 "Have you ever liked someone and felt that person likes you too?",
-                 "What is the name of your friend's ex-girlfriend that you used to secretly like?",
-                 "Have you ever stolen money from your father or mom? The reason?",
-                 "What makes you happy when you're sad?",
-                 "Ever had a one sided love? if so who? how does it feel bro?", 
-                 "been someone's mistress?",
-                 "the most feared thing",
-                 "Who is the most influential person in your life?",
-                 "what proud thing did you get this year", 
-                 "Who is the person who can make you awesome", 
-                 "Who is the person who has ever made you very happy?", 
-                 "Who is closest to your ideal type of partner here", 
-                 "Who do you like to play with??", 
-                 "Have you ever rejected people? the reason why?",
-                 "Mention an incident that made you hurt that you still remember", 
-                 "What achievements have you got this year??",
-                 "What's your worst habit at school??",
-                 "What song do you sing most in the shower",
-                 "Have you ever had a near-death experience",
-                 "When was the last time you were really angry. Why?",
-                 "Who is the last person who called you",
-                 "Do you have any hidden talents, What are they",
-                 "What word do you hate the most?",
-                 "What is the last YouTube video you watched?",
-                 "What is the last thing you Googled",
-                 "Who in this group would you want to swap lives with for a week",
-                 "What is the scariest thing thats ever happened to you",
-                 "Have you ever farted and blamed it on someone else",
-                 "When is the last time you made someone else cry",
-                 "Have you ever ghosted a friend",
-                 "Have you ever seen a dead body",
-                 "Which of your family members annoys you the most and why",
-                 "If you had to delete one app from your phone, which one would it be",
-                 "What app do you waste the most time on",
-                 "Have you ever faked sick to get home from school",
-                 "What is the most embarrassing item in your room",
-                 "What five items would you bring if you got stuck on a desert island",
-                 "Have you ever laughed so hard you peed your pants",
-                 "Do you smell your own farts",
-                 "have u ever peed on the bed while sleeping ðŸ¤£ðŸ¤£",
-                 "What is the biggest mistake you have ever made",
-                 "Have you ever cheated in an exam",
-                 "What is the worst thing you have ever done",
-                 "When was the last time you cried",
-                 "whom do you love the most among ur parents", 
-                 "do u sometimes put ur finger in ur nosetrilðŸ¤£", 
-                 "who was ur crush during the school days",
-                 "tell honestly, do u like any boy in this grup",
-                 "have you ever liked anyone? how long?",
-                 "do you have gf/bf','what is your biggest fear?",
-                 "have you ever liked someone and felt that person likes you too?",
-                 "What is the name of your ex boyfriend of your friend that you once liked quietly?",
-                 "ever did you steal your mothers money or your fathers money",
-                 "what makes you happy when you are sad",
-                 "do you like someone who is in this grup? if you then who?",
-                 "have you ever been cheated on by people?",
-                 "who is the most important person in your life",
-                 "what proud things did you get this year",
-                 "who is the person who can make you happy when u r sad",
-                 "who is the person who ever made you feel uncomfortable",
-                 "have you ever lied to your parents",
-                 "do you still like ur ex",
-                 "who do you like to play together with?",
-                 "have you ever stolen big thing in ur life? the reason why?",
-                 "Mention the incident that makes you hurt that you still remember",
-                 "what achievements have you got this year?",
-                 "what was your worst habit at school?",
-                 "do you love the bot creator Ayush?",
-                 "have you ever thought of taking revenge from ur teacher?",
-                 "do you like current prime minister of ur country",
-                 "you non veg or veg",
-                 "if you could be invisible, what is the first thing you would do",
-                 "what is a secret you kept from your parents",
-                 "Who is your secret crush",
-                 "whois the last person you creeped on social media",
-                 "If a genie granted you three wishes, what would you ask for",
-                 "What is your biggest regret",
-                 "What animal do you think you most look like",
-                 "How many selfies do you take a day",
-                 "What was your favorite childhood show",
-                 "if you could be a fictional character for a day, who would you choose",
-                 "whom do you text the most",
-                 "What is the biggest lie you ever told your parents",
-                 "Who is your celebrity crush",
-                 "Whats the strangest dream you have ever had",
-                 "do you play pubg, if you then send ur id number"
+"عامل الناس بأخلاقك ولا بأخلاقهم", 
+"الجمال يلفت الأنظار لكن الطيبه تلفت القلوب ", 
+"الاعتذار عن الأخطاء لا يجرح كرامتك بل يجعلك كبير في نظر الناس ",
+"لا ترجي السماحه من بخيل.. فما في البار لظمان ماء",
+"لا تحقرون صغيره إن الجبال من الحصي",
+"لا تستحي من إعطاء فإن الحرمان أقل منه ", 
+"لا تظلم حتى لا تتظلم ",
+"لا تقف قصاد الريح ولا تمشي معها ",
+"لا تكسب موده التحكم الا بالتعقل",
+"لا تمد عينك في يد غيرك ",
+"لا تملح الا لمن يستحقاها ويحافظ عليها",
+"لا حياه للإنسان بلا نبات",
+"لا حياه في الرزق.. ولا شفاعه في الموت",
+"كما تدين تدان",
+"لا دين لمن لا عهد له ",
+"لا سلطان على الدوق فيما يحب أو بكره",
+"لا مروه لمن لادين له ",
+"لا يدخل الجنه من لايأمن من جازه بوائقه",
+"يسروا ولا تعسروا... ويشورا ولا تنفروا",
+"يدهم الصدر ما يبني العقل الواسع ",
+"أثقل ما يوضع في الميزان يوم القيامة حسن الخلق ",
+"أجهل الناس من ترك يقين ما عنده لظن ما عند الناس ",
+"أحياناً.. ويصبح الوهم حقيقه ",
+"مينفعش تعاتب حد مبيعملش حساب لزعلك عشان متزعلش مرتين . ",
+"السفر ومشاهده اماكن مختلفه وجديده ",
+"عدم تضيع الفرص واسثمارها لحظه مجبئها ",
+" اعطاء الاخرين اكثر من ما يتوقعون",
+"معامله الناس بلطف ولكن عدم السماح لاحد بستغالال ذالك ",
+"تكوين صدقات جديده مع الحفظ بلاصدقاء القودامي ",
+"تعلم اصول المهنه بدلا من تضيع الوقت ف تعلم حيل المهنه ",
+"مدح ع الاقل ثلاث اشخاص يوميا ",
+"النظر ف عيون الشخاص عند مخاطبتهم ",
+"التحلي بلسماح مع الاخرين او النفس ",
+"الاكثار من قول كلمه شكرا ",
+" مصافحه الاخرين بثبات وقوة ",
+"الابتعاد عن المناطق السيئه السمعه لتجنب الاحداث السئه ",
+" ادخار 10٪ع الاقل من الدخل",
+" تجنب المخاوف من خلال التعلم من تجارب مختلفه",
+" الحفاظ ع السمعه لانها اغلي ما يملك الانسان",
+" تحويل الاعداء الي اصدقاء من خلال القيام بعمل جيد",
+"لا تصدق كل ما تسمعع. ولا تنفق كل ما تمتلك . ولا تنم قدر ما ترغب ",
+" اعتني بسمعتك جيدا فستثبت للك الايام انها اغلي ما تملك",
+"حين تقول والدتك ستندم ع فعل ذالك ستندم عليه غالبا.. ",
+" لا تخش العقبات الكبيره فخلفها تقع الفرص العظيمه",
+"قد لا يتطلب الامر اكثر من شخص واحد لقلب حياتك رأس ع عقب ",
+"اختر رفيقه حياتك بحرص فهو قرار سيشكل 90٪من سعادتك او بؤسك ",
+" اقلب اداءك الاصدقاء بفعل شي جميل ومفجائ لهم",
+"حين تدق الفرصه ع باباك ادعوها للبيت ",
+"تعلم القواعد جيدا ثن اكسر بعدها ",
+"احكم ع نجاحك من خلال قدرتك ع العطاء وليس الاخذ ",
+" لا تتجاهل الشيطان مهما بدل ثيابه",
+"ركز ع جعل الاشياء افضل وليس اكبر او اعظم ",
+"كن سعيد  بما تمتلك واعمل لامتلاك ما تريد ",
+"اعط الناس اكثر من ما يتوقعون ",
+" لا تكن منشغل لدرجه عدم التعرف ع اصدقاء جدد",
+"استحمه يوم العيد يمعفن🤓",
+"مش تحب اي حد يقرب منك ",
+" خليك مع البت راجل خليك تقيل🥥",
+" انصح نفسك بنفسك بمت😆",
+" كنت نصحت نفسي ياخويا😹"
              ]
                            const Chikutruthww = truth[Math.floor(Math.random() * truth.length)]
-                           buffer = await getBuffer(`https://picfiles.alphacoders.com/600/thumb-600446.png`)
-                           Chiku.sendMessage(from, { image: buffer, caption: '*You have chosen Truth*\n'+ Chikutruthww }, {quoted:m})
+                           buffer = await getBuffer(`https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg`)
+                           Chiku.sendMessage(from, { image: buffer, caption: '*♚ اتفضل النصيحه اعمل بيها*\nꔹ━━━━━ꔹ\n'+ Chikutruthww }, {quoted:m})
+                           break
+
+case 'hfhdhr': case 'اسال': case 'اسأل': 
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+		
+                           const hfhdhr =[
+"أكثر جملة أثرت بك في حياتك؟ ",
+  "إيموجي يوصف مزاجك حاليًا؟ ",
+  "أجمل اسم بنت بحرف الباء؟ ",
+  "كيف هي أحوال قلبك؟ ",
+  "أجمل مدينة؟ ",
+  "كيف كان أسبوعك؟ ",
+  "شيء تشوفه اكثر من اهلك ؟ ",
+  "اخر مره فضفضت؟ ",
+  "قد كرهت احد بسبب اسلوبه؟ ",
+  "قد حبيت شخص وخذلك؟ ",
+  "كم مره حبيت؟ ",
+  "اكبر غلطة بعمرك؟ ",
+  "نسبة النعاس عندك حاليًا؟ ",
+  "شرايكم بمشاهير التيك توك؟ ",
+  "ما الحاسة التي تريد إضافتها للحواس الخمسة؟ ",
+  "اسم قريب لقلبك؟ ",
+  "مشتاق لمطعم كنت تزوره قبل الحظر؟ ",
+  "أول شيء يخطر في بالك إذا سمعت كلمة (ابوي يبيك)؟ ",
+  "ما أول مشروع تتوقع أن تقوم بإنشائه إذا أصبحت مليونير؟ ",
+  "أغنية عالقة في ذهنك هاليومين؟ ",
+  "متى اخر مره قريت قرآن؟ ",
+  "كم صلاة فاتتك اليوم؟ ",
+  "تفضل التيكن او السنقل؟ ",
+  "وش أفضل بوت برأيك؟ ",
+"كم لك بالتلي؟ ",
+"وش الي تفكر فيه الحين؟ ",
+"كيف تشوف الجيل ذا؟ ",
+"منشن شخص وقوله، تحبني؟ ",
+"لو جاء شخص وعترف لك كيف ترده؟ ",
+"مر عليك موقف محرج؟ ",
+"وين تشوف نفسك بعد سنتين؟ ",
+"لو فزعت/ي لصديق/ه وقالك مالك دخل وش بتسوي/ين؟ ",
+"وش اجمل لهجة تشوفها؟ ",
+"قد سافرت؟ ",
+"افضل مسلسل عندك؟ ",
+"افضل فلم عندك؟ ",
+"مين اكثر يخون البنات/العيال؟ ",
+"متى حبيت؟ ",
+  "بالعادة متى تنام؟ ",
+  "شيء من صغرك ماتغير فيك؟ ",
+  "شيء بسيط قادر يعدل مزاجك بشكل سريع؟ ",
+  "تشوف الغيره انانيه او حب؟ ",
+"حاجة تشوف نفسك مبدع فيها؟ ",
+  "مع او ضد : يسقط جمال المراة بسبب قبح لسانها؟ ",
+  "عمرك بكيت على شخص مات في مسلسل ؟ ",
+  "‏- هل تعتقد أن هنالك من يراقبك بشغف؟ ",
+  "تدوس على قلبك او كرامتك؟ ",
+  "اكثر لونين تحبهم مع بعض؟ ",
+  "مع او ضد : النوم افضل حل لـ مشاكل الحياة؟ ",
+  "سؤال دايم تتهرب من الاجابة عليه؟ ",
+  "تحبني ولاتحب الفلوس؟ ",
+  "العلاقه السريه دايماً تكون حلوه؟ ",
+  "لو أغمضت عينيك الآن فما هو أول شيء ستفكر به؟ ",
+"كيف ينطق الطفل اسمك؟ ",
+  "ما هي نقاط الضعف في شخصيتك؟ ",
+  "اكثر كذبة تقولها؟ ",
+  "تيكن ولا اضبطك؟ ",
+  "اطول علاقة كنت فيها مع شخص؟ ",
+  "قد ندمت على شخص؟ ",
+  "وقت فراغك وش تسوي؟ ",
+  "عندك أصحاب كثير؟ ولا ينعد بالأصابع؟ ",
+  "حاط نغمة خاصة لأي شخص؟ ",
+  "وش اسم شهرتك؟ ",
+  "أفضل أكلة تحبه لك؟ ",
+"عندك شخص تسميه ثالث والدينك؟ ",
+  "عندك شخص تسميه ثالث والدينك؟ ",
+  "اذا قالو لك تسافر أي مكان تبيه وتاخذ معك شخص واحد وين بتروح ومين تختار؟ ",
+  "أطول مكالمة كم ساعة؟ ",
+  "تحب الحياة الإلكترونية ولا الواقعية؟ ",
+  "كيف حال قلبك ؟ بخير ولا مكسور؟ ",
+  "أطول مدة نمت فيها كم ساعة؟ ",
+  "تقدر تسيطر على ضحكتك؟ ",
+  "أول حرف من اسم الحب؟ ",
+  "تحب تحافظ على الذكريات ولا تمسحه؟ ",
+  "اسم اخر شخص زعلك؟ ",
+"وش نوع الأفلام اللي تحب تتابعه؟ ",
+  "أنت انسان غامض ولا الكل يعرف عنك؟ ",
+  "لو الجنسية حسب ملامحك وش بتكون جنسيتك؟ ",
+  "عندك أخوان او خوات من الرضاعة؟ ",
+  "إختصار تحبه؟ ",
+  "إسم شخص وتحس أنه كيف؟ ",
+  "وش الإسم اللي دايم تحطه بالبرامج؟ ",
+  "وش برجك؟ ",
+  "لو يجي عيد ميلادك تتوقع يجيك هدية؟ ",
+  "اجمل هدية جاتك وش هو؟ ",
+  "الصداقة ولا الحب؟ ",
+"الصداقة ولا الحب؟ ",
+  "الغيرة الزائدة شك؟ ولا فرط الحب؟ ",
+  "قد حبيت شخصين مع بعض؟ وانقفطت؟ ",
+  "وش أخر شي ضيعته؟ ",
+  "قد ضيعت شي ودورته ولقيته بيدك؟ ",
+  "تؤمن بمقولة اللي يبيك مايحتار فيك؟ ",
+  "سبب وجوك بالتليجرام؟ ",
+  "تراقب شخص حاليا؟ ",
+  "عندك معجبين ولا محد درا عنك؟ ",
+  "لو نسبة جمالك بتكون بعدد شحن جوالك كم بتكون؟ ",
+  "أنت محبوب بين الناس؟ ولاكريه؟ ",
+"كم عمرك؟ ",
+  "لو يسألونك وش اسم امك تجاوبهم ولا تسفل فيهم؟ ",
+  "تؤمن بمقولة الصحبة تغنيك الحب؟ ",
+  "وش مشروبك المفضل؟ ",
+  "قد جربت الدخان بحياتك؟ وانقفطت ولا؟ ",
+  "أفضل وقت للسفر؟ الليل ولا النهار؟ ",
+  "انت من النوع اللي تنام بخط السفر؟ ",
+  "عندك حس فكاهي ولا نفسية؟ ",
+  "تبادل الكراهية بالكراهية؟ ولا تحرجه بالطيب؟ ",
+  "أفضل ممارسة بالنسبة لك؟ ",
+  "لو قالو لك تتخلى عن شي واحد تحبه بحياتك وش يكون؟ ",
+"لو احد تركك وبعد فتره يحاول يرجعك بترجع له ولا خلاص؟ ",
+  "برأيك كم العمر المناسب للزواج؟ ",
+  "اذا تزوجت بعد كم بتخلف عيال؟ ",
+  "فكرت وش تسمي أول اطفالك؟ ",
+  "من الناس اللي تحب الهدوء ولا الإزعاج؟ ",
+  "الشيلات ولا الأغاني؟ ",
+  "عندكم شخص مطوع بالعايلة؟ ",
+  "تتقبل النصيحة من اي شخص؟ ",
+  "اذا غلطت وعرفت انك غلطان تحب تعترف ولا تجحد؟ ",
+  "جربت شعور احد يحبك بس انت مو قادر تحبه؟ ",
+  "دايم قوة الصداقة تكون بإيش؟ ",
+"أفضل البدايات بالعلاقة بـ وش؟ ",
+  "وش مشروبك المفضل؟ او قهوتك المفضلة؟ ",
+  "تحب تتسوق عبر الانترنت ولا الواقع؟ ",
+  "انت من الناس اللي بعد ماتشتري شي وتروح ترجعه؟ ",
+  "أخر مرة بكيت متى؟ وليش؟ ",
+  "عندك الشخص اللي يقلب الدنيا عشان زعلك؟ ",
+  "أفضل صفة تحبه بنفسك؟ ",
+  "كلمة تقولها للوالدين؟ ",
+  "أنت من الناس اللي تنتقم وترد الاذى ولا تحتسب الأجر وتسامح؟ ",
+  "كم عدد سنينك بالتليجرام؟ ",
+  "تحب تعترف ولا تخبي؟ ",
+"انت من الناس الكتومة ولا تفضفض؟ ",
+  "أنت بعلاقة حب الحين؟ ",
+  "عندك اصدقاء غير جنسك؟ ",
+  "أغلب وقتك تكون وين؟ ",
+  "لو المقصود يقرأ وش بتكتب له؟ ",
+  "تحب تعبر بالكتابة ولا بالصوت؟ ",
+  "عمرك كلمت فويس احد غير جنسك؟ ",
+  "لو خيروك تصير مليونير ولا تتزوج الشخص اللي تحبه؟ ",
+  "لو عندك فلوس وش السيارة اللي بتشتريها؟ ",
+  "كم أعلى مبلغ جمعته؟ ",
+  "اذا شفت احد على غلط تعلمه الصح ولا تخليه بكيفه؟ ",
+"قد جربت تبكي فرح؟ وليش؟ ",
+  "تتوقع إنك بتتزوج اللي تحبه؟ ",
+  "ما هو أمنيتك؟ ",
+  "وين تشوف نفسك بعد خمس سنوات؟ ",
+  "لو خيروك تقدم الزمن ولا ترجعه ورا؟ ",
+  "لعبة قضيت وقتك فيه بالحجر المنزلي؟ ",
+  "تحب تطق الميانة ولا ثقيل؟ ",
+  "باقي معاك للي وعدك ما بيتركك؟ ",
+  "اول ماتصحى من النوم مين تكلمه؟ ",
+  "عندك الشخص اللي يكتب لك كلام كثير وانت نايم؟ ",
+  "قد قابلت شخص تحبه؟ وولد ولا بنت؟ ",
+"اذا قفطت احد تحب تفضحه ولا تستره؟ ",
+  "كلمة للشخص اللي يسب ويسطر؟ ",
+  "آية من القران تؤمن فيه؟ ",
+  "تحب تعامل الناس بنفس المعاملة؟ ولا تكون أطيب منهم؟ ",
+"حاجة ودك تغيرها هالفترة؟ ",
+  "كم فلوسك حاليا وهل يكفيك ام لا؟ ",
+  "وش لون عيونك الجميلة؟ ",
+  "من الناس اللي تتغزل بالكل ولا بالشخص اللي تحبه بس؟ ",
+  "اذكر موقف ماتنساه بعمرك؟ ",
+  "وش حاب تقول للاشخاص اللي بيدخل حياتك؟ ",
+  "ألطف شخص مر عليك بحياتك؟ ",
+"انت من الناس المؤدبة ولا نص نص؟ ",
+  "كيف الصيد معاك هالأيام ؟ وسنارة ولاشبك؟ ",
+  "لو الشخص اللي تحبه قال بدخل حساباتك بتعطيه ولا تكرشه؟ ",
+  "أكثر شي تخاف منه بالحياه وش؟ ",
+  "اكثر المتابعين عندك باي برنامج؟ ",
+  "متى يوم ميلادك؟ ووش الهدية اللي نفسك فيه؟ ",
+  "قد تمنيت شي وتحقق؟ ",
+  "قلبي على قلبك مهما صار لمين تقولها؟ ",
+  "وش نوع جوالك؟ واذا بتغيره وش بتأخذ؟ ",
+  "كم حساب عندك بالتليجرام؟ ",
+  "متى اخر مرة كذبت؟ ",
+"كذبت في الاسئلة اللي مرت عليك قبل شوي؟ ",
+  "تجامل الناس ولا اللي بقلبك على لسانك؟ ",
+  "قد تمصلحت مع أحد وليش؟ ",
+  "وين تعرفت على الشخص اللي حبيته؟ ",
+  "قد رقمت او احد رقمك؟ ",
+  "وش أفضل لعبته بحياتك؟ ",
+  "أخر شي اكلته وش هو؟ ",
+  "حزنك يبان بملامحك ولا صوتك؟ ",
+  "لقيت الشخص اللي يفهمك واللي يقرا افكارك؟ ",
+  "فيه شيء م تقدر تسيطر عليه ؟ ",
+  "منشن شخص متحلطم م يعجبه شيء؟ ",
+"اكتب تاريخ مستحيل تنساه ",
+  "شيء مستحيل انك تاكله ؟ ",
+  "تحب تتعرف على ناس جدد ولا مكتفي باللي عندك ؟ ",
+  "انسان م تحب تتعامل معاه ابداً ؟ ",
+  "شيء بسيط تحتفظ فيه؟ ",
+  "فُرصه تتمنى لو أُتيحت لك ؟ ",
+  "شيء مستحيل ترفضه ؟. ",
+  "لو زعلت بقوة وش بيرضيك ؟ ",
+  "تنام بـ اي مكان ، ولا بس غرفتك ؟ ",
+  "ردك المعتاد اذا أحد ناداك ؟ ",
+  "مين الي تحب يكون مبتسم دائما ؟ ",
+" إحساسك في هاللحظة؟ ",
+  "وش اسم اول شخص تعرفت عليه فالتلقرام ؟ ",
+  "اشياء صعب تتقبلها بسرعه ؟ ",
+  "شيء جميل صار لك اليوم ؟ ",
+  "اذا شفت شخص يتنمر على شخص قدامك شتسوي؟ ",
+  "يهمك ملابسك تكون ماركة ؟ ",
+  "ردّك على شخص قال (أنا بطلع من حياتك)؟. ",
+  "مين اول شخص تكلمه اذا طحت بـ مصيبة ؟ ",
+  "تشارك كل شي لاهلك ولا فيه أشياء ما تتشارك؟ ",
+  "كيف علاقتك مع اهلك؟ رسميات ولا ميانة؟ ",
+  "عمرك ضحيت باشياء لاجل شخص م يسوى ؟ ",
+"اكتب سطر من اغنية او قصيدة جا فـ بالك ؟ ",
+  "شيء مهما حطيت فيه فلوس بتكون مبسوط ؟ ",
+  "مشاكلك بسبب ؟ ",
+  "نسبه الندم عندك للي وثقت فيهم ؟ ",
+  "اول حرف من اسم شخص تقوله? بطل تفكر فيني ابي انام؟ ",
+  "اكثر شيء تحس انه مات ف مجتمعنا؟ ",
+  "لو صار سوء فهم بينك وبين شخص هل تحب توضحه ولا تخليه كذا  لان مالك خلق توضح ؟ ",
+  "كم عددكم بالبيت؟ ",
+  "عادي تتزوج من برا القبيلة؟ ",
+  "أجمل شي بحياتك وش هو؟ ",
+  "من هو الصحابي الذي عند موته اهتز عرش الرحمن؟ ",
+"من هي أخر من توفى من زوجات الرسول صلى الله عليه وسلم؟ ",
+"سورة ذكرت فيها البسملة مرتين، أذكر اسم السورة مع ذكر أماكنها وأرقام الآيات؟ ",
+"ما هي أطول كلمة في القرآن الكريم؟ مع ذكر اسم السورة الموجودة فيها الآية، ورقم الآية؟ ",
+"ما هي أطول سورة في القرآن، مع ذكر عدد آياتها؟",
+"ما هي أقصر سورة في القرآن الكريم، مع ذكر عدد آياتها؟ ",
+" من هي الأم التي لم تلد؟",
+"ما الذي يطلق على الميته التي تقع من مكان مرتفع ؟ ",
+"ما هو الحيوان الذي إذا تغير دمه أصبح طاهر؟ ",
+" سماه الرسول صلى الله عليه وسلم فرعون أمته؟ ",
+"من الذي عدلت شهادته شهادة الرجلين؟ ",
+"ما أول ما تكلم به رسول الله صلى الله عليه وسلم حين قدم المدينة؟ ",
+"ما هو اللقب الذي أطلقته أهل مكة على النبي صلى الله عليه وسلم قبل البعثة؟ ",
+"من هو أكبر أعمام النبي صلى الله عليه وسلم؟ ",
+"متى كانت غزوة الخندق؟",
+"ما هي الأداة الذي قتل بها قابيل لأخيه هابيل؟ ",
+"من هو النبي الذي سمى بالذبيح؟ ",
+"كم يوم ظل إبراهيم في النار؟ ",
+" ما الذي يطلق على الميته التي تقع من مكان ",
+" ما هو الحيوان الذي إذا تغير دمه أصبح طاهر؟",
+"من هو أول من آمن بنبوة الرسول صلى الله عليه وسلم قبل أن يبعث رسولاً؟ ",
+"سورة في القرآن الكريم لم تبدأ بالبسملة، فما هي؟  ",
+"من هي السيدة الملقبة بجدة العرب؟ ",
+"سورتان في القرآن الكريم معروفتين باسم الزهراوان، فما هما؟ "
+             ]
+                           const Chikuhfhdhrww = hfhdhr[Math.floor(Math.random() * hfhdhr.length)]
+                           buffer = await getBuffer(`https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg`)
+                           Chiku.sendMessage(from, { image: buffer, caption: '*♚ اتفضل سوال يلا جاوب*\nꔹ━━━━━ꔹ\n'+ Chikuhfhdhrww }, {quoted:m})
+                           break
+
+case 'hdydg': case 'حروف': 
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+		
+                           const hdydg =[
+" جماد بحرف ⤌ ر  ", 
+" مدينة بحرف ⤌ ع  ",
+" حيوان ونبات بحرف ⤌ خ  ", 
+" اسم بحرف ⤌ ح  ", 
+" اسم ونبات بحرف ⤌ م  ", 
+" دولة عربية بحرف ⤌ ق  ", 
+" جماد بحرف ⤌ ي  ", 
+" نبات بحرف ⤌ ج  ", 
+" اسم بنت بحرف ⤌ ع  ", 
+" اسم ولد بحرف ⤌ ع  ", 
+" اسم بنت وولد بحرف ⤌ ث  ", 
+" جماد بحرف ⤌ ج  ",
+" حيوان بحرف ⤌ ص  ",
+" دولة بحرف ⤌ س  ",
+" نبات بحرف ⤌ ج  ",
+" مدينة بحرف ⤌ ب  ",
+" نبات بحرف ⤌ ر  ",
+" اسم بحرف ⤌ ك  ",
+" حيوان بحرف ⤌ ظ  ",
+" جماد بحرف ⤌ ذ  ",
+" مدينة بحرف ⤌ و  ",
+" اسم بحرف ⤌ م  ",
+" اسم بنت بحرف ⤌ خ  ",
+" اسم و نبات بحرف ⤌ ر  ",
+" نبات بحرف ⤌ و  ",
+" حيوان بحرف ⤌ س  ",
+" مدينة بحرف ⤌ ك  ",
+" اسم بنت بحرف ⤌ ص  ",
+" اسم ولد بحرف ⤌ ق  ",
+" نبات بحرف ⤌ ز  ",
+"  جماد بحرف ⤌ ز  ",
+"  مدينة بحرف ⤌ ط  ",
+"  جماد بحرف ⤌ ن  ",
+"  مدينة بحرف ⤌ ف  ",
+"  حيوان بحرف ⤌ ض  ",
+"  اسم بحرف ⤌ ك  ",
+"  نبات و حيوان و مدينة بحرف ⤌ س  ", 
+"  اسم بنت بحرف ⤌ ج  ", 
+"  مدينة بحرف ⤌ ت  ", 
+"  جماد بحرف ⤌ ه  ", 
+"  اسم بنت بحرف ⤌ ر  ", 
+" اسم ولد بحرف ⤌ خ  ", 
+" جماد بحرف ⤌ ع  ",
+" حيوان بحرف ⤌ ح  ",
+" نبات بحرف ⤌ ف  ",
+" اسم بنت بحرف ⤌ غ  ",
+" اسم ولد بحرف ⤌ و  ",
+" نبات بحرف ⤌ ل  ",
+"مدينة بحرف ⤌ ع  ",
+"دولة واسم بحرف ⤌ ب  "
+             ]
+                           const Chikuhdydgww = hdydg[Math.floor(Math.random() * hdydg.length)]
+                           buffer = await getBuffer(`https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg`)
+                           Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في لعبة الحروف*\nꔹ━━━━━ꔹ\n'+ Chikuhdydgww }, {quoted:m})
+                           break
+
+case 'verdad2': case 'كت': 
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+		
+                           const verdad2 =[
+"『فيجيتا』","『غوكو』","『شيسوي』","『ايتاشي』","『ناروتو』","『كيلوا』","『لوفي زورو سانجي』","『زاراكي ايزن توسين』","『ناروتو ساسكي كاكاشي』","『مادارا اوبيتو』","『هاشيراما توبيراما』","『انزاي دازاي』","『هاغومورو』","『سوكونا يوجي』","『كاكاشي هاتاكي』","『فوغاكو اوتشيها』","『ناروتو اوزوماكي』","『غارب لوفي ايس ساب』و","『اكاينو اوكيجي كيزارو』","『غون كيلوا』","『اوميني』","『سيلفا زينو نيترو』","『استا يامي』","『كيسكي يوروتشي ايتشيغو』","『ساروتوبي دانزو』","『فوجيتورا』","『نامي روبين』","『هيماواري هينات』","『ستارك جريمجو نيل』","『الوكا』","『شينو كيبا』","『روك لي مايت غاي』","『ايتاشي ساسكي』","『كونان ناغاتو ياهيكو』","『جيرايا تسونادي』","『ساي اينو』","『شينرا』","『ثوركيل ثورفين ثورز』","『اشيلاد』","『لاو ميهوك زورو』","『تيتش ادوارد』","『ناكا اوتشيها』","『هيروزين ساروتوبي』","『مونكي دي لوفي』","『كارين』","『موريا』","『اشورا هامورا』","『انيوشا كاجومي』","『ديدارا ساسوري』","『روجر رايلي』","『تانجيرو نيزيكو』","『زينيتسو اينوسكي』","『زيك ايرين』","『ميكاسا اني』","『ليفاي اكيرمان』","『ايروين مايكي』","『مايكي دراكن』","『هيسوكا』","『ارمين』","『هاتسوني ميكو』","『كورو』","『اوراهارا كيسكي』","『شينوبو كاناو』","『كيسامي اكاشي』","『كوزان』"
+             ]
+                           const Chikuverdad2ww = verdad2[Math.floor(Math.random() * verdad2.length)]
+                           buffer = await getBuffer(`https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg`)
+                           Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في كت*\nꔹ━━━━━ꔹ\n'+ Chikuverdad2ww }, {quoted:m})
+                           break
+
+case 'verda': case 'بوست': 
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+		
+                           const verda =[
+" أحياناً.. ويصبح الوهم حقيقه😪.",
+" الجمال يلفت الأنظار لكن الطيبه تلفت القلوب🙂 .!",
+"لا تحقرون صغيره إن الجبال من الحصي 💖",
+"لا تمد عينك في يد غيرك 💕",
+"‏ بعض الاِعتذارات يجب أن تُرفَضّ. 🌚.",
+"‏ هل كانت كل الطرق تؤدي إليكِ، أم أنني كنتُ أجعلها كذلك. 🤫 .!",
+"ويُرهقني أنّي مليء بما لا أستطيع قوله.✨ ",
+"‏أَكَان عَلَيَّ أَنْ أغْرَس انيابي فِي قَلْبِك لتشعر بِي ؟. 😁",
+"‏ إن الأمر ينتهي بِنا إلى أعتياد أي شيء. 😎",
+"‏ بعض الاِعتذارات يجب أن تُرفَضّ. 😃",
+"لا تظلم حتى لا تتظلم 😊",
+"لا حياه للإنسان بلا نبات ☺️",
+"لا تقف قصاد الريح ولا تمشي معها.... ❤️",
+" لا تملح الا لمن يستحقاها ويحافظ عليها😛",
+"لا يدخل الجنه من لايأمن من جازه بوائقه 😿.",
+"لا دين لمن لا عهد له 💞 ",
+"لا تظلم حتى لا تتظلم 🌚.",
+"عامل الناس بأخلاقك ولا بأخلاقهم 💞⛷️",
+"لا تقف قصاد الريح ولا تمشي معها.... 💚 ",
+"‏ ‏أحببتك وأنا منطفئ، فما بالك وأنا في كامل توهجي ؟ 🙂 .!",
+"‏من ترك أمرهُ لله، أعطاه الله فوق ما يتمنَّاه💙 ",
+"‏ إنعدام الرّغبة أمام الشّيء الّذي أدمنته ، انتصار. »💛",
+"‏ ‏كل العالم يهون بس الدنيا بينا تصفي 💙 ",
+"‏ إن الأمر ينتهي بِنا إلى أعتياد أي شيء. 😚 ",
+"‏ إنعدام الرّغبة أمام الشّيء الّذي أدمنته ، انتصار. 💝",
+"‏ لا تعودني على دفء شمسك، إذا كان في نيتك الغروب .َ 🙂 .!",
+"‏من علامات جمال المرأة .. بختها المايل ! ❤️",
+"‏ علينا إحياء زَمن الرّسائل الورقيّة وسط هذه الفوضى الالكترونية العَارمة.💜 ",
+"‏ كلما أتبع قلبي يدلني إليك . 😜",
+"‏ انك الجميع و كل من احتل قلبي🫀🤍 ",
+"‏ بس لما أنا ببقى فايق، ببقى أبكم له ودان.💖 ",
+"‏ ‏ممكن اكون اختارت غلط بس والله حبيت بجد🖇️ ",
+"‏ لا تعودني على دفء شمسك، إذا كان في نيتك الغروب .َ 💕",
+" ‏ ‏تبدأ حياتك محاولاً فهم كل شيء، وتنهيها محاولاً النجاة من كل ما فهمت.💖",
+"الجمال يلفت الأنظار لكن الطيبه تلفت القلوب 😁",
+"كما تدين تدان 😊",
+"عامل الناس بأخلاقك ولا بأخلاقهم 🙂",
+"يسروا ولا تعسروا... ويشورا ولا تنفروا 💕",
+" لا يدخل الجنه من لايأمن من جازه بوائقه💓",
+" كل كتير عادي ميهمكش😂❤️",
+"لا تملح الا لمن يستحقاها ويحافظ عليها 💞 ",
+" الجمال يلفت الأنظار لكن الطيبه تلفت القلوب💞 ",
+" خليك طبيعي مش نورم😇❤️ ",
+" الدنيا حلوه متزعلش علي ناس ماتستاهلش🌝🏃‍♂️",
+" العقل السليم ف البعد عن الحريم😇❤️",
+"عيش الحياه يوم واحد 🙂 .! ",
+"امشي كتير عشان تخس 🧐 .! ",
+" اشرب ميه كتير 😎.",
+"كُنْ لحوحاً فِي الدّعاءِ،فقدْ أوشكَ السّهمُ أنْ يُصيبَ. 💗",                    
+"‏من ترك أمرهُ لله، أعطاه الله فوق ما يتمنَّاه💙 ", 
+"‏من علامات جمال المرأة .. بختها المايل ! ",
+"‏ انك الجميع و كل من احتل قلبي🫀🤍",
+"‏ ‏ لقد تْعَمقتُ بكَ كَثيراً والمِيمُ لام .♥️",
+"‏ ‏ممكن اكون اختارت غلط بس والله حبيت بجد🖇️",
+"‏ علينا إحياء زَمن الرّسائل الورقيّة وسط هذه الفوضى الالكترونية العَارمة. ⋆ 💜",
+"‏ يجي اي الصاروخ الصيني ده جمب الصاروخ المصري لما بيلبس العبايه السوده.🤩♥️",
+"‏ كُنت أرقّ من أن أتحمّل كُل تلك القَسوة من عَينيك .🍍",
+"‏أَكَان عَلَيَّ أَنْ أغْرَس انيابي فِي قَلْبِك لتشعر بِي ؟.",
+"‏ •كُلما أتبع قلبي يدلني إليك .",
+"‏ •أيا ليت من تَهواه العينُ تلقاهُ .",
+"‏ ‏: رغبتي في مُعانقتك عميقة جداً .??",
+"ويُرهقني أنّي مليء بما لا أستطيع قوله.✨",
+"‏ من مراتب التعاسه إطالة الندم ع شيء إنتهى. ⋆ ",
+"‏ ‏كل العالم يهون بس الدنيا بينا تصفي 💙",
+"‏ بعض الاِعتذارات يجب أن تُرفَضّ.",
+"‏ ‏تبدأ حياتك محاولاً فهم كل شيء، وتنهيها محاولاً النجاة من كل ما فهمت.",
+"‏ إن الأمر ينتهي بِنا إلى أعتياد أي شيء.",
+"‏ هل كانت كل الطرق تؤدي إليكِ، أم أنني كنتُ أجعلها كذلك.",
+"‏ ‏هَتفضل توآسيهُم وآحد ورآ التآني لكن أنتَ هتتنسي ومحدِش هَيوآسيك.",
+"‏ جَبَرَ الله قلوبِكُم ، وقَلبِي .🍫",
+"‏ بس لما أنا ببقى فايق، ببقى أبكم له ودان.💖",
+"‏ ‏مقدرش عالنسيان ولو طال الزمن 🖤",
+"‏ أنا لستُ لأحد ولا احد لي ، أنا إنسان غريب أساعد من يحتاجني واختفي.",
+"‏ ‏أحببتك وأنا منطفئ، فما بالك وأنا في كامل توهجي ؟",
+"‏ لا تعودني على دفء شمسك، إذا كان في نيتك الغروب .َ",
+"‏ وانتهت صداقة الخمس سنوات بموقف.",
+"‏ ‏لا تحب أحداً لِدرجة أن تتقبّل أذاه.",
+"‏ إنعدام الرّغبة أمام الشّيء الّذي أدمنته ، انتصار.",
+"‏مش جايز , ده اكيد التأخير وارهاق القلب ده وراه عوضاً عظيماً !💙 ",
+" مش جايز , ده اكيد التأخير وارهاق القلب ده وراه عوضاً عظيماً !💙",
+"فـ بالله صبر  وبالله يسر وبالله عون وبالله كل شيئ ♥️. ",
+"أنا بعتز بنفسي جداً كصاحب وشايف اللي بيخسرني ، بيخسر أنضف وأجدع شخص ممكن يشوفه . ",
+"فجأه جاتلى قافله ‏خلتنى مستعد أخسر أي حد من غير ما أندم عليه . ",
+"‏اللهُم قوني بك حين يقِل صبري... ",
+"‏يارب سهِل لنا كُل حاجة شايلين هَمها 💙‏ ",
+"انا محتاج ايام حلوه بقي عشان مش نافع كدا ! ",
+"المشكله مش اني باخد قررات غلط المشكله اني بفكر كويس فيها قبل ما اخدها .. ",
+"تخيل وانت قاعد مخنوق كدا بتفكر فالمزاكره اللي مزكرتهاش تلاقي قرار الغاء الدراسه .. ",
+" مكانوش يستحقوا المعافرة بأمانه.",
+"‏جمل فترة في حياتي، كانت مع اكثر الناس الذين أذتني نفسيًا. ",
+" ‏إحنا ليه مبنتحبش يعني فينا اي وحش!",
+"أيام مُمله ومستقبل مجهول ونومٌ غير منتظموالأيامُ تمرُ ولا شيَ يتغير ", 
+"عندما تهب ريح المصلحه سوف ياتي الجميع رتكدون تحت قدمك ❤️. ",
+"عادي مهما تعادي اختك قد الدنيا ف عادي ❤. ",
+"بقيت لوحدي بمعنا اي انا اصلا من زمان لوحدي.❤️ ",
+"- ‏تجري حياتنا بما لاتشتهي أحلامنا ! ",
+"تحملين كل هذا الجمال، ‏ألا تتعبين؟",
+"البدايات للكل ، والثبات للصادقين ",
+"مُؤخرًا اقتنعت بالجملة دي جدا •Private life always wins. ",
+" الافراط في التسامح بيخللي الناس تستهين بيك🍍",
+"مهما كنت كويس فـَ إنت معرض لـِ الاستبدال.. ",
+"فخوره بنفسي جدًا رغم اني معملتش حاجه فـ حياتي تستحق الذكر والله . ",
+"‏إسمها ليلة القدر لأنها تُغير الأقدار ,اللهُمَّ غير قدري لحالٍ تُحبه وعوضني خير .. ",
+"فى احتمال كبير انها ليلة القدر ادعوا لنفسكم كتير وأدعو ربنا يشفى كل مريض. 💙 ",
+"أنِر ظُلمتي، وامحُ خطيئتي، واقبل توبتي وأعتِق رقبتي يا اللّٰه. إنكَ عفوٌّ تُحِبُّ العفوَ؛ فاعفُ عني 💛 "
+             ]
+                           const Chikuverdaww = verda[Math.floor(Math.random() * verda.length)]
+                           buffer = await getBuffer(`https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg`)
+                           Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في البوستات*\nꔹ━━━━━ꔹ\n'+ Chikuverdaww }, {quoted:m})
+                           break
+
+case 'verda1': case 'اذكار': 
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+		
+                           const verda1 =[
+"اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ , وَشُكْرِكَ , وَحُسْنِ عِبَادَتِكَ🎈💞", 
+"االلَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ , وَشُكْرِكَ , وَحُسْنِ عِبَادَتِكَ🎈💞 ",
+"اا6-قول : سبحان الله وبحمده سبحان العظيم مئة مرة في اليوم قارئها غفرت له ذنوبه وأن كانت مثل زبد البحر .",
+"من الأدعية النبوية المأثورة:اللهمَّ زَيِّنا بزينة الإيمان",
+"اااللهم يا من رويت الأرض مطرا أمطر قلوبنا فرحا.🍂",
+"اا‏اللَّهُـمَّ لَڪَ الحَمْـدُ مِنْ قَـا؏ِ الفُـؤَادِ إلىٰ ؏َـرشِڪَ المُقـدَّس حَمْـدَاً يُوَافِي نِـ؏ـمَڪ 💙🌸",
+"﴿وَاذْكُرِ اسْمَ رَبِّكَ وَتَبَتَّلْ إِلَيْهِ تَبْتِيلًا﴾🌿✨",
+"﴿وَمَن يَتَّقِ اللهَ يُكَفِّرْ عَنْهُ سَيِّئَاتِهِ وَيُعْظِمْ لَهُ أَجْرًا﴾«",
+"«سُبْحَانَ اللهِ ، وَالحَمْدُ للهِ ، وَلَا إلَهَ إلَّا اللهُ ، وَاللهُ أكْبَرُ ، وَلَا حَوْلَ وَلَا قُوَّةَ إلَّا بِاللهِ»🍃",
+"وذُنُوبًا شوَّهتْ طُهْرَ قُلوبِنا؛ اغفِرها يا ربّ واعفُ عنَّا ❤️",
+"«اللَّهُمَّ آتِ نُفُوسَنَا تَقْوَاهَا ، وَزَكِّهَا أنْتَ خَيْرُ مَنْ زَكَّاهَا ، أنْتَ وَلِيُّهَا وَمَوْلَاهَا»🌹",
+"۝‏﷽إن اللَّه وملائكته يُصلُّون على النبي ياأيُّها الذين آمنوا صلُّوا عليه وسلِّموا تسليما۝",
+"فُسِبًحً بًحًمًدٍ ربًکْ وٌکْنِ مًنِ آلَسِآجّدٍيَنِ 🌿✨",
+"اأقُمً آلَصّلَآةّ لَدٍلَوٌکْ آلَشُمًسِ إلَيَ غُسِقُ آلَلَيَلَ🥀🌺",
+"نِسِتٌغُفُرکْ ربًيَ حًيَتٌ تٌلَهّيَنِآ آلَدٍنِيَآ عٌنِ ذِکْرکْ🥺😢",
+"وٌمًنِ أعٌرض عٌنِ ذِکْريَ فُإنِ لَهّ مًعٌيَشُةّ ضنِکْآ 😢",
+"وٌقُرأنِ آلَفُجّر إنِ قُرآنِ آلَفُجّر کْآنِ مًشُهّوٌدٍآ🎀🌲",
+"اأّذّأّ أّلَدِنِيِّأّ نَِّستّګوِ أّصٌلَګوِ زِّوِروِ أّلَمَقِأّبِر💔",
+"حًتٌيَ لَوٌ لَمًتٌتٌقُنِ آلَخِفُظُ فُمًصّآحًبًتٌ لَلَقُرآنِ تٌجّعٌلَکْ مًنِ آهّلَ آلَلَهّ وٌخِآصّتٌهّ❤🌱",
+"وٌإذِآ رضيَتٌ وٌصّبًرتٌ فُهّوٌ إرتٌقُآء وٌنِعٌمًةّ✨🌺",
+"«ربً آجّعٌلَنِيَ مًقُيَمً آلَصّلَآةّ وٌمًنِ ذِريَتٌيَ ربًنِآ وٌتٌقُبًلَ دٍعٌآء 🤲",
+"اآعٌلَمً آنِ رحًلَةّ صّبًرکْ لَهّآ نِهّآيَهّ عٌظُيَمًهّ مًحًمًلَهّ بًجّوٌآئزٍ ربًآنِيَهّ مًدٍهّشُهّ🌚☺️",
+"اإيَآکْ وٌدٍعٌوٌةّ آلَمًظُلَوٌمً فُ إنِهّآ تٌصّعٌدٍ آلَيَ آلَلَهّ کْأنِهّآ شُرآرهّ مًنِ نِآر 🔥🥺",
+"اآلَلَهّمً آنِقُذِ صّدٍوٌرنِآ مًنِ هّيَمًنِهّ آلَقُلَقُ وٌصّبً عٌلَيَهّآ فُيَضآ مًنِ آلَطِمًأنِيَنِهّ✨🌺",
+"يَآبًنِيَ إنِ صّلَآح آلَحًيَآةّ فُ أتٌجّآهّ آلَقُبًلَهّ 🥀🌿",
+"«آلَلَهّمً ردٍنِآ إلَيَکْ ردٍآ جّمًيَلَآ💔🥺",
+"اللهم طهر قلبي من كل خلق لا يرضيك اللهم يا مقلب القلوب ثبت قلوبنا وقلوب إخواننا على دينك وطاعتك. إلهي عوضني خيرا فيمن فقدت واحفظ ",
+"إلهي عوضني خيرا فيمن فقدت واحفظ لي من أحببت اللهم اجعلني أنا وقارئ هذه الرسالة من السبعين ألفا الذين يدخلون الجنة بلا حساب ولا سابق عذاب أمين يا الله حسبي الله لا إله إلا هو عليه توكلت وهو رب العرش العظيم ",
+"والْعَصْر إِنَّ الْإِنْسَان لَفِي خُسْر إِلَّا الَّذِينَ آمَنُوا وعَمِلُوا الصَّالِحَات وتَوَاصَوْا بِالْحَقِّ وتَوَاصَوْا بِالصَّبْرِ. ",
+"اذكر الله في راحِتك ليذكُرك في حاجْتك ",
+"‏اللهمَّ أَخْرِجْنَا من ضيقِ أنفُسِنا إلى سِعةِ رحمتِكَ 💙 ",
+"يارب يامنزل الغيث من السماء ابعد البلاء عن بلادنا و بلاد المسلمين اجمعين 💙 ",
+"يارب إن ضاقت بي الدنيا من الناس ارحمني برحمتك يا لطيف يا رحيم 💙 ",
+"‏اللهمّ الكتف الثابت الذي لا تهون عليه مواجعنا 💙 ",
+"‏اللهم صّلِ وسَلّمْ عَلى نَبِيْنَا مُحَمد ﷺ 💙 ",
+"‏اللهم أجعل لي نصيب في كل شئ أحببته💙 ",
+"اجعلوا للقرآن نصيبًا مِن فجركم 💙 ",
+"اللهم اشفي كل عزيز و غالي 💙 ",
+"يارب ابعد عنا ضيق الدنيا و متاعبها 💙 ",
+"يارب العالمين اغفر لي وارحمن ",
+"‏مامن لسان يستغفر إلا فتحت له الدنيا بما فيها أستغفرك ربي وأتوب إليك "
+             ]
+                           const Chikuverda1ww = verda1[Math.floor(Math.random() * verda1.length)]
+                           buffer = await getBuffer(`https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg`)
+                           Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في قسم الاذكار*\nꔹ━━━━━ꔹ\n'+ Chikuverda1ww }, {quoted:m})
+                           break
+
+case 'verdajj': case 'خيروك': case 'لو':
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+		
+                           const verdajj =[
+"لو خيروك |  بين الإبحار لمدة أسبوع كامل أو السفر على متن طائرة لـ 3 أيام متواصلة؟ ",
+"لو خيروك |  بين شراء منزل صغير أو استئجار فيلا كبيرة بمبلغ معقول؟ ",
+"لو خيروك |  أن تعيش قصة فيلم هل تختار الأكشن أو الكوميديا؟ ",
+"لو خيروك |  بين تناول البيتزا وبين الآيس كريم وذلك بشكل دائم؟ ",
+"لو خيروك |  بين إمكانية تواجدك في الفضاء وبين إمكانية تواجدك في البحر؟ ",
+"لو خيروك |  بين تغيير وظيفتك كل سنة أو البقاء بوظيفة واحدة طوال حياتك؟ ",
+"لو خيروك |  أسئلة محرجة أسئلة صراحة ماذا ستختار؟ ",
+"لو خيروك |  بين الذهاب إلى الماضي والعيش مع جدك أو بين الذهاب إلى المستقبل والعيش مع أحفادك؟ ",
+"لو كنت شخص آخر هل تفضل البقاء معك أم أنك ستبتعد عن نفسك؟ ",
+"لو خيروك |  بين الحصول على الأموال في عيد ميلادك أو على الهدايا؟ ",
+"لو خيروك |  بين القفز بمظلة من طائرة أو الغوص في أعماق البحر؟ ",
+"لو خيروك |  بين الاستماع إلى الأخبار الجيدة أولًا أو الاستماع إلى الأخبار السيئة أولًا؟ ",
+"لو خيروك |  بين أن تكون رئيس لشركة فاشلة أو أن تكون موظف في شركة ناجحة؟ ",
+"لو خيروك |  بين أن يكون لديك جيران صاخبون أو أن يكون لديك جيران فضوليون؟ ",
+"لو خيروك |  بين أن تكون شخص مشغول دائمًا أو أن تكون شخص يشعر بالملل دائمًا؟ ",
+"لو خيروك |  بين قضاء يوم كامل مع الرياضي الذي تشجعه أو نجم السينما الذي تحبه؟ ",
+"لو خيروك |  بين استمرار فصل الشتاء دائمًا أو بقاء فصل الصيف؟ ",
+"لو خيروك |  بين العيش في القارة القطبية أو العيش في الصحراء؟ ",
+"لو خيروك |  بين أن تكون لديك القدرة على حفظ كل ما تسمع أو تقوله وبين القدرة على حفظ كل ما تراه أمامك؟ ",
+"لو خيروك |  بين أن يكون طولك 150 سنتي متر أو أن يكون 190 سنتي متر؟ ",
+"لو خيروك |  بين إلغاء رحلتك تمامًا أو بقائها ولكن فقدان الأمتعة والأشياء الخاص بك خلالها؟ ",
+"لو خيروك |  بين أن تكون اللاعب الأفضل في فريق كرة فاشل أو أن تكون لاعب عادي في فريق كرة ناجح؟ ",
+"لو خيروك |  بين ارتداء ملابس البيت لمدة أسبوع كامل أو ارتداء البدلة الرسمية لنفس المدة؟ ",
+"لو خيروك |  بين امتلاك أفضل وأجمل منزل ولكن في حي سيء أو امتلاك أسوأ منزل ولكن في حي جيد وجميل؟ ",
+"لو خيروك |  بين أن تكون غني وتعيش قبل 500 سنة، أو أن تكون فقير وتعيش في عصرنا الحالي؟ ",
+"لو خيروك |  بين ارتداء ملابس الغوص ليوم كامل والذهاب إلى العمل أو ارتداء ملابس جدك/جدتك؟ ",
+"لو خيروك |  بين قص شعرك بشكل قصير جدًا أو صبغه باللون الوردي؟ ",
+"لو خيروك |  بين أن تضع الكثير من الملح على كل الطعام بدون علم أحد، أو أن تقوم بتناول شطيرة معجون أسنان؟ ",
+"لو خيروك |  بين قول الحقيقة والصراحة الكاملة مدة 24 ساعة أو الكذب بشكل كامل مدة 3 أيام؟ ",
+"لو خيروك |  بين تناول الشوكولا التي تفضلها لكن مع إضافة رشة من الملح والقليل من عصير الليمون إليها أو تناول ليمونة كاملة كبيرة الحجم؟ ",
+"لو خيروك |  بين وضع أحمر الشفاه على وجهك ما عدا شفتين أو وضع ماسكارا على شفتين فقط؟ ",
+"لو خيروك |  بين الرقص على سطح منزلك أو الغناء على نافذتك؟ ",
+"لو خيروك |  بين تلوين شعرك كل خصلة بلون وبين ارتداء ملابس غير متناسقة لمدة أسبوع؟ ",
+"لو خيروك |  بين تناول مياه غازية مجمدة وبين تناولها ساخنة؟ ",
+"لو خيروك |  بين تنظيف شعرك بسائل غسيل الأطباق وبين استخدام كريم الأساس لغسيل الأطباق؟ ",
+"لو خيروك |  بين تزيين طبق السلطة بالبرتقال وبين إضافة البطاطا لطبق الفاكهة؟ ",
+"لو خيروك |  بين اللعب مع الأطفال لمدة 7 ساعات أو الجلوس دون فعل أي شيء لمدة 24 ساعة؟ ",
+"لو خيروك |  بين شرب كوب من الحليب أو شرب كوب من شراب عرق السوس؟ ",
+"لو خيروك |  بين الشخص الذي تحبه وصديق الطفولة؟ ",
+"لو خيروك |  بين أمك وأبيك؟ ",
+"لو خيروك |  بين أختك وأخيك؟ ",
+"لو خيروك |  بين نفسك وأمك؟ ",
+"لو خيروك |  بين صديق قام بغدرك وعدوك؟ ",
+"لو خيروك |  بين خسارة حبيبك/حبيبتك أو خسارة أخيك/أختك؟ ",
+"لو خيروك |  بإنقاذ شخص واحد مع نفسك بين أمك أو ابنك؟ ",
+"لو خيروك |  بين ابنك وابنتك؟ ",
+"لو خيروك |  بين زوجتك وابنك/ابنتك؟ ",
+"لو خيروك |  بين جدك أو جدتك؟ ",
+"لو خيروك |  بين زميل ناجح وحده أو زميل يعمل كفريق؟ ",
+"لو خيروك |  بين لاعب كرة قدم مشهور أو موسيقي مفضل بالنسبة لك؟ ",
+"لو خيروك |  بين مصور فوتوغرافي جيد وبين مصور سيء ولكنه عبقري فوتوشوب؟ ",
+"لو خيروك |  بين سائق سيارة يقودها ببطء وبين سائق يقودها بسرعة كبيرة؟ ",
+"لو خيروك |  بين أستاذ اللغة العربية أو أستاذ الرياضيات؟ ",
+"لو خيروك |  بين أخيك البعيد أو جارك القريب؟ ",
+"لو خيروك |  يبن صديقك البعيد وبين زميلك القريب؟ ",
+"لو خيروك |  بين رجل أعمال أو أمير؟ ",
+"لو خيروك |  بين نجار أو حداد؟ ",
+"لو خيروك |  بين طباخ أو خياط؟ ",
+"لو خيروك |  بين أن تكون كل ملابس بمقاس واحد كبير الحجم أو أن تكون جميعها باللون الأصفر؟ ",
+"لو خيروك |  بين أن تتكلم بالهمس فقط طوال الوقت أو أن تصرخ فقط طوال الوقت؟ ",
+"لو خيروك |  بين أن تمتلك زر إيقاف موقت للوقت أو أن تمتلك أزرار للعودة والذهاب عبر الوقت؟ ",
+"لو خيروك |  بين أن تعيش بدون موسيقى أبدًا أو أن تعيش بدون تلفاز أبدًا؟ ",
+"لو خيروك |  بين أن تعرف متى سوف تموت أو أن تعرف كيف سوف تموت؟ ",
+"لو خيروك |  بين العمل الذي تحلم به أو بين إيجاد شريك حياتك وحبك الحقيقي؟ ",
+"لو خيروك |  بين معاركة دب أو بين مصارعة تمساح؟ ",
+"لو خيروك |  بين إما الحصول على المال أو على المزيد من الوقت؟ ",
+"لو خيروك |  بين امتلاك قدرة التحدث بكل لغات العالم أو التحدث إلى الحيوانات؟ ",
+"لو خيروك |  بين أن تفوز في اليانصيب وبين أن تعيش مرة ثانية؟ ",
+"لو خيروك |  بأن لا يحضر أحد إما لحفل زفافك أو إلى جنازتك؟ ",
+"لو خيروك |  بين البقاء بدون هاتف لمدة شهر أو بدون إنترنت لمدة أسبوع؟ ",
+"لو خيروك |  بين العمل لأيام أقل في الأسبوع مع زيادة ساعات العمل أو العمل لساعات أقل في اليوم مع أيام أكثر؟ ",
+"لو خيروك |  بين مشاهدة الدراما في أيام السبعينيات أو مشاهدة الأعمال الدرامية للوقت الحالي؟ ",
+"لو خيروك |  بين التحدث عن كل شيء يدور في عقلك وبين عدم التحدث إطلاقًا؟ ",
+"لو خيروك |  بين مشاهدة فيلم بمفردك أو الذهاب إلى مطعم وتناول العشاء بمفردك؟ ",
+"لو خيروك |  بين قراءة رواية مميزة فقط أو مشاهدتها بشكل فيلم بدون القدرة على قراءتها؟ ",
+"لو خيروك |  بين أن تكون الشخص الأكثر شعبية في العمل أو المدرسة وبين أن تكون الشخص الأكثر ذكاءً؟ ",
+"لو خيروك |  بين إجراء المكالمات الهاتفية فقط أو إرسال الرسائل النصية فقط؟ ",
+"لو خيروك |  بين إنهاء الحروب في العالم أو إنهاء الجوع في العالم؟ ",
+"لو خيروك |  بين تغيير لون عينيك أو لون شعرك؟ ",
+"لو خيروك |  بين امتلاك كل عين لون وبين امتلاك نمش على خديك؟ ",
+"لو خيروك |  بين الخروج بالمكياج بشكل مستمر وبين الحصول على بشرة صحية ولكن لا يمكن لك تطبيق أي نوع من المكياج؟ ",
+"لو خيروك |  بين أن تصبحي عارضة أزياء وبين ميك آب أرتيست؟ ",
+"لو خيروك |  بين مشاهدة كرة القدم أو متابعة الأخبار؟ ",
+"لو خيروك |  بين موت شخصية بطل الدراما التي تتابعينها أو أن يبقى ولكن يكون العمل الدرامي سيء جدًا؟ ",
+"لو خيروك |  بين العيش في دراما قد سبق وشاهدتها ماذا تختارين بين الكوميديا والتاريخي؟ ",
+"لو خيروك |  بين امتلاك القدرة على تغيير لون شعرك متى تريدين وبين الحصول على مكياج من قبل خبير تجميل وذلك بشكل يومي؟ ",
+"لو خيروك |  بين نشر تفاصيل حياتك المالية وبين نشر تفاصيل حياتك العاطفية؟ ",
+"لو خيروك |  بين البكاء والحزن وبين اكتساب الوزن؟ ",
+"لو خيروك |  بين تنظيف الأطباق كل يوم وبين تحضير الطعام؟ ",
+"لو خيروك |  بين أن تتعطل سيارتك في نصف الطريق أو ألا تتمكنين من ركنها بطريقة صحيحة؟ ",
+"لو خيروك |  بين إعادة كل الحقائب التي تملكينها أو إعادة الأحذية الجميلة الخاصة بك؟ ",
+"لو خيروك |  بين قتل حشرة أو متابعة فيلم رعب؟ ",
+"لو خيروك |  بين امتلاك قطة أو كلب؟ ",
+"لو خيروك |  بين الصداقة والحب ",
+"لو خيروك |  بين تناول الشوكولا التي تحبين طوال حياتك ولكن لا يمكنك الاستماع إلى الموسيقى وبين الاستماع إلى الموسيقى ولكن لا يمكن لك تناول الشوكولا أبدًا؟ ",
+"لو خيروك |  بين مشاركة المنزل مع عائلة من الفئران أو عائلة من الأشخاص المزعجين الفضوليين الذين يتدخلون في كل كبيرة وصغيرة؟ "
+             ]
+                           const Chikuverdajjww = verdajj[Math.floor(Math.random() * verdajj.length)]
+                           buffer = await getBuffer(`https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg`)
+                           Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في لعبة لو خيروك*\nꔹ━━━━━ꔹ\n'+ Chikuverdajjww }, {quoted:m})
+                           break
+
+case 'hdudh': case 'تويت':
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+		
+                           const hdudh =[
+"مرتبط؟ ", 
+" هل بتكراش ع حد في حياتك؟", 
+" ينفع نرتبط؟", 
+" ممكن توريني صوره بتحبها؟", 
+" ممكن نبقي صحااب ع الفيس؟", 
+" هل لسه بتحب الاكس؟", 
+"عندك كام اكس في حياتك؟ ", 
+"ينفع تبعتلي رقمك؟ ", 
+" ما تيجي اعزمني ع حاجه بحبها؟", 
+"ينفع احضنك؟ ", 
+"قولي ع اكبر غلطه ندمان عليهاا؟ ", 
+"عندك كام سنه؟ ", 
+" عامل بلوك لكام واحد عندك؟", 
+" قولي سر محدش يعرفه؟", 
+" عندك كام اكس في حياتك؟", 
+"بتعرف تقلش وتهزر؟ ", 
+" لونك المفضل هو؟", 
+" مين أقرب حد ليك الفتره دي ؟", 
+" قولي ع اكبر غلطه ندمان عليهاا؟", 
+" مين مغنيك المفضل؟", 
+" حابب تبقي اي في المستقبل؟", 
+"راضي عن حياتك بنسبه كام؟ ", 
+"اكتر حاجه بتلفت انتباهك في البنت او الولد؟ ", 
+"اي رأيك في صوره البروفايل بتاعتي؟ ", 
+" هل باين عليا اني شخص لطيف؟", 
+" توافق ترجع للاكس؟", 
+"ممكن تضحي بحياتك لمين؟ ", 
+"سافرت بلاد برا مصر واي هي؟ ", 
+" اي رأيك في صوره البروفايل بتاعتي؟", 
+" هل بتعتبر نفسك حلو وبتحب شكلك؟", 
+" نفسك تزور انهي بلد في العالم؟", 
+" شخصيه ع السوشيال شايف انها مميزه؟", 
+"عندك فوبيا من اي؟ ", 
+" ممكن تورينا لينك الصراحه؟", 
+"عمرك عيطت ع حاجه؟ ", 
+" شايف اي أسوأ صفه فيك؟", 
+"هل شلت مواد قبل كد وعدت السنه؟ ", 
+"بتغير ع الل بتحبهم وبيبان عليك لو غيرت؟ ", 
+"معاك كام فلوس دلوقتي؟ ", 
+" بتفضل صحابك البنات ولا الولاد؟", 
+" مسامح الل ظلمك؟", 
+" ممثلك الافضل؟", 
+" ممكن تقول رساله لحد مش هيشوفها؟", 
+"انت اهلاوي ولا زملكاوي؟ ", 
+" اي حيوانك المفضل؟", 
+"اخر افلام شاهدتها", 
+"بتعرف تكلم لغه تانيه واي هي؟ ", 
+"ما هي وظفتك الحياه", 
+"اعز اصدقائك ?", 
+"اخر اغنية سمعتها ?", 
+"تكلم عن نفسك", 
+"ليه انت مش سالك", 
+"ما هي عيوب سورس الجزار ؟ ", 
+"اخر كتاب قرآته", 
+"روايتك المفضله ?", 
+"اخر اكله اكلتها", 
+"اخر كتاب قرآته", 
+"ليه عبدالله محمد جدع؟ ", 
+ "ليه الجزار جدع؟ ", 
+"افضل يوم ف حياتك", 
+"ليه مضيفتش كل جهاتك", 
+"حكمتك ف الحياه", 
+"لون عيونك", 
+"كتابك المفضل", 
+"هوايتك المفضله", 
+"علاقتك مع اهلك", 
+" ما السيء في هذه الحياة ؟ ", 
+"أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
+"سؤال ينرفزك ؟ ", 
+" هل يعجبك سورس الجزار ؟؟ ", 
+" اكثر ممثل تحبه ؟ ", 
+"قد تخيلت شي في بالك وصار ؟ ", 
+"شيء عندك اهم من الناس ؟ ", 
+"تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
+"وش أخر شي ضيعته؟ ", 
+"اي رايك في سورس الجزار ؟ ", 
+"كم مره حبيت؟ ", 
+" اكثر المتابعين عندك باي برنامج؟", 
+" نسبه الندم عندك للي وثقت فيهم ؟", 
+"تحب ترتبط بكيرفي ولا فلات؟", 
+" جربت شعور احد يحبك بس انت مو قادر تحبه؟", 
+" تجامل الناس ولا اللي بقلبك على لسانك؟", 
+" عمرك ضحيت باشياء لاجل شخص م يسوى ؟", 
+"مغني تلاحظ أن صوته يعجب الجميع إلا أنت؟ ", 
+" آخر غلطات عمرك؟ ", 
+" مسلسل كرتوني له ذكريات جميلة عندك؟ ", 
+" ما أكثر تطبيق تقضي وقتك عليه؟ ", 
+" أول شيء يخطر في بالك إذا سمعت كلمة نجوم ؟ ", 
+" قدوتك من الأجيال السابقة؟ ", 
+" أكثر طبع تهتم بأن يتواجد في شريك/ة حياتك؟ ", 
+"أكثر حيوان تخاف منه؟ ", 
+" ما هي طريقتك في الحصول على الراحة النفسية؟ ", 
+" إيموجي يعبّر عن مزاجك الحالي؟ ", 
+" أكثر تغيير ترغب أن تغيّره في نفسك؟ ", 
+"أكثر شيء أسعدك اليوم؟ ", 
+"اي رايك في الدنيا دي ؟ ", 
+"ما هو أفضل حافز للشخص؟ ", 
+"ما الذي يشغل بالك في الفترة الحالية؟", 
+"آخر شيء ندمت عليه؟ ", 
+"شاركنا صورة احترافية من تصويرك؟ ", 
+"تتابع انمي؟ إذا نعم ما أفضل انمي شاهدته ", 
+"يرد عليك متأخر على رسالة مهمة وبكل برود، موقفك؟ ", 
+"نصيحه تبدا ب -لا- ؟ ", 
+"كتاب أو رواية تقرأها هذه الأيام؟ ", 
+"فيلم عالق في ذهنك لا تنساه مِن روعته؟ ", 
+"يوم لا يمكنك نسيانه؟ ", 
+"شعورك الحالي في جملة؟ ", 
+"كلمة لشخص بعيد؟ ", 
+"صفة يطلقها عليك الشخص المفضّل؟ ", 
+"أغنية عالقة في ذهنك هاليومين؟ ", 
+"أكلة مستحيل أن تأكلها؟ ", 
+"كيف قضيت نهارك؟ ", 
+"تصرُّف ماتتحمله؟ ", 
+"موقف غير حياتك؟ ", 
+"اكثر مشروب تحبه؟ ", 
+"القصيدة اللي تأثر فيك؟ ", 
+"متى يصبح الصديق غريب ", 
+"وين نلقى السعاده برايك؟ ", 
+"تاريخ ميلادك؟ ", 
+"قهوه و لا شاي؟ ", 
+"من محبّين الليل أو الصبح؟ ", 
+"حيوانك المفضل؟ ", 
+"كلمة غريبة ومعناها؟ ", 
+"كم تحتاج من وقت لتثق بشخص؟ ", 
+"اشياء نفسك تجربها؟ ", 
+"يومك ضاع على؟ ", 
+"كل شيء يهون الا ؟ ", 
+"اسم ماتحبه ؟ ", 
+"وقفة إحترام للي إخترع ؟ ", 
+"أقدم شيء محتفظ فيه من صغرك؟ ", 
+"كلمات ماتستغني عنها بسوالفك؟ ", 
+"وش الحب بنظرك؟ ", 
+"حب التملك في شخصِيـتك ولا ؟ ", 
+"تخطط للمستقبل ولا ؟ ", 
+"موقف محرج ماتنساه ؟ ", 
+"من طلاسم لهجتكم ؟ ", 
+"اعترف باي حاجه ؟ ", 
+"عبّر عن مودك بصوره ؟ ",
+"اسم دايم ع بالك ؟ ", 
+"اشياء تفتخر انك م سويتها ؟ ", 
+" لو بكيفي كان ؟ ", 
+  "أكثر جملة أثرت بك في حياتك؟ ",
+  "إيموجي يوصف مزاجك حاليًا؟ ",
+  "أجمل اسم بنت بحرف الباء؟ ",
+  "كيف هي أحوال قلبك؟ ",
+  "أجمل مدينة؟ ",
+  "كيف كان أسبوعك؟ ",
+  "شيء تشوفه اكثر من اهلك ؟ ",
+  "اخر مره فضفضت؟ ",
+  "قد كرهت احد بسبب اسلوبه؟ ",
+  "قد حبيت شخص وخذلك؟ ",
+  "كم مره حبيت؟ ",
+  "اكبر غلطة بعمرك؟ ",
+  "نسبة النعاس عندك حاليًا؟ ",
+  "شرايكم بمشاهير التيك توك؟ ",
+  "ما الحاسة التي تريد إضافتها للحواس الخمسة؟ ",
+  "اسم قريب لقلبك؟ ",
+  "مشتاق لمطعم كنت تزوره قبل الحظر؟ ",
+  "أول شيء يخطر في بالك إذا سمعت كلمة (ابوي يبيك)؟ ",
+  "ما أول مشروع تتوقع أن تقوم بإنشائه إذا أصبحت مليونير؟ ",
+  "أغنية عالقة في ذهنك هاليومين؟ ",
+  "متى اخر مره قريت قرآن؟ ",
+  "كم صلاة فاتتك اليوم؟ ",
+  "تفضل التيكن او السنقل؟ ",
+  "وش أفضل بوت برأيك؟ ",
+"كم لك بالتلي؟ ",
+"وش الي تفكر فيه الحين؟ ",
+"كيف تشوف الجيل ذا؟ ",
+"منشن شخص وقوله، تحبني؟ ",
+"لو جاء شخص وعترف لك كيف ترده؟ ",
+"مر عليك موقف محرج؟ ",
+"وين تشوف نفسك بعد سنتين؟ ",
+"لو فزعت/ي لصديق/ه وقالك مالك دخل وش بتسوي/ين؟ ",
+"وش اجمل لهجة تشوفها؟ ",
+"قد سافرت؟ ",
+"افضل مسلسل عندك؟ ",
+"افضل فلم عندك؟ ",
+"مين اكثر يخون البنات/العيال؟ ",
+"متى حبيت؟ ",
+  "بالعادة متى تنام؟ ",
+  "شيء من صغرك ماتغير فيك؟ ",
+  "شيء بسيط قادر يعدل مزاجك بشكل سريع؟ ",
+  "تشوف الغيره انانيه او حب؟ ",
+"حاجة تشوف نفسك مبدع فيها؟ ",
+  "مع او ضد •يسقط جمال المراة بسبب قبح لسانها؟ ",
+  "عمرك بكيت على شخص مات في مسلسل ؟ ",
+  "‏- هل تعتقد أن هنالك من يراقبك بشغف؟ ",
+  "تدوس على قلبك او كرامتك؟ ",
+  "اكثر لونين تحبهم مع بعض؟ ",
+  "مع او ضد •النوم افضل حل لـ مشاكل الحياة؟ ",
+  "سؤال دايم تتهرب من الاجابة عليه؟ ",
+  "تحبني ولاتحب الفلوس؟ ",
+  "العلاقه السريه دايماً تكون حلوه؟ ",
+  "لو أغمضت عينيك الآن فما هو أول شيء ستفكر به؟ ",
+"كيف ينطق الطفل اسمك؟ ",
+  "ما هي نقاط الضعف في شخصيتك؟ ",
+  "اكثر كذبة تقولها؟ ",
+  "تيكن ولا اضبطك؟ ",
+  "اطول علاقة كنت فيها مع شخص؟ ",
+  "قد ندمت على شخص؟ ",
+  "وقت فراغك وش تسوي؟ ",
+  "عندك أصحاب كثير؟ ولا ينعد بالأصابع؟ ",
+  "حاط نغمة خاصة لأي شخص؟ ",
+  "وش اسم شهرتك؟ ",
+  "أفضل أكلة تحبه لك؟ ",
+"عندك شخص تسميه ثالث والدينك؟ ",
+  "عندك شخص تسميه ثالث والدينك؟ ",
+  "اذا قالو لك تسافر أي مكان تبيه وتاخذ معك شخص واحد وين بتروح ومين تختار؟ ",
+  "أطول مكالمة كم ساعة؟ ",
+  "تحب الحياة الإلكترونية ولا الواقعية؟ ",
+  "كيف حال قلبك ؟ بخير ولا مكسور؟ ",
+  "أطول مدة نمت فيها كم ساعة؟ ",
+  "تقدر تسيطر على ضحكتك؟ ",
+  "أول حرف من اسم الحب؟ ",
+  "تحب تحافظ على الذكريات ولا تمسحه؟ ",
+  "اسم اخر شخص زعلك؟ ",
+"وش نوع الأفلام اللي تحب تتابعه؟ ",
+  "أنت انسان غامض ولا الكل يعرف عنك؟ ",
+  "لو الجنسية حسب ملامحك وش بتكون جنسيتك؟ ",
+  "عندك أخوان او خوات من الرضاعة؟ ",
+  "إختصار تحبه؟ ",
+  "إسم شخص وتحس أنه كيف؟ ",
+  "وش الإسم اللي دايم تحطه بالبرامج؟ ",
+  "وش برجك؟ ",
+  "لو يجي عيد ميلادك تتوقع يجيك هدية؟ ",
+  "اجمل هدية جاتك وش هو؟ ",
+  "الصداقة ولا الحب؟ ",
+"الصداقة ولا الحب؟ ",
+  "الغيرة الزائدة شك؟ ولا فرط الحب؟ ",
+  "قد حبيت شخصين مع بعض؟ وانقفطت؟ ",
+  "وش أخر شي ضيعته؟ ",
+  "قد ضيعت شي ودورته ولقيته بيدك؟ ",
+  "تؤمن بمقولة اللي يبيك مايحتار فيك؟ ",
+  "سبب وجوك بالتليجرام؟ ",
+  "تراقب شخص حاليا؟ ",
+  "عندك معجبين ولا محد درا عنك؟ ",
+  "لو نسبة جمالك بتكون بعدد شحن جوالك كم بتكون؟ ",
+  "أنت محبوب بين الناس؟ ولاكريه؟ ",
+"كم عمرك؟ ",
+  "لو يسألونك وش اسم امك تجاوبهم ولا تسفل فيهم؟ ",
+  "تؤمن بمقولة الصحبة تغنيك الحب؟ ",
+  "وش مشروبك المفضل؟ ",
+  "قد جربت الدخان بحياتك؟ وانقفطت ولا؟ ",
+  "أفضل وقت للسفر؟ الليل ولا النهار؟ ",
+  "انت من النوع اللي تنام بخط السفر؟ ",
+  "عندك حس فكاهي ولا نفسية؟ ",
+  "تبادل الكراهية بالكراهية؟ ولا تحرجه بالطيب؟ ",
+  "أفضل ممارسة بالنسبة لك؟ ",
+  "لو قالو لك تتخلى عن شي واحد تحبه بحياتك وش يكون؟ ",
+"لو احد تركك وبعد فتره يحاول يرجعك بترجع له ولا خلاص؟ ",
+  "برأيك كم العمر المناسب للزواج؟ ",
+  "اذا تزوجت بعد كم بتخلف عيال؟ ",
+  "فكرت وش تسمي أول اطفالك؟ ",
+  "من الناس اللي تحب الهدوء ولا الإزعاج؟ ",
+  "الشيلات ولا الأغاني؟ ",
+  "عندكم شخص مطوع بالعايلة؟ ",
+  "تتقبل النصيحة من اي شخص؟ ",
+  "اذا غلطت وعرفت انك غلطان تحب تعترف ولا تجحد؟ ",
+  "جربت شعور احد يحبك بس انت مو قادر تحبه؟ ",
+  "دايم قوة الصداقة تكون بإيش؟ ",
+"أفضل البدايات بالعلاقة بـ وش؟ ",
+  "وش مشروبك المفضل؟ او قهوتك المفضلة؟ ",
+  "تحب تتسوق عبر الانترنت ولا الواقع؟ ",
+  "انت من الناس اللي بعد ماتشتري شي وتروح ترجعه؟ ",
+  "أخر مرة بكيت متى؟ وليش؟ ",
+  "عندك الشخص اللي يقلب الدنيا عشان زعلك؟ ",
+  "أفضل صفة تحبه بنفسك؟ ",
+  "كلمة تقولها للوالدين؟ ",
+  "أنت من الناس اللي تنتقم وترد الاذى ولا تحتسب الأجر وتسامح؟ ",
+  "كم عدد سنينك بالتليجرام؟ ",
+  "تحب تعترف ولا تخبي؟ ",
+"انت من الناس الكتومة ولا تفضفض؟ ",
+  "أنت بعلاقة حب الحين؟ ",
+  "عندك اصدقاء غير جنسك؟ ",
+  "أغلب وقتك تكون وين؟ ",
+  "لو المقصود يقرأ وش بتكتب له؟ ",
+  "تحب تعبر بالكتابة ولا بالصوت؟ ",
+  "عمرك كلمت فويس احد غير جنسك؟ ",
+  "لو خيروك تصير مليونير ولا تتزوج الشخص اللي تحبه؟ ",
+  "لو عندك فلوس وش السيارة اللي بتشتريها؟ ",
+  "كم أعلى مبلغ جمعته؟ ",
+  "اذا شفت احد على غلط تعلمه الصح ولا تخليه بكيفه؟ ",
+"قد جربت تبكي فرح؟ وليش؟ ",
+  "تتوقع إنك بتتزوج اللي تحبه؟ ",
+  "ما هو أمنيتك؟ ",
+  "وين تشوف نفسك بعد خمس سنوات؟ ",
+  "هل انت حرامي تويت بتعت عبدالله محمد؟ ",
+  "لو خيروك تقدم الزمن ولا ترجعه ورا؟ ",
+  "لعبة قضيت وقتك فيه بالحجر المنزلي؟ ",
+  "تحب تطق الميانة ولا ثقيل؟ ",
+  "باقي معاك للي وعدك ما بيتركك؟ ",
+  "اول ماتصحى من النوم مين تكلمه؟ ",
+  "عندك الشخص اللي يكتب لك كلام كثير وانت نايم؟ ",
+  "قد قابلت شخص تحبه؟ وولد ولا بنت؟ ",
+   "هل انت تحب عبدالله محمد؟ ",
+"اذا قفطت احد تحب تفضحه ولا تستره؟ ",
+  "كلمة للشخص اللي يسب ويسطر؟ ",
+  "آية من القران تؤمن فيه؟ ",
+  "تحب تعامل الناس بنفس المعاملة؟ ولا تكون أطيب منهم؟ ",
+"حاجة ودك تغيرها هالفترة؟ ",
+  "كم فلوسك حاليا وهل يكفيك ام لا؟ ",
+  "وش لون عيونك الجميلة؟ ",
+  "من الناس اللي تتغزل بالكل ولا بالشخص اللي تحبه بس؟ ",
+  "اذكر موقف ماتنساه بعمرك؟ ",
+  "وش حاب تقول للاشخاص اللي بيدخل حياتك؟ ",
+  "ألطف شخص مر عليك بحياتك؟ ",
+   "هل عبدالله محمد لطيف؟ ",
+"انت من الناس المؤدبة ولا نص نص؟ ",
+  "كيف الصيد معاك هالأيام ؟ وسنارة ولاشبك؟ ",
+  "لو الشخص اللي تحبه قال بدخل حساباتك بتعطيه ولا تكرشه؟ ",
+  "أكثر شي تخاف منه بالحياه وش؟ ",
+  "اكثر المتابعين عندك باي برنامج؟ ",
+  "متى يوم ميلادك؟ ووش الهدية اللي نفسك فيه؟ ",
+  "قد تمنيت شي وتحقق؟ ",
+  "قلبي على قلبك مهما صار لمين تقولها؟ ",
+  "وش نوع جوالك؟ واذا بتغيره وش بتأخذ؟ ",
+  "كم حساب عندك بالتليجرام؟ ",
+  "متى اخر مرة كذبت؟ ",
+"كذبت في الاسئلة اللي مرت عليك قبل شوي؟ ",
+  "تجامل الناس ولا اللي بقلبك على لسانك؟ ",
+  "قد تمصلحت مع أحد وليش؟ ",
+  "وين تعرفت على الشخص اللي حبيته؟ ",
+  "قد رقمت او احد رقمك؟ ",
+  "وش أفضل لعبته بحياتك؟ ",
+  "أخر شي اكلته وش هو؟ ",
+  "حزنك يبان بملامحك ولا صوتك؟ ",
+  "لقيت الشخص اللي يفهمك واللي يقرا افكارك؟ ",
+  "فيه شيء م تقدر تسيطر عليه ؟ ",
+  "منشن شخص متحلطم م يعجبه شيء؟ ",
+"اكتب تاريخ مستحيل تنساه ",
+  "شيء مستحيل انك تاكله ؟ ",
+  "تحب تتعرف على ناس جدد ولا مكتفي باللي عندك ؟ ",
+  "انسان م تحب تتعامل معاه ابداً ؟ ",
+  "شيء بسيط تحتفظ فيه؟ ",
+  "فُرصه تتمنى لو أُتيحت لك ؟ ",
+   "لي عبدالله محمد ناك اليكس؟ ",
+  "شيء مستحيل ترفضه ؟. ",
+  "لو زعلت بقوة وش بيرضيك ؟ ",
+  "تنام بـ اي مكان ، ولا بس غرفتك ؟ ",
+  "ردك المعتاد اذا أحد ناداك ؟ ",
+  "مين الي تحب يكون مبتسم دائما ؟ ",
+" إحساسك في هاللحظة؟ ",
+  "وش اسم اول شخص تعرفت عليه فالتلقرام ؟ ",
+  "اشياء صعب تتقبلها بسرعه ؟ ",
+  "شيء جميل صار لك اليوم ؟ ",
+  "اذا شفت شخص يتنمر على شخص قدامك شتسوي؟ ",
+  "يهمك ملابسك تكون ماركة ؟ ",
+  "ردّك على شخص قال (أنا بطلع من حياتك)؟. ",
+  "مين اول شخص تكلمه اذا طحت بـ مصيبة ؟ ",
+  "تشارك كل شي لاهلك ولا فيه أشياء ما تتشارك؟ ",
+  "كيف علاقتك مع اهلك؟ رسميات ولا ميانة؟ ",
+  "عمرك ضحيت باشياء لاجل شخص م يسوى ؟ ",
+"اكتب سطر من اغنية او قصيدة جا فـ بالك ؟ ",
+  "شيء مهما حطيت فيه فلوس بتكون مبسوط ؟ ",
+  "مشاكلك بسبب ؟ ",
+  "نسبه الندم عندك للي وثقت فيهم ؟ ",
+  "اول حرف من اسم شخص تقوله? بطل تفكر فيني ابي انام؟ ",
+  "اكثر شيء تحس انه مات ف مجتمعنا؟ ",
+  "لو صار سوء فهم بينك وبين شخص هل تحب توضحه ولا تخليه كذا  لان مالك خلق توضح ؟ ",
+  "كم عددكم بالبيت؟ ",
+  "عادي تتزوج من برا القبيلة؟ ",
+  "أجمل شي بحياتك وش هو؟ "
+             ]
+                           const Chikuhdudhww = hdudh[Math.floor(Math.random() * hdudh.length)]
+                           buffer = await getBuffer(`https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg`)
+                           Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في قسم تويت*\nꔹ━━━━━ꔹ\n'+ Chikuhdudhww }, {quoted:m})
                            break
 
 
+case 'jfysudh': case 'فزوره': 
+    if (isBan) return reply(mess.banned)
+    if (isBanChat) return reply(mess.bangc)
+	Chiku.sendMessage(from, { react: { text: "🐦" , key: m.key }})
+		
+                           const jfysudh =[
+"ايه الحاجه اللي لازم تكسرها قبل ما تستخدها؟ ", 
+" ما هو الحيوان الذي لا يبيض ولا يلد؟ ", 
+" عقرب لا يخاف منه احد وغير مؤذي؟ ", 
+" من هو الانسان الذي قتل ربع سكان العالم؟ ", 
+" ما هو االشي الذي ترميه قبل ان تستخدمه؟ ", 
+" تأكل ولا تشبع ما هي؟ ", 
+"الماء ابوه ولكن اذا وضعناه مع الماء يموت؟ ", 
+"ما الشيء الذي كلما اخذت منه كبر؟ ", 
+" اخت خالك ومش خالتك مين هي؟ ", 
+"شئ امامك ولن تراه؟ ", 
+"من هو الخال الوحيد لأولاد عمتك؟ ", 
+"ما هو الشيء الذي يقرصك دون ان تراه؟ ", 
+" شئ يخترق الزجاج ولا يكسره؟ ", 
+" ما هي الصلاة التي لا نسجد ولا نركع فيها؟ ", 
+" شئ لو وضعته في الثلاجه لا يبرد؟ ", 
+"ما هي السورة التي بدأت وانتهت بالتسبيح؟ ", 
+" ما هي السور التي تسمى بمواقيت الصلاة؟", 
+" كم عدد كلمات آية الكرسي؟", 
+" ما هي السورة الملقبة بقلب القرآن؟", 
+" ماهو الشيء الذي له أربع أرجل ولا يمشي ؟", 
+" ايهما اثقل كيلو اسفنج ام كيلو من حديد ؟", 
+"شىء اخف من الريش ومع ذلك لايمكن الامساك به طويلا؟ ", 
+"ماهو الشىء الذى ليس بإنسان ولا حيوان ولا جماد؟ ", 
+"ما هو الشّيء الّذي يَكتُب ولا يقرأ؟ ", 
+" ما هو الشّيء الّذي إذا لمسته أصدر صوتاً؟", 
+" ما هو الشيء الّذي لا يؤكل في الليل أبداً؟", 
+"شيء يتحدث ويتكلم بدون لسان ولا أذنين؟ ", 
+"ما هو الشيء الّذي ليس له بداية ولا نهاية؟ ", 
+" فاكهة لونها مثل اسمها؟", 
+" شيء ينبض دون أن يكون له قلب فما هو؟", 
+" أين يوجد البحر الذي لا يوجد به ماء؟", 
+" يسير على الماء ولكنه لا يبتل.. فما هو؟", 
+"ما هو الشيء الذي كلما تحرك خسر جزءًا من ذيله؟ ", 
+" ما هو الشيء الذي له رأس ولكن ليس له عين؟", 
+"ما هو الشيء الذي يوجد في السماء وإذا أضفنا إليه حرفا أصبح شيء يوجد في الأرض؟ ", 
+" ماهو الشيء الذي لا تحب ان تلبسه وإذا لبسته لا تراه ؟", 
+"ما هو الشيء عندما يكون لونه اسود لا يكون نافع ولكن عندما يكون لونه احمر يكون نافع؟ ", 
+"من هو الشخص الذي يكون ابن أمك وأبيك ولكن ليس أخيك؟ ", 
+"من هو الذي مات ولم يولد؟ ", 
+" ما هو الشيء الذي إن غليـته جمد؟", 
+" ماهو الشيء الذي تأكل منه مع إنه لا يؤكل؟", 
+" ماهو الشيء الذي كلما زاد نقص؟"
+             ]
+                           const Chikujfysudhww = jfysudh[Math.floor(Math.random() * jfysudh.length)]
+                           buffer = await getBuffer(`https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg`)
+                           Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في قسم الفوازير*\nꔹ━━━━━ꔹ\n'+ Chikujfysudhww }, {quoted:m})
+                           break
 
 case 'nsfwChiku':
     if (isBan) return reply(mess.banned)
@@ -5584,54 +6659,54 @@ var walb = [
 break
 
 
-case 'anime':
+case 'انمي':
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
     if (!m.isGroup) return replay(mess.grouponly)
-	    if(!q) return reply(`Please proide a search term!\n\n*Example:* ${prefix}anime naruto`)
+	    if(!q) return reply(`يرجى تقديم مصطلح البحث!\n\n*مثال:* ${prefix}anime naruto`)
 reply(mess.waiting)							
 const { Anime } =require("@shineiichijo/marika")
     const client = new Anime();
      let anime = await client.searchAnime(q)
     let result = anime.data[0];
     console.log(result)
-   let details = `*Title:* ${result.title}\n`;
-    details += `*Format:* ${result.type}\n`;
-    details += `*Status:* ${result.status.toUpperCase().replace(/\_/g, " ")}\n`;
-    details += `*Total episodes:* ${result.episodes}\n`;
-    details += `*Duration:* ${result.duration}\n`;
-    details += `*Genres:*\n`;
+   let details = `*العنوان:* ${result.title}\n`;
+    details += `*الشكل:* ${result.type}\n`;
+    details += `*الحاله:* ${result.status.toUpperCase().replace(/\_/g, " ")}\n`;
+    details += `*مجموع الحلقات:* ${result.episodes}\n`;
+    details += `*المده:* ${result.duration}\n`;
+    details += `*الانواع:*\n`;
     for (let i = 0; i < result.genres.length; i++) {
       details += `\t\t\t\t\t\t\t\t${result.genres[i].name}\n`;
     }
-    details += `*Based on:* ${result.source.toUpperCase()}\n`;
-    details += `*Studios:*\n`;
+    details += `*مرتكز على:* ${result.source.toUpperCase()}\n`;
+    details += `*استوديوهات:*\n`;
     for (let i = 0; i < result.studios.length; i++) {
       details += `\t\t\t\t\t\t\t\t${result.studios[i].name}\n`;
     }
-    details += `*Producers:*\n`;
+    details += `*منتجين:*\n`;
     for (let i = 0; i < result.producers.length; i++) {
       details += `\t\t\t\t\t\t\t\t\t\t${result.producers[i].name}\n`;
     }
-    details += `*Premiered on:* ${result.aired.from}\n`;
-    details += `*Ended on:* ${result.aired.to}\n`;
-    details += `*Popularity:* ${result.popularity}\n`;
-    details += `*Favorites:* ${result.favorites}\n`;
-    details += `*Rating:* ${result.rating}\n`;
-    details += `*Rank:* ${result.rank}\n\n`;
+    details += `*عرض لأول مرة في:* ${result.aired.from}\n`;
+    details += `*انتهى في:* ${result.aired.to}\n`;
+    details += `*شعبية:* ${result.popularity}\n`;
+    details += `*المفضلة:* ${result.favorites}\n`;
+    details += `*تقييم:* ${result.rating}\n`;
+    details += `*مرتبه:* ${result.rank}\n\n`;
     if (result.trailer.url !== null)
-      details += `*Trailer:* ${result.trailer.url}\n\n`;
-    details += `*URL:* ${result.url}\n\n`;
+      details += `*جَرَّار:* ${result.trailer.url}\n\n`;
+    details += `*الرابط:* ${result.url}\n\n`;
     if (result.background !== null)
-      details += `*Background:* ${result.background}\n\n`;
-    details += `*Description:* ${result.synopsis.replace(
+      details += `*خلفيه:* ${result.background}\n\n`;
+    details += `*الوصف:* ${result.synopsis.replace(
       /\[Written by MAL Rewrite]/g,
       ""
     )}`
 Chiku.sendMessage(m.chat,{image:{url:result.images.jpg.large_image_url},caption:details},{quoted:m})   
 break
 
-case 'manga':
+case 'مانجا':
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
     if (!m.isGroup) return replay(mess.grouponly) 
@@ -5800,12 +6875,12 @@ await sleep(1500)
 let btn = [{
 quickReplyButton: {
 displayText: '💡 Menu 💡',
-id: '-menu'
+id: '.menu'
 }  
 }, {
 quickReplyButton: {
 displayText: 'Bot Owner',
-id: '-owner'
+id: '.owner'
 }
 }]
 let txt = `「 *${global.OwnerName}'s Broadcast* 」\n\n${text}`
@@ -5816,268 +6891,48 @@ replay('Broadcast Sent !')
 break    
 
 
-case 'help': case 'h': case 'menu': case 'allmenu': case 'listmenu':{
+case 'help': case 'القائمه': case 'menu': case 'بوت': case 'الاوامر':case 'اوامر':{
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
-Chiku.sendMessage(from, { react: { text: "✨" , key: m.key }})      
-const helpmenu = `Hii *${pushname}*,
-
-I am *chiku*, a bot  deploy by 🦋⃟≛⃝𝐀𝐘𝐔𝐒𝐇⃟≛⃝
-
-   ♤《《╼━╼━━━━━━━━━━━》》♤
-   
-🎀 *Bot prefix *  : (.)
-🎀*Bot user name* : ${pushname}
-🎀 *Bot speed*  : ${latensie.toFixed(4)} ms
-🎀 *Bot runtime* : ${runtime(process.uptime())}
-🎀*Owner name* : ${global.OwnerName}
-🎀*Owner num.* : http://wa.me//${global.OwnerNumber}
-
-      ♤《《╼━╼━━━━━━━━━━━》》♤
-
- *━━━〈  🎆 Core 🎆 〉━━
- 
-⚡speak
-⚡️profile
-⚡️help
-⚡️delete
-⚡️deleteall
-⚡️listgc
-⚡️listpc
-⚡️welcome
-⚡️support 
-
- *━━━〈  🎀 Owner 🎀 〉━━━*
- 
-🔮self
-🔮public
-🔮ban
-🔮bangroup
-🔮bye
-🔮join
-🔮bye
-🔮block
-🔮unblock
-🔮broadcast 
-
- *━━━〈  ⭕ Group ⭕  〉━━━*
- 
-🎈promote
-🎈demote
-🎈revoke
-🎈add
-🎈remove
-🎈tagall
-🎈hidetag
-🎈groupsetting
-🎈grouplink
-🎈setgcpp
-🎈setname
-🎈setdesc
-🎈group
-🎈nsfw 
-
- *━━━〈  ➰ Anti Link ➰  〉━━━*
- 
-🎃antilinkgc
-🎃antilinktg
-🎃antilinktt
-🎃antilinkytch
-🎃antilinkytvid
-🎃antilinkig
-🎃antilinkfb
-🎃antilinktwit
-🎃antilinkall
-🎃antiwame
-
- *━━━〈  🔍 Search 🔍  〉━━━*
-
-♠️chiku
-♠️yts
-♠️lyrics
-♠️google
-♠️gimage
-♠️pinterest
-♠️image
-♠️movie
-♠️wallpaper
-♠️searchgc
-♠️happymod
-♠️wikimedia
-♠️ringtone
-♠️anime
-♠️animestory
-♠️manga
-♠️ringtone  
-
- *━━━〈  🔰 Convert 🔰  〉━━━*
-
-🏮sticker
-🏮toimg
-🏮tovideo
-🏮togif 
-🏮steal
-🏮stickermeme
-🏮emojimix
-🏮tourl
-🏮tomp3
-🏮toaudio
-
- *━━━〈  🔉 Audio 🔉  〉━━━*
-
-📎bass
-📎tempo
-📎blown
-📎deep
-📎earrape
-📎fast
-📎fat
-📎nightcore
-📎reverse
-📎robot
-📎slow
-📎squirrel
-
- *━━━〈  📍 Reactions 📍  〉━━━*
-
-🎀bonk
-🎀cry
-🎀bully
-🎀cuddle
-🎀hug
-🎀kiss
-🎀lick
-🎀pat
-🎀smug
-🎀yeet
-🎀blush
-🎀smile
-🎀wave
-🎀highfive
-🎀handhold
-🎀nom
-🎀glomp
-🎀bite
-🎀slap
-🎀kill
-🎀happy
-🎀wink
-🎀poke
-🎀dance
-🎀cringe
-
- *━━━〈  🌌 Downloader 🌌  〉━━━*
-
-🎗play
-🎗ytmp3
-🎗ytmp4
-🎗ytvideo
-🎗mediafire
-🎗instagram
-🎗igtv
-🎗facebook
-🎗fbmp3
-🎗twitter
-🎗twittermp3
-🎗tiktok
-🎗tiktokaudio
-🎗tiktoknowm
-🎗mediafire  
-
- *━━━〈  🈴 Weeb 🈴  〉━━━*
-
-🧧crosplay
-🧧waifu
-🧧loli
-🧧neko
-🧧ppcouple
-🧧feed
-🧧foxgirl
-🧧feed
-🧧meow
-🧧tickle
-🧧wallpaper
-🧧coffee
-🧧animenom
-🧧waifu3
-🧧neko2
-🧧feed
-🧧meow
-🧧tickle
-🧧migumin
-🧧awoo
-🧧animewallpaper2
-🧧anime
-🧧manga
-
- *━━━〈  ♨️ Informative ♨️  〉━━━*
-
-📝animequote
-📝quote
-📝covid
-📝earthquake
-📝wiki
-
- *━━━〈  🎗 Others 🎗  〉━━━*
-
-🔖stickermeme
-🔖quotes
-🔖darkjoke 
-
- *━━━〈  🎐 Fun 🎐 〉━━━*
-🚀reaction
-🚀truth
-🚀dare
-🚀couple
-🚀soulmate
-🚀handsomecheck
-🚀beautifulcheck
-🚀awesomecheck
-🚀greatcheck
-🚀gaycheck
-🚀cutecheck
-🚀lesbiancheck
-🚀hornycheck
-🚀prettycheck
-🚀lovelycheck
-🚀uglycheck
-🚀charactercheck
-
- *━━━〈  🪁 Essentials 🪁  〉━━━*
-
-🧨say
-🧨translate
-🧨fliptext
-🧨toletter
-
- *━━━〈  📈 Economy 📉 〉━━━*
-📊daily
-📊wallet
-📊bank
-📊bankupgrade
-📊deposit
-📊withdraw 
-📊rob
-📊attack
-📊transfer 
-📊give
-
- *━━━〈  💥 NSFW 💥  〉━━━*
-
-🍁 click nsfw Button to act nsfw 🔞
-
-🍁 Then type " *${prefix}nsfwmenu* " to get full list of NSFW commands.
-
- 『  *${global.BotName}*  』
- Powered by: *Ayush*
+      
+ const helpmenu = `
+•╗ مرحبا ياعزيزي ⤌⤈       
+𓆩 *${pushname}* 𓆪
+•╣ انا بوت واتس اسمي
+𓆩 *${global.BotName}* 𓆪
+•╣ اعمل في الخاص وجروبات
+•╣ وظيفتي حماية جروبك
+•╣ اكتب كلمه .الاوامر لمعرفه
+•╣ اوامر البوت وطريقه الاستخدام
+•╣ مميزات البوت كثيره جدا 
+•╝ ويعمل بجودة فائقه وعاليه
+𓍹————————————𓍻
+𓆩قائمة اوامر سورس الجزار𓆪 
+𓍹————————————𓍻
+( .م1 ) ☞ اوامر الاعضاء
+( .م2 ) ☞ اوامر المالك
+( .م3 ) ☞  اوامر الجروبات
+( .م4 ) ☞ اوامر البحث وتنزيل
+( .م5 ) ☞ اوامر التحويل
+( .م6 ) ☞ اوامر تغيير الصوت
+( .م7 ) ☞ اوامر التسليه
+( .م8 ) ☞ لعرض جميع الاومر
+.المميزات ☞ لعرض مميزات البوت
+.المطور ☞ لعرض مطور البوت
+.السورس ☞ لعرض المبرمج
 `
-    
 
- 
+
+    let buttonshelpm = [
+
+    {buttonId: `.owner`, buttonText: {displayText: '⋆ مبرمج البوت •'}, type: 1}
+
+    ]
                 let buttonMessage = {
-                    image:fs.readFileSync('./system/elgazar.jpg'),gifPlayback:true,
+                  image:fs.readFileSync('./system/elgazar.jpg'),gifPlayback:true,
                     caption: helpmenu,
-                  
+                    footer: `${global.BotName}`,
+                    buttons: buttonshelpm,
                     headerType: 4
                     
                 }
@@ -6094,13 +6949,36 @@ case '':
     if (isBanChat) return reply(mess.bangc)
     Chiku.sendMessage(from, { react: { text: "✨" , key: m.key }})
 
-      Chikupic ='https://images5.alphacoders.com/106/1065278.jpg'
+      Chikupic ='https://telegra.ph/file/e6259010eb14f0e5fb98d.jpg'
     
         
- const needhelpmenu = `Do you need help ${pushname} ? Type *${prefix}help* to get my full command list.`
+ const needhelpmenu = `•╗ مرحبا ياعزيزي ⤌⤈       
+𓆩 *${pushname}* 𓆪
+•╣ انا بوت واتس اسمي
+𓆩 *${global.BotName}* 𓆪
+•╣ اعمل في الخاص وجروبات
+•╣ وظيفتي حماية جروبك
+•╣ اكتب كلمه .الاوامر لمعرفه
+•╣ اوامر البوت وطريقه الاستخدام
+•╣ مميزات البوت كثيره جدا 
+•╝ ويعمل بجودة فائقه وعاليه
+
+⋆ يمكنك التواصل مع المبرمج عبر التيلجرام ⤌⤈
+ t.me/A_M_030
+
+• تم تطويري وبرمجتي •
+• بواسطه عبدالله محمد •
+• اذا كنت تريد صنع بوت مماثل لهذا •
+يجب عليك الانظمام لهذه القناه وسماع الشروحات لتنصيب البوت
+ 
+قناة الشروحات
+https://youtube.com/@ABDALLAH_MOHAMED
+
+لينك شاتي 
+https://api.whatsapp.com/send?phone=+201098906252`
      
          let butRun = [
-                {buttonId: `${prefix}help`, buttonText: {displayText: 'Help'}, type: 1}
+                {buttonId: `${prefix}owner`, buttonText: {displayText: '⋆ مبرمج البوت •'}, type: 1}
                 ]
                 let buttonMessage = {
                     image:fs.readFileSync('./system/elgazar.jpg'),gifPlayback:true,
@@ -6242,7 +7120,9 @@ default:
     if(isCmd){
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc)
-        reply (`No such command programmed *${pushname}* senpai! Type *${prefix}help* to get my full command list!`)
+        reply (`⋆ المعذره ياروحي ⤌⤈
+𓆩 *${pushname}* 𓆪
+لا يوجد امر مثل هذا  اكتب *${prefix}الاوامر* للحصول على قائمة الأوامر الكاملة الخاصة ب البوت `)
 
     }	 			
 
