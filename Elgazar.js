@@ -3816,7 +3816,7 @@ case 'لفيديو': case 'tomp4': case 'makevideo': case 'tovideo': {
  let { webp2mp4File } = require('./lib/uploader')
  let media = await Chiku.downloadAndSaveMediaMessage(quoted)
  let webpToMp4 = await webp2mp4File(media)
- await Chiku.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Here it is...' } }, { quoted: m })
+ await Chiku.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'اي خدمه يروحي..🖤🙂' } }, { quoted: m })
  await fs.unlinkSync(media)
  }
  break
@@ -3850,17 +3850,17 @@ case 'لملف': case 'makemp3': {
 break
 
 
-case 'لمتحرك': case 'لجيف': case 'togif':{
+case 'togif': case 'لمتحرك': case 'متحركه':{
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
- Chiku.sendMessage(from, { react: { text: "📼" , key: m.key }})
- if (!m.quoted) return reply('رد علي ملصق')
- if (!/webp/.test(mime)) return reply(`رد علي ملصق متحرك واكتب *${prefix + command}*`)
+  Chiku.sendMessage(from, { react: { text: "📼" , key: m.key }})
+ if (!m.quoted) return reply('رد علي صوره')
+ if (!/webp/.test(mime)) return reply(`رد علي استيكر واكتب الامر *${prefix + command}*`)
  reply(mess.wait)
  let { webp2mp4File } = require('./lib/uploader')
  let media = await Chiku.downloadAndSaveMediaMessage(quoted)
  let webpToMp4 = await webp2mp4File(media)
- await Chiku.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Converted From Webp To Gif' }, gifPlayback: true }, { quoted: m })
+ await Chiku.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'تم تحويله الي متحرك' }, gifPlayback: true }, { quoted: m })
  await fs.unlinkSync(media)
  }
  break
@@ -6851,9 +6851,9 @@ case 'bc': case 'شير': case 'اذاعه': {
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
 if (!isCreator) return replay(mess.botowner)
-if (!args.join(" ")) return replay(`Please enter some text to broadcast! \n\nExample : ${prefix + command} ${global.OwnerName}`)
+if (!args.join(" ")) return replay(`الرجاء إدخال نص للبث! \n\nمثال : ${prefix + command} ${global.OwnerName}`)
 let anu = await store.chats.all().map(v => v.id)
-replay(`Send Broadcast To ${anu.length} Chat\nTime's up ${anu.length * 1.5} second`)
+replay(`إرسال البث إلى ${anu.length} شات\nانتهى الوقت في ${anu.length * 1.5} ثانيه`)
 for (let yoi of anu) {
 await sleep(1500)
 let btn = [{
@@ -6867,10 +6867,10 @@ displayText: '⋆ مبرمج البوت •',
 id: '.owner'
 }
 }]
-let txt = `「 *${global.OwnerName}'s Broadcast* 」\n\n${text}`
+let txt = `𓆩  *${global.OwnerName}'اذاعه للكل*  𓆪\n\n${text}`
 Chiku.send5ButImg(yoi, txt, `${global.BotName}`, BotLogo, btn, Thumb)
 }
-replay('Broadcast Sent !')
+replay('تم الاذاعه بنجاح !')
 }
 break    
 
