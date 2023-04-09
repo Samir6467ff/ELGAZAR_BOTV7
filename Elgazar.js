@@ -1609,126 +1609,64 @@ for (let anju of Ayushaudio){
 *╝━═━═✦•⊰⚜️⊱•✦━═━━╚*`);
     } 
     
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('هلا')) {
-      reply (`*اهلين*`);
-    } 
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('هلا')) {
-      reply (`*ارحب*`);
+    if (smallinput=='هلا') {
+        reply (`*اهلين*`)
     }
     
-     let smallinput = budy.toLowerCase()
-    if (smallinput.includes('هلا')) {
-      reply (`*منور*`);
+    if (smallinput=='هلا') {
+        reply (`*ارحب*`)
     }
     
-     let smallinput = budy.toLowerCase()
-    if (smallinput.includes('هلا')) {
-      reply (`*منور بنوري المنعكس من نورك اللي انعكس من نوري*`);
+     if (smallinput=='هلا') {
+        reply (`*منور*`)
     }
     
-     let smallinput = budy.toLowerCase()
-    if (smallinput.includes('هلا')) {
-      reply (`*ليش اجيت؟*`);
+     if (smallinput=='هلا') {
+        reply (`*منور بنوري المنعكس من نورك اللي انعكس من نوري*`)
     }
     
-     let smallinput = budy.toLowerCase()
-    if (smallinput.includes('هلا')) {
-      reply (`*شتبي؟*`);
+     if (smallinput=='هلا') {
+        reply (`*اجيت ليش؟*`)
     }
     
-     let smallinput = budy.toLowerCase()
-    if (smallinput.includes('هلا')) {
-      reply (`*شجابك؟*`);
+     if (smallinput=='هلا') {
+        reply (`*شتبي؟*`)
     }
     
-    if (smallinput.includes('مين عمك') ||smallinput.includes('من عمك')) {
-      reply (`*الجزار عمي وعمك*`);
-      }
+     if (smallinput=='هلا') {
+        reply (`*شجابك؟*`)
+    }
+    
+    if (smallinput=='مين عمك') {
+        reply (`*الجزار عمي وعمك*`)
+    }
       
-      if (smallinput.includes('مين عمك') ||smallinput.includes('من عمك')) {
-      reply (`* اكيد العم الجزار*`);
-      }
+      if (smallinput=='مين عمك') {
+        reply (`*اكيد العم الجزار*`)
+    }
       
-      if (smallinput.includes('مين عمك') ||smallinput.includes('من عمك')) {
-      reply (`*عمنا الجزار🌚*`);
-      }
+      if (smallinput=='مين عمك') {
+        reply (`*عمنا الجزار​🥺*`)
+    }
       
-      if (smallinput.includes('مين عمك') ||smallinput.includes('من عمك')) {
-      reply (`*الجزار عمي وعمكم*`);
-      }
+      if (smallinput=='مين عمك') {
+        reply (`*الجزار عمي وعمكم*`)
+    }
       
-      if (smallinput.includes('مين جدك') ||smallinput.includes('من جدك')) {
-      reply (`*جدي الجزار*`);
-      }
+      if (smallinput=='مين جدك') {
+        reply (`*الجزار جدي*`)
+    }
       
-      if (smallinput.includes('مين جدك') ||smallinput.includes('من جدك')) {
-      reply (`*مطوري جدكم*`);
-      }
+      if (smallinput=='مين جدك') {
+        reply (`*جدكم مطوري*`)
+    }
       
-      if (smallinput.includes('مين جدك') ||smallinput.includes('من جدك')) {
-      reply (`*الجد الجزار🌚*`);
-      }
+      if (smallinput=='مين جدك') {
+        reply (`*الجد الجزار​🥺*`)
+    }
       
-      if (smallinput.includes('مين جدك') ||smallinput.includes('من جدك')) {
-      reply (`*مين غيره؟ أكيد مطوري🗿✨*`);
-      }
-      
-      let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جدك لحالك')) {
-      reply (`*جدك غصب عنك*`);
-    }
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جدك لحالك')) {
-      reply (`*جدك وجد جدك*`);
-    }
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جدك لحالك')) {
-      reply (`*جدك يعني جدك وانتهى*`);
-    }
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جدك لحالك')) {
-      reply (`*لا تجادل انه جدك*`);
-    }
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جزار اكرهك')) {
-      reply (`*محد يحبك محد معبرك محد مهتم*`);
-    }
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جزار اكرهك')) {
-      reply (`*وانا اكثر*`);
-    }
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جزار اكرهك')) {
-      reply (`*من انت اصلاً*`);
-    }
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جزار اكرهك')) {
-      reply (`*الخدم تكره اسيادها*`);
-    }
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جزار اكرهك')) {
-      reply (`*محد طلب رأيك*`);
-    }
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جزار اكرهك')) {
-      reply (`*رأيك ذا حطه بجيبك*`);
-    }
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جزار اكرهك')) {
-      reply (`*كنت بحبك لولا انك تكرهني*`);
+      if (smallinput=='مين جدك') {
+        reply (`*مين غيره؟ أكيد مطوري🗿✨*`)
     }
       
     if( smallinput.includes('بحبك') || smallinput.includes('انا بحبك') || smallinput.includes('love you') || smallinput.includes('I love you bot')){
