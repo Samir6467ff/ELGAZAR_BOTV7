@@ -51,9 +51,9 @@ const xfarrapi = require('xfarr-api')
 const { hentai } = require('./lib/scraper2.js')
 let { msgFilter } = require('./lib/antispam')
 const { mediafireDl } = require('./lib/mediafire.js')
-const Ayushtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-const Ayushdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
-const time2 = moment().tz('Asia/Kolkata').format('HH:mm:ss')
+const Ayushtime = moment.tz('Africa/Egypt').format('HH:mm:ss')
+const Ayushdate = moment.tz('Africa/Egypt').format('DD/MM/YYYY')
+const time2 = moment().tz('Africa/Egypt').format('HH:mm:ss')
 
         if(time2 < "23:59:00"){
 
@@ -184,10 +184,10 @@ let _sewa = require("./lib/sewa");
 const sewa = JSON.parse(fs.readFileSync('./database/sewa.json'))
 
 
-const time = moment.tz('Asia/Kolkata').format('DD/MM HH:mm:ss')
-const ucap = moment(Date.now()).tz('Asia/Kolkata').locale('id').format('a')
+const time = moment.tz('Africa/Egypt').format('DD/MM HH:mm:ss')
+const ucap = moment(Date.now()).tz('Africa/Egypt').locale('id').format('a')
 var buln = ['/01/', '/02/', '/03/', '/04/', '/05/', '/06/', '/07/', '/08/', '/09/', '/10/', '/11/', '/12/'];
-var myHari = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var myHari = ['الاحد', 'الاثنين', 'الثلاثاء', 'الاربعاء', 'الخميس', 'الجمعه', 'السبت'];
 var tgel = new Date();
 var hri = tgel.getDate();
 var bulnh = tgel.getMonth();
@@ -582,17 +582,17 @@ const hariRaya = new Date('6 1, 2022 00:00:00')
 			const jjam = Math.floor( Selisih % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
 			const mmmenit = Math.floor( Selisih % (1000 * 60 * 60) / (1000 * 60));
 			const ddetik = Math.floor( Selisih % (1000 * 60) / 1000);
-			const ultah = `${jhari}Day ${jjam}Hour ${mmmenit}Minute ${ddetik}Second`
+			const ultah = `${jhari}يوم ${jjam}ساعه ${mmmenit}دقيقه ${ddetik}ثانيه`
 			
 async function hitungmundur(bulan, tanggal) { 
           let from = new Date(`${bulan} ${tanggal}, 2022 00:00:00`).getTime();
-          let now = Date.now();
+          let الان = Date.now();
           let distance = from - now;
-          let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-          return days + "Day " + hours + "Hour " + minutes + "Minute " + seconds + "Second"
+          let يوم = Math.floor(distance / (1000 * 60 * 60 * 24));
+          let ساعه = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          let دقيقه = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          let ثانيه = Math.floor((distance % (1000 * 60)) / 1000);
+          return يوم + "يوم " + ساعه + "ساعه " + دقيقه + "دقيقه " + ثانيه + "ثانيه"
         }
 try {
 let isNumber = x => typeof x === 'number' && !isNaN(x)
@@ -746,7 +746,7 @@ global.hit = {}
 if (isCmd) {
 data = await fetchJson('https://api.countapi.xyz/hit/CheemsBot/visits')
 jumlahcmd = `${data.value}`
-dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Asia/Kolkata').format('DDMMYYYY')}/visits`)
+dataa = await fetchJson(`https://api.countapi.xyz/hit/CheemsBot${moment.tz('Africa/Egypt').format('DDMMYYYY')}/visits`)
 jumlahharian = `${dataa.value}`
 }
  
@@ -961,8 +961,8 @@ if (m.mtype == 'viewOnceMessage') {
  teks = `「 *Anti ViewOnce Message* 」
 ${themeemoji} Name : ${m.pushName}
 ${themeemoji} User : @${m.sender.split("@")[0]}
-${themeemoji} Clock : ${moment.tz('Asia/Kolkata').format('HH:mm:ss')} 
-${themeemoji} Date : ${moment.tz('Asia/Kolkata').format('DD/MM/YYYY')}
+${themeemoji} Clock : ${moment.tz('Africa/Egypt').format('HH:mm:ss')} 
+${themeemoji} Date : ${moment.tz('Africa/Egypt').format('DD/MM/YYYY')}
 ${themeemoji} MessageType : ${m.mtype}`
 Chiku.sendTextWithMentions(m.chat, teks, m)
 await sleep(500)
@@ -988,7 +988,7 @@ let cron = require('node-cron')
     console.log('Reseted Limit')
     }, {
     scheduled: true,
-    timezone: "Asia/Kolkata"
+    timezone: "Africa/Egypt"
     })
 
     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
@@ -1514,7 +1514,107 @@ for (let anju of Ayushaudio){
 	
 	
 	
-	 let smallinput = budy.toLowerCase()
+	let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جزار اوامر التسليه')) {
+      reply (`*╗━═━━═✦•⊰⚜️ ⊱•✦═━═━━╔*
+
+*اوامر التسليه للبوت جزار*
+
+〘ملاحظة : اكتب الاوامر او الاوامر2 بالحرف الواحد ليستجيب البوت〙
+
+*❃━═━═✦•〘⚜️〙•✦═━═━❃*
+*✦☜↜جزار*
+*✦☜↜جزار ارسل صورته*
+*✦☜↜جزار جيب الدبابه*
+*✦☜↜جزار عطني سلاح*
+*✦☜↜جزار جزار*
+*✦☜↜جزار احبك*
+*✦☜↜جزار اكرهك*
+*✦☜↜جزار سلك له*
+*✦☜↜جزار كم تاريخ اليوم*
+*✦☜↜جزار ابكي له*
+*✦☜↜جزار تحبني*
+*✦☜↜جزار تتزوجني*
+*✦☜↜جزار انت غبي*
+*✦☜↜جزار انت ذكي*
+*✦☜↜جزار انت افضل بوت*
+*✦☜↜جزار من صنعك*
+*✦☜↜جزار الو*
+*✦☜↜السلام عليكم*
+*✦☜↜جزار وينك*
+*✦☜↜جزار كيفك*
+*✦☜↜من عمك*
+*✦☜↜جزار انت بوت*
+*✦☜↜جزار انت انسان*
+*✦☜↜جزار انت رجال*
+*✦☜↜جزار افزع لي*
+*✦☜↜جزار تبا لك*
+*✦☜↜جزار نكته*
+*✦☜↜جزار سبام*
+*✦☜↜جني*
+*✦☜↜هقر*
+*✦☜↜باص الحب*
+*✦☜↜جزار عطني شي*
+*✦☜↜جزار ادعي له*
+*✦☜↜جزار ادعي عليه*
+*✦☜↜جزار ادعي لي*
+*✦☜↜جزار انت اوتاكو؟*
+*✦☜↜جزار سولف معه*
+*✦☜↜جزار العب معه*
+*✦☜↜جزار حمار*
+*✦☜↜جزار اسكت*
+*✦☜↜دوم*
+*✦☜↜تسوق امها انت صح؟*
+*✦☜↜جزار انا عمك*
+*✦☜↜جزار احمق*
+*✦☜↜جزار وش لقبي*
+*✦☜↜وينكم*
+*✦☜↜منور*
+*✦☜↜باي*
+*✦☜↜شكرا*
+*✦☜↜هل استطيع سرقتك لقروبي*
+*✦☜↜لا*
+*✦☜↜غبي*
+*✦☜↜من انت*
+*✦☜↜وش اسمك*
+*✦☜↜جزار كم عمرك*
+*✦☜↜اتفق*
+*✦☜↜كفو*
+*✦☜↜جزار اسم الجروب*
+*✦☜↜يلبيه*
+*✦☜↜يزينك*
+*✦☜↜جزار اقصف جبهته*
+*✦☜↜مين زوجتك*
+*❃━═━═✦•〘⚜️〙•✦═━═━❃*
+
+*انتهت اوامر البوت الجزار*
+*البوت قيد التطوير*
+*عندك إضافات تبي تضيفها؟*
+تكلم مع المطور☜https://wa.me/qr/BUJIQY44YA3AL1
+
+*╝━═━═✦•⊰⚜️⊱•✦━═━━╚*
+
+*شكرا لدعم البوت*
+*جروب تطوير البوت*
+‏*~❮https://chat.whatsapp.com/Dt0ixhEbB0L54djxR8JyUi ❯~*
+
+*╝━═━═✦•⊰⚜️⊱•✦━═━━╚*
+
+ *قوانين البوت*
+✾ *يمنع سب البوت*
+✾ *يمنع التنمر علي البوت*
+✾ *عدم الاسبام*
+*! عند مخالفة قانون الاسبام يخرج البوت*
+
+*╝━═━═✦•⊰⚜️⊱•✦━═━━╚*`);
+    } 
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('نورت')) {
+      reply (`*بنوري طبعا✨*`);
+    } 
+    
+    let smallinput = budy.toLowerCase()
     if (smallinput.includes('نورت')) {
       reply (`*بنوري طبعا✨*`);
     } 
@@ -1735,7 +1835,7 @@ let buttonspro = [
 		
 //game
 		
-      case'هديه': case'مرتبي': case 'مكافأه': {
+      case'هديه': case'مرتبي': case 'راتبي': {
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc)
@@ -1774,7 +1874,7 @@ break
 break
 
     	
-	case'البنك':  case 'levee': {
+	case'البنك':  case 'levee': case'بنكي': {
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc)	
@@ -2656,7 +2756,7 @@ await Chiku.sendMessage(m.chat, { delete: key })
  let anu = await store.chats.all().filter(v => v.id.endsWith('.net')).map(v => v)
  let teks = ` 𓆩   قائمه المستخدمين   𓆪\n\nالمجموع ${anu.length} يستخدم مستخدمين البوت في الخاص.`
  for (let i of anu) {
-  teks += `\n\nالاسم : @${i.id.split('@')[0]}\nالشات : ${i.unreadCount}\nاخر محادث : ${moment(i.conversationTimestamp * 1000).tz("Asia/Kolkata").format("DD/MM/YYYY HH:mm:ss")}`
+  teks += `\n\nالاسم : @${i.id.split('@')[0]}\nالشات : ${i.unreadCount}\nاخر محادث : ${moment(i.conversationTimestamp * 1000).tz("Africa/Egypt").format("DD/MM/YYYY HH:mm:ss")}`
  }
  Chiku.sendTextWithMentions(m.chat, teks, m)
  }
@@ -2674,7 +2774,7 @@ await Chiku.sendMessage(m.chat, { delete: key })
   } else {
   loldd = metadata.owner
   }
-  teks += `\n\nالاسم : ${metadata.subject ? metadata.subject : "undefined"}\nالمالك : ${loldd ? '@' + loldd.split("@")[0] : "undefined"}\nايدي : ${metadata.id ? metadata.id : "undefined"}\nالحاله : ${metadata.creation ? moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss') : "undefined"}\nالرقم : ${metadata.participants.length ? metadata.participants.length : "undefined"}`
+  teks += `\n\nالاسم : ${metadata.subject ? metadata.subject : "undefined"}\nالمالك : ${loldd ? '@' + loldd.split("@")[0] : "undefined"}\nايدي : ${metadata.id ? metadata.id : "undefined"}\nالحاله : ${metadata.creation ? moment(metadata.creation * 1000).tz('Africa/Egypt').format('DD/MM/YYYY HH:mm:ss') : "undefined"}\nالرقم : ${metadata.participants.length ? metadata.participants.length : "undefined"}`
  }
  Chiku.sendTextWithMentions(m.chat, teks, m)
  }
@@ -3262,7 +3362,7 @@ case 'happymod': case 'هابي': case 'هابي-مود': {
  teks += `${i.link}`
  }
  let buttons = [
- {buttonId: `${prefix}menu`, buttonText: {displayText: 'قائمه الاوامر✨'}, type: 1}
+ {buttonId: `${prefix}menu`, buttonText: {displayText: 'قائمه +✨'}, type: 1}
  ]
  let buttonMessage = {
  image: {url:res[0].icon},
@@ -3494,7 +3594,7 @@ let mentioned = participants.map(v => v.jid)
         if (anu1 == '401' || anu1.status.length == 0) {
         nobio += `wa.me/${anu[0].jid.split("@")[0]}\n`
         } else {
-        nomerny += `🪄 *الرقم:* wa.me/${anu[0].jid.split("@")[0]}\n🔹 *البايو :* ${anu1.status}\n🔸 *في تحديث :* ${moment(anu1.setAt).tz('Asia/Kolkata').format('HH:mm:ss DD/MM/YYYY')}\n\n`
+        nomerny += `🪄 *الرقم:* wa.me/${anu[0].jid.split("@")[0]}\n🔹 *البايو :* ${anu1.status}\n🔸 *في تحديث :* ${moment(anu1.setAt).tz('Africa/Egypt').format('HH:mm:ss DD/MM/YYYY')}\n\n`
         }
         } catch {
         nowhatsapp += `${number0}${i}${number1}\n`
@@ -7281,6 +7381,9 @@ case 'م5': case 'اوامر التحويل': {
 ( .لمتحرك )
 ♚ تحويل ملصق لمتحرك
 ꔹ━━━━━ꔹ
+( .س )
+♚ تحويل الكتابه لملصق
+ꔹ━━━━━ꔹ
 ( .اكتب )
 ♚ يكتب لك علي الملصق
 `
@@ -7668,6 +7771,9 @@ case 'م9': case 'كل الاوامر': {
 ꔹ━━━━━ꔹ
 ( .لمتحرك )
 ♚ تحويل ملصق لمتحرك
+ꔹ━━━━━ꔹ
+( .س )
+♚ تحويل الكتابه لملصق
 ꔹ━━━━━ꔹ
 ( .اكتب )
 ♚ يكتب لك علي الملصق
