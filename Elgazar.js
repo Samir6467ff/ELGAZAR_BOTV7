@@ -1515,13 +1515,221 @@ for (let anju of Ayushaudio){
 	
 	
 	let smallinput = budy.toLowerCase()
-    if (smallinput.includes('نورت')) {
-      reply (`*بنوري طبعا✨*`);
+    if (smallinput.includes('جزار اوامر التسليه')) {
+      reply (`*╗━═━━═✦•⊰⚜️ ⊱•✦═━═━━╔*
+
+*اوامر التسليه للبوت جزار*
+
+〘ملاحظة : اكتب الاوامر او الاوامر2 بالحرف الواحد ليستجيب البوت〙
+
+*❃━═━═✦•〘⚜️〙•✦═━═━❃*
+*✦☜↜جزار*
+*✦☜↜جزار ارسل صورته*
+*✦☜↜جزار جيب الدبابه*
+*✦☜↜جزار عطني سلاح*
+*✦☜↜جزار جزار*
+*✦☜↜جزار احبك*
+*✦☜↜جزار اكرهك*
+*✦☜↜جزار سلك له*
+*✦☜↜جزار كم تاريخ اليوم*
+*✦☜↜جزار ابكي له*
+*✦☜↜جزار تحبني*
+*✦☜↜جزار تتزوجني*
+*✦☜↜جزار انت غبي*
+*✦☜↜جزار انت ذكي*
+*✦☜↜جزار انت افضل بوت*
+*✦☜↜جزار من صنعك*
+*✦☜↜جزار الو*
+*✦☜↜السلام عليكم*
+*✦☜↜جزار وينك*
+*✦☜↜جزار كيفك*
+*✦☜↜من عمك*
+*✦☜↜جزار انت بوت*
+*✦☜↜جزار انت انسان*
+*✦☜↜جزار انت رجال*
+*✦☜↜جزار افزع لي*
+*✦☜↜جزار تبا لك*
+*✦☜↜جزار نكته*
+*✦☜↜جزار سبام*
+*✦☜↜جني*
+*✦☜↜هقر*
+*✦☜↜باص الحب*
+*✦☜↜جزار عطني شي*
+*✦☜↜جزار ادعي له*
+*✦☜↜جزار ادعي عليه*
+*✦☜↜جزار ادعي لي*
+*✦☜↜جزار انت اوتاكو؟*
+*✦☜↜جزار سولف معه*
+*✦☜↜جزار العب معه*
+*✦☜↜جزار حمار*
+*✦☜↜جزار اسكت*
+*✦☜↜دوم*
+*✦☜↜تسوق امها انت صح؟*
+*✦☜↜جزار انا عمك*
+*✦☜↜جزار احمق*
+*✦☜↜جزار وش لقبي*
+*✦☜↜وينكم*
+*✦☜↜منور*
+*✦☜↜باي*
+*✦☜↜شكرا*
+*✦☜↜هل استطيع سرقتك لقروبي*
+*✦☜↜لا*
+*✦☜↜غبي*
+*✦☜↜من انت*
+*✦☜↜وش اسمك*
+*✦☜↜جزار كم عمرك*
+*✦☜↜اتفق*
+*✦☜↜كفو*
+*✦☜↜جزار اسم الجروب*
+*✦☜↜يلبيه*
+*✦☜↜يزينك*
+*✦☜↜جزار اقصف جبهته*
+*✦☜↜مين زوجتك*
+*❃━═━═✦•〘⚜️〙•✦═━═━❃*
+
+*انتهت اوامر البوت الجزار*
+*البوت قيد التطوير*
+*عندك إضافات تبي تضيفها؟*
+تكلم مع المطور☜https://wa.me/qr/BUJIQY44YA3AL1
+
+*╝━═━═✦•⊰⚜️⊱•✦━═━━╚*
+
+*شكرا لدعم البوت*
+*جروب تطوير البوت*
+‏*~❮https://chat.whatsapp.com/Dt0ixhEbB0L54djxR8JyUi ❯~*
+
+*╝━═━═✦•⊰⚜️⊱•✦━═━━╚*
+
+ *قوانين البوت*
+✾ *يمنع سب البوت*
+✾ *يمنع التنمر علي البوت*
+✾ *عدم الاسبام*
+*! عند مخالفة قانون الاسبام يخرج البوت*
+
+*╝━═━═✦•⊰⚜️⊱•✦━═━━╚*`);
     } 
     
-if (smallinput.includes('جزار') || smallinput.includes(' hui')) {
-      reply (`*قلب الجزار من جوا🥺♥✨*`);
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('هلا')) {
+      reply (`*اهلين*`);
+    } 
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('هلا')) {
+      reply (`*ارحب*`);
+    }
+    
+     let smallinput = budy.toLowerCase()
+    if (smallinput.includes('هلا')) {
+      reply (`*منور*`);
+    }
+    
+     let smallinput = budy.toLowerCase()
+    if (smallinput.includes('هلا')) {
+      reply (`*منور بنوري المنعكس من نورك اللي انعكس من نوري*`);
+    }
+    
+     let smallinput = budy.toLowerCase()
+    if (smallinput.includes('هلا')) {
+      reply (`*ليش اجيت؟*`);
+    }
+    
+     let smallinput = budy.toLowerCase()
+    if (smallinput.includes('هلا')) {
+      reply (`*شتبي؟*`);
+    }
+    
+     let smallinput = budy.toLowerCase()
+    if (smallinput.includes('هلا')) {
+      reply (`*شجابك؟*`);
+    }
+    
+    if (smallinput.includes('مين عمك') ||smallinput.includes('من عمك')) {
+      reply (`*الجزار عمي وعمك*`);
       }
+      
+      if (smallinput.includes('مين عمك') ||smallinput.includes('من عمك')) {
+      reply (`* اكيد العم الجزار*`);
+      }
+      
+      if (smallinput.includes('مين عمك') ||smallinput.includes('من عمك')) {
+      reply (`*عمنا الجزار🌚*`);
+      }
+      
+      if (smallinput.includes('مين عمك') ||smallinput.includes('من عمك')) {
+      reply (`*الجزار عمي وعمكم*`);
+      }
+      
+      if (smallinput.includes('مين جدك') ||smallinput.includes('من جدك')) {
+      reply (`*جدي الجزار*`);
+      }
+      
+      if (smallinput.includes('مين جدك') ||smallinput.includes('من جدك')) {
+      reply (`*مطوري جدكم*`);
+      }
+      
+      if (smallinput.includes('مين جدك') ||smallinput.includes('من جدك')) {
+      reply (`*الجد الجزار🌚*`);
+      }
+      
+      if (smallinput.includes('مين جدك') ||smallinput.includes('من جدك')) {
+      reply (`*مين غيره؟ أكيد مطوري🗿✨*`);
+      }
+      
+      let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جدك لحالك')) {
+      reply (`*جدك غصب عنك*`);
+    }
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جدك لحالك')) {
+      reply (`*جدك وجد جدك*`);
+    }
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جدك لحالك')) {
+      reply (`*جدك يعني جدك وانتهى*`);
+    }
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جدك لحالك')) {
+      reply (`*لا تجادل انه جدك*`);
+    }
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جزار اكرهك')) {
+      reply (`*محد يحبك محد معبرك محد مهتم*`);
+    }
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جزار اكرهك')) {
+      reply (`*وانا اكثر*`);
+    }
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جزار اكرهك')) {
+      reply (`*من انت اصلاً*`);
+    }
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جزار اكرهك')) {
+      reply (`*الخدم تكره اسيادها*`);
+    }
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جزار اكرهك')) {
+      reply (`*محد طلب رأيك*`);
+    }
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جزار اكرهك')) {
+      reply (`*رأيك ذا حطه بجيبك*`);
+    }
+    
+    let smallinput = budy.toLowerCase()
+    if (smallinput.includes('جزار اكرهك')) {
+      reply (`*كنت بحبك لولا انك تكرهني*`);
+    }
       
     if( smallinput.includes('بحبك') || smallinput.includes('انا بحبك') || smallinput.includes('love you') || smallinput.includes('I love you bot')){
       reply (`*بحبك اكتر🥺✨*`);
@@ -2171,7 +2379,7 @@ if (today.getDay() == 6 || today.getDay() == 5 || today.getDay() == 0){
     }
     else if ((f1 !== f2) && f2 == f3){
        const give4 = eco.give(user, cara, 20); 
-             replay(`${mess3}\n\n*Small Win -->* _💰20_`)
+             replay(`${mess3}\n\nخسارة صغيرة-->* _💰20_`)
     }
     else if (((f1 == f2) && f2 == f3) && f3 == f4){
        const give5 = eco.give(user, cara, 1000);
@@ -4508,7 +4716,7 @@ case 'تشغيل': case 'شغل': case 'play': case 'song': case 'ytplay': {
 case 'couplepp': case 'تطقيم': case 'طقم': {
 if (isBan) return reply(mess.banned)
 if (isBanChat) return reply(mess.bangc)
-Chiku.sendMessage(from, { react: { text: "🙀" , key: m.key }})
+Chiku.sendMessage(from, { react: { text: "👩‍❤️‍👨" , key: m.key }})
 	
          reply(mess.waiting)
          let anu = await fetchJson('https://raw.githubusercontent.com/iamriz7/kopel_/main/kopel.json')
@@ -4553,7 +4761,7 @@ case 'زرف': case 'take': case 'سرقة': case 'سرقه':{
     if (isBanChat) return reply(mess.bangc)
  Chiku.sendMessage(from, { react: { text: "🫡" , key: m.key }})
 	
-if (!args.join(" ")) return reply(`Use command: -steal Chiku|By: Ayush`)
+if (!args.join(" ")) return reply(`اكتب الامر: .سرقه وحقوقك`)
 const swn = args.join(" ")
 const pcknm = swn.split("|")[0];
 const atnm = swn.split("|")[1];
@@ -4597,6 +4805,7 @@ break
 case 'استيكر': case 'sticker': case 's': case 'ملصق': case 'ستيكر': {
     if (isBan) return reply(mess.banned)
     if (isBanChat) return reply(mess.bangc)
+ Chiku.sendMessage(from, { react: { text: "🎴" , key: m.key }})
  if (/image/.test(mime)) {
  let media = await quoted.download()
  let encmedia = await Chiku.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
