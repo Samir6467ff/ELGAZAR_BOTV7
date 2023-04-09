@@ -187,7 +187,7 @@ const sewa = JSON.parse(fs.readFileSync('./database/sewa.json'))
 const time = moment.tz('Africa/Egypt').format('DD/MM HH:mm:ss')
 const ucap = moment(Date.now()).tz('Africa/Egypt').locale('id').format('a')
 var buln = ['/01/', '/02/', '/03/', '/04/', '/05/', '/06/', '/07/', '/08/', '/09/', '/10/', '/11/', '/12/'];
-var myHari = ['الاحد', 'الاثنين', 'الثلاثاء', 'الاربعاء', 'الخميس', 'الجمعه', 'السبت'];
+var myHari = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 var tgel = new Date();
 var hri = tgel.getDate();
 var bulnh = tgel.getMonth();
@@ -586,13 +586,13 @@ const hariRaya = new Date('6 1, 2022 00:00:00')
 			
 async function hitungmundur(bulan, tanggal) { 
           let from = new Date(`${bulan} ${tanggal}, 2022 00:00:00`).getTime();
-          let الان = Date.now();
+          let now = Date.now();
           let distance = from - now;
-          let يوم = Math.floor(distance / (1000 * 60 * 60 * 24));
-          let ساعه = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          let دقيقه = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          let ثانيه = Math.floor((distance % (1000 * 60)) / 1000);
-          return يوم + "يوم " + ساعه + "ساعه " + دقيقه + "دقيقه " + ثانيه + "ثانيه"
+          let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          return days + "يوم " + hours + "ساعه " + minutes + "دقيقه " + seconds + "ثانيه"
         }
 try {
 let isNumber = x => typeof x === 'number' && !isNaN(x)
@@ -1514,107 +1514,7 @@ for (let anju of Ayushaudio){
 	
 	
 	
-	let smallinput = budy.toLowerCase()
-    if (smallinput.includes('جزار اوامر التسليه')) {
-      reply (`*╗━═━━═✦•⊰⚜️ ⊱•✦═━═━━╔*
-
-*اوامر التسليه للبوت جزار*
-
-〘ملاحظة : اكتب الاوامر او الاوامر2 بالحرف الواحد ليستجيب البوت〙
-
-*❃━═━═✦•〘⚜️〙•✦═━═━❃*
-*✦☜↜جزار*
-*✦☜↜جزار ارسل صورته*
-*✦☜↜جزار جيب الدبابه*
-*✦☜↜جزار عطني سلاح*
-*✦☜↜جزار جزار*
-*✦☜↜جزار احبك*
-*✦☜↜جزار اكرهك*
-*✦☜↜جزار سلك له*
-*✦☜↜جزار كم تاريخ اليوم*
-*✦☜↜جزار ابكي له*
-*✦☜↜جزار تحبني*
-*✦☜↜جزار تتزوجني*
-*✦☜↜جزار انت غبي*
-*✦☜↜جزار انت ذكي*
-*✦☜↜جزار انت افضل بوت*
-*✦☜↜جزار من صنعك*
-*✦☜↜جزار الو*
-*✦☜↜السلام عليكم*
-*✦☜↜جزار وينك*
-*✦☜↜جزار كيفك*
-*✦☜↜من عمك*
-*✦☜↜جزار انت بوت*
-*✦☜↜جزار انت انسان*
-*✦☜↜جزار انت رجال*
-*✦☜↜جزار افزع لي*
-*✦☜↜جزار تبا لك*
-*✦☜↜جزار نكته*
-*✦☜↜جزار سبام*
-*✦☜↜جني*
-*✦☜↜هقر*
-*✦☜↜باص الحب*
-*✦☜↜جزار عطني شي*
-*✦☜↜جزار ادعي له*
-*✦☜↜جزار ادعي عليه*
-*✦☜↜جزار ادعي لي*
-*✦☜↜جزار انت اوتاكو؟*
-*✦☜↜جزار سولف معه*
-*✦☜↜جزار العب معه*
-*✦☜↜جزار حمار*
-*✦☜↜جزار اسكت*
-*✦☜↜دوم*
-*✦☜↜تسوق امها انت صح؟*
-*✦☜↜جزار انا عمك*
-*✦☜↜جزار احمق*
-*✦☜↜جزار وش لقبي*
-*✦☜↜وينكم*
-*✦☜↜منور*
-*✦☜↜باي*
-*✦☜↜شكرا*
-*✦☜↜هل استطيع سرقتك لقروبي*
-*✦☜↜لا*
-*✦☜↜غبي*
-*✦☜↜من انت*
-*✦☜↜وش اسمك*
-*✦☜↜جزار كم عمرك*
-*✦☜↜اتفق*
-*✦☜↜كفو*
-*✦☜↜جزار اسم الجروب*
-*✦☜↜يلبيه*
-*✦☜↜يزينك*
-*✦☜↜جزار اقصف جبهته*
-*✦☜↜مين زوجتك*
-*❃━═━═✦•〘⚜️〙•✦═━═━❃*
-
-*انتهت اوامر البوت الجزار*
-*البوت قيد التطوير*
-*عندك إضافات تبي تضيفها؟*
-تكلم مع المطور☜https://wa.me/qr/BUJIQY44YA3AL1
-
-*╝━═━═✦•⊰⚜️⊱•✦━═━━╚*
-
-*شكرا لدعم البوت*
-*جروب تطوير البوت*
-‏*~❮https://chat.whatsapp.com/Dt0ixhEbB0L54djxR8JyUi ❯~*
-
-*╝━═━═✦•⊰⚜️⊱•✦━═━━╚*
-
- *قوانين البوت*
-✾ *يمنع سب البوت*
-✾ *يمنع التنمر علي البوت*
-✾ *عدم الاسبام*
-*! عند مخالفة قانون الاسبام يخرج البوت*
-
-*╝━═━═✦•⊰⚜️⊱•✦━═━━╚*`);
-    } 
-    
-    let smallinput = budy.toLowerCase()
-    if (smallinput.includes('نورت')) {
-      reply (`*بنوري طبعا✨*`);
-    } 
-    
-    let smallinput = budy.toLowerCase()
+	 let smallinput = budy.toLowerCase()
     if (smallinput.includes('نورت')) {
       reply (`*بنوري طبعا✨*`);
     } 
@@ -1835,7 +1735,7 @@ let buttonspro = [
 		
 //game
 		
-      case'هديه': case'مرتبي': case 'راتبي': {
+      case'هديه': case'مرتبي': case 'مكافأه': {
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc)
@@ -1874,7 +1774,7 @@ break
 break
 
     	
-	case'البنك':  case 'levee': case'بنكي': {
+	case'البنك':  case 'levee': {
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         if (isBan) return reply(mess.banned)	 			
         if (isBanChat) return reply(mess.bangc)	
@@ -3362,7 +3262,7 @@ case 'happymod': case 'هابي': case 'هابي-مود': {
  teks += `${i.link}`
  }
  let buttons = [
- {buttonId: `${prefix}menu`, buttonText: {displayText: 'قائمه +✨'}, type: 1}
+ {buttonId: `${prefix}menu`, buttonText: {displayText: 'قائمه الاوامر✨'}, type: 1}
  ]
  let buttonMessage = {
  image: {url:res[0].icon},
@@ -7381,9 +7281,6 @@ case 'م5': case 'اوامر التحويل': {
 ( .لمتحرك )
 ♚ تحويل ملصق لمتحرك
 ꔹ━━━━━ꔹ
-( .س )
-♚ تحويل الكتابه لملصق
-ꔹ━━━━━ꔹ
 ( .اكتب )
 ♚ يكتب لك علي الملصق
 `
@@ -7771,9 +7668,6 @@ case 'م9': case 'كل الاوامر': {
 ꔹ━━━━━ꔹ
 ( .لمتحرك )
 ♚ تحويل ملصق لمتحرك
-ꔹ━━━━━ꔹ
-( .س )
-♚ تحويل الكتابه لملصق
 ꔹ━━━━━ꔹ
 ( .اكتب )
 ♚ يكتب لك علي الملصق
