@@ -2687,7 +2687,7 @@ case 'listonline': case 'المتصلين': case 'الصاحيين': {
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
  if (!m.isGroup) return replay(mess.grouponly)
-if (!isCreator) return replay(mess.admins);
+if (!isCreator) return replay(mess.admin);
 	
  let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
  let online = [...Object.keys(store.presences[id]), botNumber]
