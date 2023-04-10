@@ -18,7 +18,7 @@ global.packname = "⍣الجزار الوزير يروحي⍣"
 global.author = "⍣01098906252⍣"
 global.OwnerName = "ᗴᒪᘜᗩᘔᗩᖇ ᗩᒪᗯᗩᘔᗴᖇ❤️"
 global.BotSourceCode = "https://youtube.com/@ABDALLAH_MOHAMED"
-global.SupportGroupLink = "https://chat.whatsapp.com/JzklQWsJ4XH4UQ1mAgLYON"
+global.SupportGroupLink = "https://chat.whatsapp.com/EwCh9XrjxmY68GeO8oVmMp"
 global.sessionName = "session"
 
 // Prefix //
