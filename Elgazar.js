@@ -1519,7 +1519,7 @@ for (let anju of Ayushaudio){
       reply (`*بنوري طبعا✨*`);
     } 
     
-if (smallinput.includes('جزار') || smallinput.includes(' hui')) {
+if (smallinput.includes('يا جزار') || smallinput.includes(' hui')) {
       reply (`*قلب الجزار من جوا🥺♥✨*`);
       }
       
@@ -1554,11 +1554,7 @@ if (smallinput.includes('جزار') || smallinput.includes(' hui')) {
     if (smallinput=='كل خرا') {
         reply (`*ما اكلك طعمك زق مثل وجهك🤢*`)
     }
-    
-    if (smallinput.includes('احا') || smallinput.includes(' hتتui')) {
-      reply (`*قويه🔥*`);
-      }
-      
+          
       if (smallinput.includes('جزار بتزوجك') || smallinput.includes('بوت بتزوجك')) {
       reply (`*اذا بنت موافق اذا شاذ بجلدك🤺*`);
       }
