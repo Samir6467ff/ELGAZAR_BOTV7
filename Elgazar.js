@@ -1555,12 +1555,40 @@ if (smallinput.includes('جزار') || smallinput.includes(' hui')) {
         reply (`*ما اكلك طعمك زق مثل وجهك🤢*`)
     }
     
+    if (smallinput.includes('احا') || smallinput.includes(' hتتui')) {
+      reply (`*قويه🔥*`);
+      }
+      
+      if (smallinput.includes('جزار بتزوجك') || smallinput.includes('بوت بتزوجك')) {
+      reply (`*اذا بنت موافق اذا شاذ بجلدك🤺*`);
+      }
+      
+      if (smallinput.includes('جزار امدحه') || smallinput.includes('جزار امدحه خليه يفرح')) {
+      reply (`*انت انسان طيب و كفو و مافي منك و احبك🗿✨*`);
+      }
+      
+      if (smallinput.includes('جزار اكرهك') || smallinput.includes('jdhssjsh')) {
+      reply (`*من قالك اني احبك؟!!🙂*`);
+      }
+      
+      if (smallinput.includes('جزار بكرهك') || smallinput.includes('jdhssh')) {
+      reply (`*عأساس قاتل نفسي لحتى تحبني🗿*`);
+      }
+    
     if (smallinput=='تبا لك') {
         reply (`*ولك يزق😆*`)
+    }
+    
+    if (smallinput=='احبك') {
+        reply (`*مي تو يعمري ❤*`)
     }
 
     if (smallinput=='هاي') {
         reply (`*هاي يروحي🥺♥*`)
+    }
+    
+    if (smallinput=='جزار تحبني') {
+        reply (`*اذا بنت احبك🔥❤️*`)
     }
     
     if (smallinput=='ايتاشي') {
@@ -4318,7 +4346,7 @@ case 'fbddlxx': {
  }
  break
 
- case 'tiktok':{
+ /*case 'tiktok':{
     if (isBan) return reply(mess.banned)
   if (isBanChat) return reply(mess.bangc)
 if (!q) return reply('Please provide the link !')
@@ -4375,7 +4403,7 @@ reply(mess.error)
  const Chikutiktokaudio = musim_rambutan.result.nowatermark
   Chiku.sendMessage(from, { audio: { url: Chikutiktokaudio }, mimetype: 'audio/mp4' }, { quoted: m })
  }
-break
+break*/
 		
 		
 case 'تشغيل': case 'شغل': case 'play': case 'song': case 'ytplay': {
