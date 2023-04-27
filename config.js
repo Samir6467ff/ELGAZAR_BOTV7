@@ -10,12 +10,12 @@ global.antitags = true
 //global.autoTyping = false //auto tying in gc (true to on, false to off)
 //global.autoRecord = true //auto recording (true to on, false to off)
 
-global.Owner = ['201098906252']
-global.OwnerNumber = ['201098906252']
-global.ownertag = ['201098906252']
+global.Owner = ['212770701405']
+global.OwnerNumber = ['212770701405']
+global.ownertag = ['212770701405']
 global.BotName = "❤️ᗴᒪᘜᗩᘔᗩᖇ ᗷOT❤️"
-global.packname = "⍣الجزار الوزير يروحي⍣"
-global.author = "⍣01098906252⍣"
+global.packname = "⍣حقوق شيزوكو⍣"
+global.author = "⍣212770701405⍣"
 global.OwnerName = "ᗴᒪᘜᗩᘔᗩᖇ ᗩᒪᗯᗩᘔᗴᖇ❤️"
 global.BotSourceCode = "https://youtube.com/@ABDALLAH_MOHAMED"
 global.SupportGroupLink = "https://chat.whatsapp.com/EwCh9XrjxmY68GeO8oVmMp"
