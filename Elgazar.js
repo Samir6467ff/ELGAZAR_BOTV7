@@ -1519,8 +1519,8 @@ for (let anju of Ayushaudio){
       reply (`*بنوري طبعا✨*`);
     } 
     
-if (smallinput.includes('يا باكي') || smallinput.includes(' hui')) {
-      reply (`*قلب باكي من جوا🥺♥✨*`);
+if (smallinput.includes('يا جزار') || smallinput.includes(' hui')) {
+      reply (`*قلب الجزار من جوا🥺♥✨*`);
       }
       
     if( smallinput.includes('بحبك') || smallinput.includes('انا بحبك') || smallinput.includes('love you') || smallinput.includes('I love you bot')){
@@ -1528,11 +1528,11 @@ if (smallinput.includes('يا باكي') || smallinput.includes(' hui')) {
     }
    
     if (smallinput=='bot') {
-      reply (`مرحبا *${pushname}*, انا *${BotName}*, بوت واتساب مطور من شيزوكو*  اكتب  *${prefix}الاوامر* لظهور قائمه الاوامر الخاصه بي.`);
+      reply (`مرحبا *${pushname}*, انا *${BotName}*, بوت واتساب مطور من الجزار*  اكتب  *${prefix}الاوامر* لظهور قائمه الاوامر الخاصه بي.`);
     }
 
     if (smallinput=='بوت') {
-        reply (`*اسمي باكي يروحي♥✨*`)
+        reply (`*اسمي الجزار يروحي♥✨*`)
     }
     
     if (smallinput=='السلام عليكم') {
@@ -1543,8 +1543,8 @@ if (smallinput.includes('يا باكي') || smallinput.includes(' hui')) {
         reply (`*ميكاسا عمتكم🥺♥✨*`)
     }
     
-    if (smallinput=='شيزوكو') {
-        reply (`*شيزوكو عمتكم🥺♥✨*`)
+    if (smallinput=='توغا') {
+        reply (`*توغا عمتكم🥺♥✨*`)
     }
     
     if (smallinput=='كلخرا') {
@@ -1555,19 +1555,19 @@ if (smallinput.includes('يا باكي') || smallinput.includes(' hui')) {
         reply (`*ما اكلك طعمك زق مثل وجهك🤢*`)
     }
           
-      if (smallinput.includes('باكي بتزوجك') || smallinput.includes('بوت بتزوجك')) {
+      if (smallinput.includes('جزار بتزوجك') || smallinput.includes('بوت بتزوجك')) {
       reply (`*اذا بنت موافق اذا شاذ بجلدك🤺*`);
       }
       
-      if (smallinput.includes('باكي امدحه') || smallinput.includes('جزار امدحه خليه يفرح')) {
+      if (smallinput.includes('جزار امدحه') || smallinput.includes('جزار امدحه خليه يفرح')) {
       reply (`*انت انسان طيب و كفو و مافي منك و احبك🗿✨*`);
       }
       
-      if (smallinput.includes('باكي اكرهك') || smallinput.includes('jdhssjsh')) {
+      if (smallinput.includes('جزار اكرهك') || smallinput.includes('jdhssjsh')) {
       reply (`*من قالك اني احبك؟!!🙂*`);
       }
       
-      if (smallinput.includes('باكي بكرهك') || smallinput.includes('jdhssh')) {
+      if (smallinput.includes('جزار بكرهك') || smallinput.includes('jdhssh')) {
       reply (`*عأساس قاتل نفسي لحتى تحبني🗿*`);
       }
     
@@ -1583,7 +1583,7 @@ if (smallinput.includes('يا باكي') || smallinput.includes(' hui')) {
         reply (`*هاي يروحي🥺♥*`)
     }
     
-    if (smallinput=='باكي تحبني') {
+    if (smallinput=='جزار تحبني') {
         reply (`*اذا بنت احبك🔥❤️*`)
     }
     
@@ -1591,12 +1591,12 @@ if (smallinput.includes('يا باكي') || smallinput.includes(' hui')) {
         reply (`*ايتاشي عمك🤺✨*`)
     }
     
-    if (smallinput=='باكي') {
-        reply (`*باكي عمك🤺✨*`)
+    if (smallinput=='الجزار') {
+        reply (`*الجزار عمك🤺✨*`)
     }
     
     if (smallinput=='من صنعك') {
-        reply (`*شيزوكو مطوري 🥺✨*`)
+        reply (`*الجزار مطوري 🥺✨*`)
     }
     
     if (smallinput=='زورو') {
@@ -2345,9 +2345,9 @@ replay('تم *رفع الحظر* عن هذا الجروب من استخدامي!
 
 case 'support': case 'الدعم':
     
-    reply(`• جروب الدعم: مافي دعم حاليا
+    reply(`• جروب الدعم: https://chat.whatsapp.com/JzklQWsJ4XH4UQ1mAgLYON
 
-• للتواصل مع المطور: https://api.whatsapp.com/send?phone=+212770701405`)
+• قناة برمجه الجزار للشروحات: https://youtube.com/@ABDALLAH_MOHAMED`)
     break
 
 case 'التنصيب': case 'التسجيل':
@@ -2357,8 +2357,15 @@ case 'التنصيب': case 'التسجيل':
 • انا بوت واتس اسمي ⤌⤈
 ↝ *${global.BotName}* ↜
 • تم تطويري وبرمجتي •
-• بواسطه شيزوكو •
-•للتواصل مع المطور • https://api.whatsapp.com/send?phone=+212770701405`)
+• بواسطه عبدالله محمد •
+• اذا كنت تريد صنع بوت مماثل لهذا •
+يجب عليك الانظمام لهذه القناه وسماع الشروحات لتنصيب بوت وتس مثل هذا البوت
+ 
+قناة برمجه الجزار للشروحات
+https://youtube.com/@ABDALLAH_MOHAMED
+
+لينك شاتي 
+https://api.whatsapp.com/send?phone=+201098906252`)
     break
 
 case 'nsfwmenu':
@@ -4887,7 +4894,7 @@ case 'شخصيتك': case 'الشخصيه':
 "صراحه  | هل قبلت فتاه؟"
      ]
                    const Chikudareww = dare[Math.floor(Math.random() * dare.length)]
-                   buffer = await getBuffer(`https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg`)
+                   buffer = await getBuffer(`https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg`)
                    Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في لعبة صراحه*\nꔹ━━━━━ꔹ\n'+ Chikudareww }, {quoted:m})
                    break
                        
@@ -4960,7 +4967,7 @@ case 'truth': case 'انصح': case 'نصيحه':
 " كنت نصحت نفسي ياخويا😹"
              ]
                            const Chikutruthww = truth[Math.floor(Math.random() * truth.length)]
-                           buffer = await getBuffer(`https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg`)
+                           buffer = await getBuffer(`https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg`)
                            Chiku.sendMessage(from, { image: buffer, caption: '*♚ اتفضل النصيحه اعمل بيها*\nꔹ━━━━━ꔹ\n'+ Chikutruthww }, {quoted:m})
                            break
 
@@ -5213,7 +5220,7 @@ case 'hfhdhr': case 'اسال': case 'اسأل':
 "سورتان في القرآن الكريم معروفتين باسم الزهراوان، فما هما؟ "
              ]
                            const Chikuhfhdhrww = hfhdhr[Math.floor(Math.random() * hfhdhr.length)]
-                           buffer = await getBuffer(`https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg`)
+                           buffer = await getBuffer(`https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg`)
                            Chiku.sendMessage(from, { image: buffer, caption: '*♚ اتفضل سوال يلا جاوب*\nꔹ━━━━━ꔹ\n'+ Chikuhfhdhrww }, {quoted:m})
                            break
 
@@ -5275,7 +5282,7 @@ case 'hdydg': case 'حروف':
 "دولة واسم بحرف ⤌ ب  "
              ]
                            const Chikuhdydgww = hdydg[Math.floor(Math.random() * hdydg.length)]
-                           buffer = await getBuffer(`https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg`)
+                           buffer = await getBuffer(`https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg`)
                            Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في لعبة الحروف*\nꔹ━━━━━ꔹ\n'+ Chikuhdydgww }, {quoted:m})
                            break
 
@@ -5288,7 +5295,7 @@ case 'verdad2': case 'كت':
 "『فيجيتا』","『غوكو』","『شيسوي』","『ايتاشي』","『ناروتو』","『كيلوا』","『لوفي زورو سانجي』","『زاراكي ايزن توسين』","『ناروتو ساسكي كاكاشي』","『مادارا اوبيتو』","『هاشيراما توبيراما』","『انزاي دازاي』","『هاغومورو』","『سوكونا يوجي』","『كاكاشي هاتاكي』","『فوغاكو اوتشيها』","『ناروتو اوزوماكي』","『غارب لوفي ايس ساب』و","『اكاينو اوكيجي كيزارو』","『غون كيلوا』","『اوميني』","『سيلفا زينو نيترو』","『استا يامي』","『كيسكي يوروتشي ايتشيغو』","『ساروتوبي دانزو』","『فوجيتورا』","『نامي روبين』","『هيماواري هينات』","『ستارك جريمجو نيل』","『الوكا』","『شينو كيبا』","『روك لي مايت غاي』","『ايتاشي ساسكي』","『كونان ناغاتو ياهيكو』","『جيرايا تسونادي』","『ساي اينو』","『شينرا』","『ثوركيل ثورفين ثورز』","『اشيلاد』","『لاو ميهوك زورو』","『تيتش ادوارد』","『ناكا اوتشيها』","『هيروزين ساروتوبي』","『مونكي دي لوفي』","『كارين』","『موريا』","『اشورا هامورا』","『انيوشا كاجومي』","『ديدارا ساسوري』","『روجر رايلي』","『تانجيرو نيزيكو』","『زينيتسو اينوسكي』","『زيك ايرين』","『ميكاسا اني』","『ليفاي اكيرمان』","『ايروين مايكي』","『مايكي دراكن』","『هيسوكا』","『ارمين』","『هاتسوني ميكو』","『كورو』","『اوراهارا كيسكي』","『شينوبو كاناو』","『كيسامي اكاشي』","『كوزان』"
              ]
                            const Chikuverdad2ww = verdad2[Math.floor(Math.random() * verdad2.length)]
-                           buffer = await getBuffer(`https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg`)
+                           buffer = await getBuffer(`https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg`)
                            Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في كت*\nꔹ━━━━━ꔹ\n'+ Chikuverdad2ww }, {quoted:m})
                            break
 
@@ -5405,7 +5412,7 @@ case 'verda': case 'بوست':
 "أنِر ظُلمتي، وامحُ خطيئتي، واقبل توبتي وأعتِق رقبتي يا اللّٰه. إنكَ عفوٌّ تُحِبُّ العفوَ؛ فاعفُ عني 💛 "
              ]
                            const Chikuverdaww = verda[Math.floor(Math.random() * verda.length)]
-                           buffer = await getBuffer(`https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg`)
+                           buffer = await getBuffer(`https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg`)
                            Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في البوستات*\nꔹ━━━━━ꔹ\n'+ Chikuverdaww }, {quoted:m})
                            break
 
@@ -5458,7 +5465,7 @@ case 'verda1': case 'اذكار':
 "‏مامن لسان يستغفر إلا فتحت له الدنيا بما فيها أستغفرك ربي وأتوب إليك "
              ]
                            const Chikuverda1ww = verda1[Math.floor(Math.random() * verda1.length)]
-                           buffer = await getBuffer(`https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg`)
+                           buffer = await getBuffer(`https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg`)
                            Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في قسم الاذكار*\nꔹ━━━━━ꔹ\n'+ Chikuverda1ww }, {quoted:m})
                            break
 
@@ -5566,7 +5573,7 @@ case 'verdajj': case 'خيروك': case 'لو':
 "لو خيروك |  بين مشاركة المنزل مع عائلة من الفئران أو عائلة من الأشخاص المزعجين الفضوليين الذين يتدخلون في كل كبيرة وصغيرة؟ "
              ]
                            const Chikuverdajjww = verdajj[Math.floor(Math.random() * verdajj.length)]
-                           buffer = await getBuffer(`https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg`)
+                           buffer = await getBuffer(`https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg`)
                            Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في لعبة لو خيروك*\nꔹ━━━━━ꔹ\n'+ Chikuverdajjww }, {quoted:m})
                            break
 
@@ -5940,7 +5947,7 @@ case 'hdudh': case 'تويت':
   "أجمل شي بحياتك وش هو؟ "
              ]
                            const Chikuhdudhww = hdudh[Math.floor(Math.random() * hdudh.length)]
-                           buffer = await getBuffer(`https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg`)
+                           buffer = await getBuffer(`https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg`)
                            Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في قسم تويت*\nꔹ━━━━━ꔹ\n'+ Chikuhdudhww }, {quoted:m})
                            break
 
@@ -5995,7 +6002,7 @@ case 'jfysudh': case 'فزوره':
 " ماهو الشيء الذي كلما زاد نقص؟"
              ]
                            const Chikujfysudhww = jfysudh[Math.floor(Math.random() * jfysudh.length)]
-                           buffer = await getBuffer(`https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg`)
+                           buffer = await getBuffer(`https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg`)
                            Chiku.sendMessage(from, { image: buffer, caption: '*♚ مرحبا بك في قسم الفوازير*\nꔹ━━━━━ꔹ\n'+ Chikujfysudhww }, {quoted:m})
                            break
 
@@ -6908,7 +6915,7 @@ case 'help': case 'القائمه': case 'menu': case 'بوت': case 'الاوا
 ♩☜ مميزات البوت كثيره جدا 
 ♩☜ ويعمل بجودة فائقه وعاليه
     𓍹————————————𓍻
-↜ اوامر سورس شيزوكو ↝
+↜ اوامر سورس الجزار ↝
     𓍹————————————𓍻
 ❰ .م1 ❱ ➢ اوامر الاعضاء
 ❰ .م2 ❱ ➢ اوامر المالك
@@ -7812,7 +7819,7 @@ case '':
     if (isBanChat) return reply(mess.bangc)
     Chiku.sendMessage(from, { react: { text: "👋" , key: m.key }})
 
-      Chikupic ='https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg'
+      Chikupic ='https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg'
     
         
  const needhelpmenu = `⧉┆ مرحبا ياعزيزي ⤌⤈       
@@ -7826,8 +7833,19 @@ case '':
 ♩☜ مميزات البوت كثيره جدا 
 ♩☜ ويعمل بجودة فائقه وعاليه
 
-⋆ يمكنك التواصل مع المبرمج عبر الواتساب ⤌⤈
- https://api.whatsapp.com/send?phone=+212770701405`
+⋆ يمكنك التواصل مع المبرمج عبر التيلجرام ⤌⤈
+ t.me/A_M_030
+
+• تم تطويري وبرمجتي •
+• بواسطه عبدالله محمد •
+• اذا كنت تريد صنع بوت مماثل لهذا •
+يجب عليك الانظمام لهذه القناه وسماع الشروحات لتنصيب البوت
+ 
+قناة الشروحات
+https://youtube.com/@ABDALLAH_MOHAMED
+
+لينك شاتي 
+https://api.whatsapp.com/send?phone=+201098906252`
      
          let butRun = [
                 {buttonId: `${prefix}owner`, buttonText: {displayText: '⋆ مبرمج البوت •'}, type: 1}
@@ -7845,19 +7863,20 @@ break
 
 
 
-case 'شيزوكو': case 'باكي': 
+case 'الجزار': case 'عبدالله': 
 		
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
 
 const txt = `⋆ تم تطوير وبرمجه هذا السورس •
-⋆ بواسطه شيزوكو •
-⋆ يمكنك التواصل مع المبرمج عبر الواتساب ⤌⤈
+⋆ بواسطه عبدالله محمد •
+⋆ يمكنك التواصل مع المبرمج عبر التيلجرام ⤌⤈
  t.me/A_M_030
 تبعني عبر اليوتيوب ⤌⤈
-https://api.whatsapp.com/send?phone=+212770701405.`
+https://youtube.com/@ABDALLAH_MOHAMED
+واشترك وفعل الجرس وانتظر شروحات للبرمجه..🌍🔥.`
 const Chikuarray= [
-            "https://telegra.ph/file/e5b3d1b2282555d52c2b5.jpg"
+            "https://telegra.ph/file/3bd9bc1ab15adf4f041b5.jpg"
             
             ]
         
