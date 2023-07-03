@@ -30,6 +30,7 @@ console.log(color('\nمرحبا ، أنا الجزار ، المطور الرئ�
 console.log(color('\nافرح تم تشغيل البوت بنجاح✅'))
 
     let { version, isLatest } = await fetchLatestBaileysVersion()
+    const { state, saveCreds } = await useMultiFileAuthState(`Elgazar-SESSION`)
     const Chiku = ChikuConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
@@ -280,7 +281,7 @@ ${metadata.subject}.
         //console.log('Connected...', update)
     })
 
-    Chiku.ev.on('creds.update', saveState)
+    Chiku.ev.on('creds.update', saveCreds)
 
 
    
