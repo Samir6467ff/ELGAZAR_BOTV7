@@ -758,17 +758,13 @@ if (!user) continue
 let afkTime = user.afkTime
 if (!afkTime || afkTime < 0) continue
 let reason = user.afkReason || ''
-reply(`
-متعملش ريب عليه لانه في وضع الاختفاء الان ${reason ? 'السبب ' + reason : 'بدون سبب'}
-مده الغياب ${clockString(new Date - afkTime)}
+reply(`متعملش ريب عليه لانه في وضع الاختفاء الان ${reason ? 'السبب ' + reason : 'بدون سبب'}مده الغياب ${clockString(new Date - afkTime)}
 `.trim())
 }
 
 if (db.users[m.sender].afkTime > -1) {
 let user = global.db.users[m.sender]
-reply(`
-منور لقد عدت ${user.afkReason ? ' السبب ' + user.afkReason : ''}
-مده الغياب ${clockString(new Date - user.afkTime)}
+reply(`منور لقد عدت ${user.afkReason ? ' السبب ' + user.afkReason : ''}مده الغياب ${clockString(new Date - user.afkTime)}
 `.trim())
 user.afkTime = -1
 user.afkReason = ''
@@ -4402,55 +4398,37 @@ reply(mess.error)
 break*/
 		
 		
-case 'تشغيل': case 'شغل': case 'play': case 'song': case 'ytplay': {
+case 'play': case 'song': case 'شغل': {
     if (isBan) return reply(mess.banned)	 			
- if (isBanChat) return reply(mess.bangc)
- Chiku.sendMessage(from, { react: { text: "🍁" , key: m.key }}) 
- const YT=require('./lib/ytdlcore')
- const { isUrl, fetchBuffer } = require('./lib/Function')
-
- if(!text) return Chiku.sendMessage(from,{text:"اكتب عنوان للبحث!"},{quoted:m})
- let yts = require("@adiwajshing/keyed-db2")
- let search = await yts(text)
- let anu = search.videos[0]
- let buttons = [
- {buttonId: `${prefix}ytad ${text}`, buttonText: {displayText: '♫ صوتي'}, type: 1},
- {buttonId: `${prefix}ytvd ${text}`, buttonText: {displayText: '► فيديو'}, type: 1}
-
- ]
- let buttonMessage = {
- image: { url: anu.thumbnail },
- caption: `▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-    ⟮*◉بحث يوتيوب◉*⟯ 
-   
-0.02━◉━━━━━━━━━━━━3.26
-      🔂   ⏪   ⏸️     ⏩  🎵
-
-✨ *العنوان :* ${anu.title}
-
-⏳ *المده :* ${anu.timestamp}
-
-📈 *المشاهدات :* ${anu.views}
-
-📍 *وقت النشر :* ${anu.ago}
-
-🎐 *القناه :* ${anu.author.name}
-
-🔗 *الرابط :* ${anu.url}
-
-┃اسم البوت : 📶 𝗕𝗢𝗧 𝗘𝗟𝗚𝗔𝗭𝗔𝗥 📶 
-
-┗━━━━━━━━━❊`,
-	 
- footer: `${global.BotName}`,
- buttons: buttons,
- headerType: 4,
-
- }
- Chiku.sendMessage(m.chat, buttonMessage, { quoted: m })
+    if (isBanChat) return reply(mess.bangc)
+    Chiku.sendMessage(from, { react: { text: "🍁" , key: m.key }}) 
+    const YT=require('./lib/ytdl-core')
+    let yts = require("youtube-yts")
+    let search = await yts(text)
+    let anu = search.videos[0]
+    const ytmp3play = await YT.mp3(anu.url)
+    
+ await Chiku.sendMessage(from, {audio: fs.readFileSync(ytmp3play.path),fileName: anu.title + '.mp3',mimetype: 'audio/mpeg',}, {quoted:m})
  }
  break
- case 'ytad': {
+
+
+
+
+ case 'ytvd': case 'video': case 'mp4': {
+    if (isBan) return reply(mess.banned)	 			
+ if (isBanChat) return reply(mess.bangc)
+ Chiku.sendMessage(from, { react: { text: "🍃" , key: m.key }})
+ const YT=require('./lib/ytdl-core')
+    let yts = require("youtube-yts")
+    let search = await yts(text)
+    let anu = search.videos[0]
+    const ytmp4play = await YT.mp4(anu.url)
+ Chiku.sendMessage(from, {video:{url:ytmp4play.videoUrl}, mimetype:"video/mp4", caption:anu.title+' By *Elgazar MD*',}, {quoted:m})
+ }
+
+ break
+ /*case 'ytad': {
     if (isBan) return reply(mess.banned)	 			
     if (isBanChat) return reply(mess.bangc)
     const YT=require('./lib/ytdlcore')
@@ -4472,7 +4450,7 @@ case 'تشغيل': case 'شغل': case 'play': case 'song': case 'ytplay': {
     const ytmp4play = await YT.mp4(anu.url)
  Chiku.sendMessage(from, {video:{url:ytmp4play.videoUrl}, mimetype:"video/mp4", caption:anu.title+' By *Chiku MD*',}, {quoted:m})
  }
- break
+ break*/
  case 'ytmp3': case 'ytmusic':  case 'ytmp4': case 'ytvideo': case 'ytdl':{
     if (isBan) return reply(mess.banned)	 			
  if (isBanChat) return reply(mess.bangc)
@@ -7922,7 +7900,7 @@ case 'weather':
       const texttospeechurl = SpeakEngine.getAudioUrl(texttosay, {lang: "ar", slow: false, host: "https://translate.google.com",});
       Chiku.sendMessage(m.chat,{audio: {url: texttospeechurl,},mimetype: "audio/mpeg",fileName: `ChikuSpeechEngine.mp3`,},{quoted: m,});
     }
-    break;
+    break
 
 
     case 'qr': case 'scanner': case 'باركود':
